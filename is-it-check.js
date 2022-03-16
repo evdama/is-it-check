@@ -1,5 +1,5 @@
 /*!
- * is.js 0.9.0
+ * is-it-check 0.9.4
  * Author: Aras Atasaygin
  */
 
@@ -27,7 +27,7 @@
 
     // define 'is' object and current version
     const is = {}
-    is.VERSION = '0.9.0'
+    is.VERSION = '0.9.4'
 
     // define interfaces
     is.not = {}
