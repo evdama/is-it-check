@@ -42,7 +42,7 @@
     // helper function which reverses the sense of predicate result
     function not(func) {
         return function(...args) {
-            return !func.apply(null, slice.call(args));
+            return !func(...slice.call(args));
         };
     }
 
