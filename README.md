@@ -6,18 +6,18 @@ is-it-check
   <img width="110" height="110" src=https://user-images.githubusercontent.com/39374084/158694685-67fbc155-ea23-4b37-837d-850f1ac2fa10.png />
 </p>
 
-
-... for runtime checks of js & ts apps
-
+... for runtime checks of js & ts apps    
 ... because more often than not, static typechecking with typescript for compiletime checks is not enough 🤗
 
+<ul>
+  <li>no dependencies</li>
+  <li>ES6+</li>
+  <li>tiny & fast</li>
+  <li>intuitive to use</li>
+  <li>AMD, Node & browser ready</li>
+</ul>
 
-- No dependencies
-- ES6+
-- tiny & fast
-- intuitive to use
-- AMD, Node & browser ready
-
+-----------------------
 Node.js:
 ```
 npm install is-it-check
@@ -37,6 +37,9 @@ Test:
 ```
 npm test
 ```
+-----------------------
+
+
 Type checks
 ===========
 
