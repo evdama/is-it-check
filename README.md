@@ -1,17 +1,15 @@
 is-it-check
 =====
-#### A general purpose check library for runtime checks...
+#### A general purpose check library
+...for runtime checks of js & ts apps
 ...because more often than not, static typechecking with typescript for compiletime checks is not enough 🤗
 
-[![JS.ORG](https://img.shields.io/badge/js.org-is-ffb400.svg?style=flat-square)](http://js.org)
 
 - No dependencies
-- ES6
+- ES6+
 - tiny & fast
 - intuitive to use
 - AMD, Node & browser ready
-
-#### Usage:
 
 Node.js:
 ```
@@ -32,13 +30,6 @@ Test:
 ```
 npm test
 ```
-
-#### Contributing:
-Thanks for considering to contribute. Check [here](CONTRIBUTING.md)
-
-#### Contributors:
-Many thanks to our contributors: https://github.com/evdama/is-it-check/graphs/contributors
-
 Type checks
 ===========
 
@@ -2519,3 +2510,9 @@ is.setRegexp(/quack/, 'url');
 is.url('quack');
 => true
 ```
+
+#### Contributing:
+Thanks for considering to contribute. Check [here](CONTRIBUTING.md)
+
+#### Contributors:
+Many thanks to our contributors: https://github.com/evdama/is-it-check/graphs/contributors
