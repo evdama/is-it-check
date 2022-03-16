@@ -2,7 +2,7 @@
     var _ = root._ || require('lodash'),
         document = root.document,
         expect = _.get(root, 'chai.expect') || require('chai').expect,
-        is = root.is || require('../is'),
+        is = root.is || require('../is-it-check'),
         window = root.window;
 
     function checkApi(name, list) {
@@ -500,7 +500,7 @@
                 expect(is.dateString('1')).to.be.false;
                 expect(is.dateString('10/21-2012')).to.be.false;
             });
-             it('should return false if the given value is null', function() {
+            it('should return false if the given value is null', function() {
                 expect(is.dateString(null)).to.be.false;
             });
             it('should return false if the given value is undefined', function() {
