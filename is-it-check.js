@@ -40,12 +40,12 @@
     const hasOwnProperty = Object.prototype.hasOwnProperty;
 
     // helper function which reverses the sense of predicate result
-    function not(func) {
+    const not = func => {
         return (...args) => !func(...slice.call(args));
     }
 
     // helper function which call predicate function per parameter and return true if all pass
-    function all(func) {
+    const all = func => {
         return (...args) => {
             const params = getParams(args);
             const length = params.length;
@@ -59,7 +59,7 @@
     }
 
     // helper function which call predicate function per parameter and return true if any pass
-    function any(func) {
+    const any = func => {
         return (...args) => {
             const params = getParams(args);
             const length = params.length;
@@ -74,14 +74,14 @@
 
     // build a 'comparator' object for various comparison checks
     const comparator = {
-        '<': function(a, b) { return a < b; },
-        '<=': function(a, b) { return a <= b; },
-        '>': function(a, b) { return a > b; },
-        '>=': function(a, b) { return a >= b; }
+        '<': (a, b) => { return a < b; },
+        '<=': (a, b) => { return a <= b; },
+        '>': (a, b) => { return a > b; },
+        '>=': (a, b) => { return a >= b; }
     };
 
     // helper function which compares a version to a range
-    function compareVersion(version, range) {
+    const compareVersion = (version, range) => {
         const string = (`${range}`);
         const n = +(string.match(/\d+/) || NaN);
         const op = string.match(/^[<>]=?|/)[0];
@@ -89,7 +89,7 @@
     }
 
     // helper function which extracts params from arguments
-    function getParams(args) {
+    const getParams = args => {
         let params = slice.call(args);
         const length = params.length;
         if (length === 1 && is.array(params[0])) {    // support array
@@ -175,7 +175,7 @@
     /* -------------------------------------------------------------------------- */
 
     //is a given value empty? Objects, arrays, strings
-    is.empty = function(value) {
+    is.empty = value => {
         if (is.object(value)) {
             const length = Object.getOwnPropertyNames(value).length;
             if (length === 0 || (length === 1 && is.array(value)) ||
@@ -286,7 +286,7 @@
         usZipCode: /^[0-9]{5}(?:-[0-9]{4})?$/
     };
 
-    function regexpCheck(regexp, regexes) {
+    const regexpCheck = (regexp, regexes) => {
         is[regexp] = value => is.existy(value) && regexes[regexp].test(value);
     }
 
@@ -743,7 +743,7 @@
     // Set 'not', 'all' and 'any' interfaces to methods based on their api property
     /* -------------------------------------------------------------------------- */
 
-    function setInterfaces() {
+    const setInterfaces = () => {
         const options = is;
         for (const option in options) {
             if (hasOwnProperty.call(options, option) && is['function'](options[option])) {
@@ -772,7 +772,7 @@
     // var preferredName = is.setNamespace();
     // preferredName.odd(3);
     // => true
-    is.setNamespace = function() {
+    is.setNamespace = () => {
         root.is = previousIs;
         return this;
     };
