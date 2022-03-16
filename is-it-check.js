@@ -86,7 +86,7 @@
 
     // helper function which compares a version to a range
     function compareVersion(version, range) {
-        const string = (range + '');
+        const string = (`${range}`);
         const n = +(string.match(/\d+/) || NaN);
         const op = string.match(/^[<>]=?|/)[0];
         return comparator[op] ? comparator[op](version, n) : (version == n || n !== n);
@@ -260,7 +260,7 @@
         }
         // check regexes as strings too
         if (is.all.string(value, other) || is.all.regexp(value, other)) {
-            return '' + value === '' + other;
+            return `${value}` === `${other}`;
         }
         if (is.all.boolean(value, other)) {
             return value === other;
