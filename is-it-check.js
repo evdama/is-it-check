@@ -28,7 +28,7 @@
     /* -------------------------------------------------------------------------- */
 
     // define 'is' object and current version
-    var is = {};
+    const is = {};
     is.VERSION = '0.9.0';
 
     // define interfaces
@@ -37,9 +37,9 @@
     is.any = {};
 
     // cache some methods to call later on
-    var toString = Object.prototype.toString;
-    var slice = Array.prototype.slice;
-    var hasOwnProperty = Object.prototype.hasOwnProperty;
+    const toString = Object.prototype.toString;
+    const slice = Array.prototype.slice;
+    const hasOwnProperty = Object.prototype.hasOwnProperty;
 
     // helper function which reverses the sense of predicate result
     function not(func) {
@@ -51,9 +51,9 @@
     // helper function which call predicate function per parameter and return true if all pass
     function all(func) {
         return function() {
-            var params = getParams(arguments);
-            var length = params.length;
-            for (var i = 0; i < length; i++) {
+            const params = getParams(arguments);
+            const length = params.length;
+            for (let i = 0; i < length; i++) {
                 if (!func.call(null, params[i])) {
                     return false;
                 }
@@ -65,9 +65,9 @@
     // helper function which call predicate function per parameter and return true if any pass
     function any(func) {
         return function() {
-            var params = getParams(arguments);
-            var length = params.length;
-            for (var i = 0; i < length; i++) {
+            const params = getParams(arguments);
+            const length = params.length;
+            for (let i = 0; i < length; i++) {
                 if (func.call(null, params[i])) {
                     return true;
                 }
@@ -77,7 +77,7 @@
     }
 
     // build a 'comparator' object for various comparison checks
-    var comparator = {
+    const comparator = {
         '<': function(a, b) { return a < b; },
         '<=': function(a, b) { return a <= b; },
         '>': function(a, b) { return a > b; },
@@ -86,16 +86,16 @@
 
     // helper function which compares a version to a range
     function compareVersion(version, range) {
-        var string = (range + '');
-        var n = +(string.match(/\d+/) || NaN);
-        var op = string.match(/^[<>]=?|/)[0];
+        const string = (range + '');
+        const n = +(string.match(/\d+/) || NaN);
+        const op = string.match(/^[<>]=?|/)[0];
         return comparator[op] ? comparator[op](version, n) : (version == n || n !== n);
     }
 
     // helper function which extracts params from arguments
     function getParams(args) {
-        var params = slice.call(args);
-        var length = params.length;
+        let params = slice.call(args);
+        const length = params.length;
         if (length === 1 && is.array(params[0])) {    // support array
             params = params[0];
         }
@@ -179,7 +179,7 @@
     // are given values same type?
     // prevent NaN, Number same type check
     is.sameType = function(value, other) {
-        var tag = toString.call(value);
+        const tag = toString.call(value);
         if (tag !== toString.call(other)) {
             return false;
         }
@@ -213,7 +213,7 @@
     //is a given value empty? Objects, arrays, strings
     is.empty = function(value) {
         if (is.object(value)) {
-            var length = Object.getOwnPropertyNames(value).length;
+            const length = Object.getOwnPropertyNames(value).length;
             if (length === 0 || (length === 1 && is.array(value)) ||
                     (length === 2 && is.arguments(value))) {
                 return true;
@@ -328,7 +328,7 @@
     // eppPhone match extensible provisioning protocol format
     // nanpPhone match north american number plan format
     // time match hours, minutes, and seconds, 24-hour clock
-    var regexes = {
+    const regexes = {
         affirmative: /^(?:1|t(?:rue)?|y(?:es)?|ok(?:ay)?)$/,
         alphaNumeric: /^[A-Za-z0-9]+$/,
         caPostalCode: /^(?!.*[DFIOQU])[A-VXY][0-9][A-Z]\s?[0-9][A-Z][0-9]$/,
@@ -355,7 +355,7 @@
     }
 
     // create regexp checks methods from 'regexes' object
-    for (var regexp in regexes) {
+    for (const regexp in regexes) {
         if (Object.prototype.hasOwnProperty.call(regexes, regexp)) {
             regexpCheck(regexp, regexes);
         }
@@ -374,11 +374,11 @@
         if (is.not.string(string)) {
             return false;
         }
-        var words = string.split(' ');
-        for (var i = 0; i < words.length; i++) {
-            var word = words[i];
+        const words = string.split(' ');
+        for (let i = 0; i < words.length; i++) {
+            const word = words[i];
             if (word.length) {
-                var chr = word.charAt(0);
+                const chr = word.charAt(0);
                 if (chr !== chr.toUpperCase()) {
                     return false;
                 }
@@ -393,7 +393,7 @@
             return false;
         }
         target += '';
-        var position = string.length - target.length;
+        const position = string.length - target.length;
         return position >= 0 && string.indexOf(target, position) === position;
     };
     // endWith method does not support 'all' and 'any' interfaces
@@ -417,8 +417,8 @@
             return false;
         }
         string = string.replace(/[^a-zA-Z0-9]+/g, '').toLowerCase();
-        var length = string.length - 1;
-        for (var i = 0, half = Math.floor(length / 2); i <= half; i++) {
+        const length = string.length - 1;
+        for (let i = 0, half = Math.floor(length / 2); i <= half; i++) {
             if (string.charAt(i) !== string.charAt(length - i)) {
                 return false;
             }
@@ -432,7 +432,7 @@
         if (is.not.char(value)) {
             return false;
         }
-        var charCode = value.charCodeAt(0);
+        const charCode = value.charCodeAt(0);
         return (charCode > 8 && charCode < 14) || charCode === 32;
     };
 
@@ -451,8 +451,8 @@
     // Time checks
     /* -------------------------------------------------------------------------- */
 
-    var days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-    var months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+    const months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
 
     // is a given dates day equal given day parameter?
     is.day = function(date, day) {
@@ -463,15 +463,15 @@
 
     // is a given date in daylight saving time?
     is.dayLightSavingTime = function(date) {
-        var january = new Date(date.getFullYear(), 0, 1);
-        var july = new Date(date.getFullYear(), 6, 1);
-        var stdTimezoneOffset = Math.max(january.getTimezoneOffset(), july.getTimezoneOffset());
+        const january = new Date(date.getFullYear(), 0, 1);
+        const july = new Date(date.getFullYear(), 6, 1);
+        const stdTimezoneOffset = Math.max(january.getTimezoneOffset(), july.getTimezoneOffset());
         return date.getTimezoneOffset() < stdTimezoneOffset;
     };
 
     // is a given date future?
     is.future = function(date) {
-        var now = new Date();
+        const now = new Date();
         return is.date(date) && date.getTime() > now.getTime();
     };
 
@@ -480,7 +480,7 @@
         if (is.not.date(date) || is.not.date(start) || is.not.date(end)) {
             return false;
         }
-        var stamp = date.getTime();
+        const stamp = date.getTime();
         return stamp > start.getTime() && stamp < end.getTime();
     };
     // inDateRange method does not support 'all' and 'any' interfaces
@@ -530,7 +530,7 @@
 
     // is a given date past?
     is.past = function(date) {
-        var now = new Date();
+        const now = new Date();
         return is.date(date) && date.getTime() < now.getTime();
     };
 
@@ -543,15 +543,15 @@
 
     // is a given date indicate today?
     is.today = function(date) {
-        var now = new Date();
-        var todayString = now.toDateString();
+        const now = new Date();
+        const todayString = now.toDateString();
         return is.date(date) && date.toDateString() === todayString;
     };
 
     // is a given date indicate tomorrow?
     is.tomorrow = function(date) {
-        var now = new Date();
-        var tomorrowString = new Date(now.setDate(now.getDate() + 1)).toDateString();
+        const now = new Date();
+        const tomorrowString = new Date(now.setDate(now.getDate() + 1)).toDateString();
         return is.date(date) && date.toDateString() === tomorrowString;
     };
 
@@ -573,27 +573,27 @@
 
     // is a given date indicate yesterday?
     is.yesterday = function(date) {
-        var now = new Date();
-        var yesterdayString = new Date(now.setDate(now.getDate() - 1)).toDateString();
+        const now = new Date();
+        const yesterdayString = new Date(now.setDate(now.getDate() - 1)).toDateString();
         return is.date(date) && date.toDateString() === yesterdayString;
     };
 
     // Environment checks
     /* -------------------------------------------------------------------------- */
 
-    var freeGlobal = is.windowObject(typeof global == 'object' && global) && global;
-    var freeSelf = is.windowObject(typeof self == 'object' && self) && self;
-    var thisGlobal = is.windowObject(typeof this == 'object' && this) && this;
-    var root = freeGlobal || freeSelf || thisGlobal || Function('return this')();
+    const freeGlobal = is.windowObject(typeof global == 'object' && global) && global;
+    const freeSelf = is.windowObject(typeof self == 'object' && self) && self;
+    const thisGlobal = is.windowObject(typeof this == 'object' && this) && this;
+    const root = freeGlobal || freeSelf || thisGlobal || Function('return this')();
 
-    var document = freeSelf && freeSelf.document;
-    var previousIs = root.is;
+    const document = freeSelf && freeSelf.document;
+    const previousIs = root.is;
 
     // store navigator properties to use later
-    var navigator = freeSelf && freeSelf.navigator;
-    var platform = (navigator && navigator.platform || '').toLowerCase();
-    var userAgent = (navigator && navigator.userAgent || '').toLowerCase();
-    var vendor = (navigator && navigator.vendor || '').toLowerCase();
+    const navigator = freeSelf && freeSelf.navigator;
+    const platform = (navigator && navigator.platform || '').toLowerCase();
+    const userAgent = (navigator && navigator.userAgent || '').toLowerCase();
+    const vendor = (navigator && navigator.vendor || '').toLowerCase();
 
     // is current device android?
     is.android = function() {
@@ -626,7 +626,7 @@
     // is current browser chrome?
     // parameter is optional
     is.chrome = function(range) {
-        var match = /google inc/.test(vendor) ? userAgent.match(/(?:chrome|crios)\/(\d+)/) : null;
+        const match = /google inc/.test(vendor) ? userAgent.match(/(?:chrome|crios)\/(\d+)/) : null;
         return match !== null && is.not.opera() && compareVersion(match[1], range);
     };
     // chrome method does not support 'all' and 'any' interfaces
@@ -642,7 +642,7 @@
     // is current browser edge?
     // parameter is optional
     is.edge = function(range) {
-        var match = userAgent.match(/edge\/(\d+)/);
+        const match = userAgent.match(/edge\/(\d+)/);
         return match !== null && compareVersion(match[1], range);
     };
     // edge method does not support 'all' and 'any' interfaces
@@ -651,7 +651,7 @@
     // is current browser firefox?
     // parameter is optional
     is.firefox = function(range) {
-        var match = userAgent.match(/(?:firefox|fxios)\/(\d+)/);
+        const match = userAgent.match(/(?:firefox|fxios)\/(\d+)/);
         return match !== null && compareVersion(match[1], range);
     };
     // firefox method does not support 'all' and 'any' interfaces
@@ -660,7 +660,7 @@
     // is current browser internet explorer?
     // parameter is optional
     is.ie = function(range) {
-        var match = userAgent.match(/(?:msie |trident.+?; rv:)(\d+)/);
+        const match = userAgent.match(/(?:msie |trident.+?; rv:)(\d+)/);
         return match !== null && compareVersion(match[1], range);
     };
     // ie method does not support 'all' and 'any' interfaces
@@ -676,7 +676,7 @@
     // is current device ipad?
     // parameter is optional
     is.ipad = function(range) {
-        var match = userAgent.match(/ipad.+?os (\d+)/);
+        const match = userAgent.match(/ipad.+?os (\d+)/);
         return match !== null && compareVersion(match[1], range);
     };
     // ipad method does not support 'all' and 'any' interfaces
@@ -687,7 +687,7 @@
     is.iphone = function(range) {
         // avoid false positive for Facebook in-app browser on ipad;
         // original iphone doesn't have the OS portion of the UA
-        var match = is.ipad() ? null : userAgent.match(/iphone(?:.+?os (\d+))?/);
+        const match = is.ipad() ? null : userAgent.match(/iphone(?:.+?os (\d+))?/);
         return match !== null && compareVersion(match[1] || 1, range);
     };
     // iphone method does not support 'all' and 'any' interfaces
@@ -696,7 +696,7 @@
     // is current device ipod?
     // parameter is optional
     is.ipod = function(range) {
-        var match = userAgent.match(/ipod.+?os (\d+)/);
+        const match = userAgent.match(/ipod.+?os (\d+)/);
         return match !== null && compareVersion(match[1], range);
     };
     // ipod method does not support 'all' and 'any' interfaces
@@ -738,7 +738,7 @@
     // is current browser opera?
     // parameter is optional
     is.opera = function(range) {
-        var match = userAgent.match(/(?:^opera.+?version|opr)\/(\d+)/);
+        const match = userAgent.match(/(?:^opera.+?version|opr)\/(\d+)/);
         return match !== null && compareVersion(match[1], range);
     };
     // opera method does not support 'all' and 'any' interfaces
@@ -747,7 +747,7 @@
     // is current browser opera mini?
     // parameter is optional
     is.operaMini = function(range) {
-        var match = userAgent.match(/opera mini\/(\d+)/);
+        const match = userAgent.match(/opera mini\/(\d+)/);
         return match !== null && compareVersion(match[1], range);
     };
     // operaMini method does not support 'all' and 'any' interfaces
@@ -756,7 +756,7 @@
     // is current browser phantomjs?
     // parameter is optional
     is.phantom = function(range) {
-        var match = userAgent.match(/phantomjs\/(\d+)/);
+        const match = userAgent.match(/phantomjs\/(\d+)/);
         return match !== null && compareVersion(match[1], range);
     };
     // phantom method does not support 'all' and 'any' interfaces
@@ -765,7 +765,7 @@
     // is current browser safari?
     // parameter is optional
     is.safari = function(range) {
-        var match = userAgent.match(/version\/(\d+).+?safari/);
+        const match = userAgent.match(/version\/(\d+).+?safari/);
         return match !== null && compareVersion(match[1], range);
     };
     // safari method does not support 'all' and 'any' interfaces
@@ -815,8 +815,8 @@
         if (is.not.object(object) || is.not.number(count)) {
             return false;
         }
-        var n = 0;
-        for (var property in object) {
+        let n = 0;
+        for (const property in object) {
             if (hasOwnProperty.call(object, property) && ++n > count) {
                 return false;
             }
@@ -846,7 +846,7 @@
         if (is.not.array(array)) {
             return false;
         }
-        for (var i = 0; i < array.length; i++) {
+        for (let i = 0; i < array.length; i++) {
             if (array[i] === value) {
                 return true;
             }
@@ -861,8 +861,8 @@
         if (is.not.array(array)) {
             return false;
         }
-        var predicate = comparator[sign] || comparator['>='];
-        for (var i = 1; i < array.length; i++) {
+        const predicate = comparator[sign] || comparator['>='];
+        for (let i = 1; i < array.length; i++) {
             if (!predicate(array[i], array[i - 1])) {
                 return false;
             }
@@ -876,11 +876,11 @@
     /* -------------------------------------------------------------------------- */
 
     function setInterfaces() {
-        var options = is;
-        for (var option in options) {
+        const options = is;
+        for (const option in options) {
             if (hasOwnProperty.call(options, option) && is['function'](options[option])) {
-                var interfaces = options[option].api || ['not', 'all', 'any'];
-                for (var i = 0; i < interfaces.length; i++) {
+                const interfaces = options[option].api || ['not', 'all', 'any'];
+                for (let i = 0; i < interfaces.length; i++) {
                     if (interfaces[i] === 'not') {
                         is.not[option] = not(is[option]);
                     }
@@ -911,7 +911,7 @@
 
     // set optional regexes to methods
     is.setRegexp = function(regexp, name) {
-        for (var r in regexes) {
+        for (const r in regexes) {
             if (hasOwnProperty.call(regexes, r) && (name === r)) {
                 regexes[r] = regexp;
             }
