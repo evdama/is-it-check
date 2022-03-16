@@ -40,44 +40,38 @@
     const hasOwnProperty = Object.prototype.hasOwnProperty;
 
     // helper function which reverses the sense of predicate result
-    const not = func => {
-        return (...args) => !func(...slice.call(args));
-    }
+    const not = func => (...args) => !func(...slice.call(args))
 
     // helper function which call predicate function per parameter and return true if all pass
-    const all = func => {
-        return (...args) => {
-            const params = getParams(args);
-            const length = params.length;
-            for (let i = 0; i < length; i++) {
-                if (!func.call(null, params[i])) {
-                    return false;
-                }
+    const all = func => (...args) => {
+        const params = getParams(args);
+        const length = params.length;
+        for (let i = 0; i < length; i++) {
+            if (!func.call(null, params[i])) {
+                return false;
             }
-            return true;
-        };
+        }
+        return true;
     }
 
     // helper function which call predicate function per parameter and return true if any pass
-    const any = func => {
-        return (...args) => {
-            const params = getParams(args);
-            const length = params.length;
-            for (let i = 0; i < length; i++) {
-                if (func.call(null, params[i])) {
-                    return true;
-                }
+    const any = func => (...args) => {
+        const params = getParams(args);
+        const length = params.length;
+        for (let i = 0; i < length; i++) {
+            if (func.call(null, params[i])) {
+                return true;
             }
-            return false;
-        };
+        }
+        return false;
     }
 
     // build a 'comparator' object for various comparison checks
     const comparator = {
-        '<': (a, b) => { return a < b; },
-        '<=': (a, b) => { return a <= b; },
-        '>': (a, b) => { return a > b; },
-        '>=': (a, b) => { return a >= b; }
+        '<': (a, b) => a < b,
+        '<=': (a, b) => a <= b,
+        '>': (a, b) => a > b,
+        '>=': (a, b) => a >= b
     };
 
     // helper function which compares a version to a range
