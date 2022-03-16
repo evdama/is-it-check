@@ -41,9 +41,7 @@
 
     // helper function which reverses the sense of predicate result
     function not(func) {
-        return (...args) => {
-            return !func(...slice.call(args));
-        };
+        return (...args) => !func(...slice.call(args));
     }
 
     // helper function which call predicate function per parameter and return true if all pass
