@@ -3,7 +3,7 @@ is-it-check
 
 [![JS.ORG](https://img.shields.io/badge/js.org-is-ffb400.svg?style=flat-square)](http://js.org)
 
-#### This is a general-purpose check library.
+#### A general purpose check library for runtime checks... because more often than not, static typechecking with typescript for compiletime checks is not enough 🤗
 - No dependencies
 - AMD, Node & browser ready
 
