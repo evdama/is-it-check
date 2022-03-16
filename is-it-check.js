@@ -41,15 +41,15 @@
 
     // helper function which reverses the sense of predicate result
     function not(func) {
-        return function() {
-            return !func.apply(null, slice.call(arguments));
+        return function(...args) {
+            return !func.apply(null, slice.call(args));
         };
     }
 
     // helper function which call predicate function per parameter and return true if all pass
     function all(func) {
-        return function() {
-            const params = getParams(arguments);
+        return function(...args) {
+            const params = getParams(args);
             const length = params.length;
             for (let i = 0; i < length; i++) {
                 if (!func.call(null, params[i])) {
@@ -62,8 +62,8 @@
 
     // helper function which call predicate function per parameter and return true if any pass
     function any(func) {
-        return function() {
-            const params = getParams(arguments);
+        return function(...args) {
+            const params = getParams(args);
             const length = params.length;
             for (let i = 0; i < length; i++) {
                 if (func.call(null, params[i])) {
