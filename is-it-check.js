@@ -401,7 +401,7 @@
 
     // is a given string include parameter target?
     is.include = function(string, target) {
-        return string.indexOf(target) > -1;
+        return string.includes(target);
     };
     // include method does not support 'all' and 'any' interfaces
     is.include.api = ['not'];
