@@ -4,10 +4,10 @@
  */
 
 // AMD with global, Node, or global
-;(function(root, factory) {    // eslint-disable-line no-extra-semi
+;((root, factory) => {    // eslint-disable-line no-extra-semi
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
-        define(function() {
+        define(() => {
             // Also create a global in case some scripts
             // that are loaded still are looking for
             // a global even when an AMD loader is in use.
@@ -22,7 +22,7 @@
         // Browser globals (root is self)
         root.is = factory();
     }
-}(this, function() {
+})(this, function() {
 
     // Baseline
     /* -------------------------------------------------------------------------- */
@@ -106,79 +106,79 @@
     /* -------------------------------------------------------------------------- */
 
     // is a given value Arguments?
-    is.arguments = function(value) {    // fallback check is for IE
+    is.arguments = value => {    // fallback check is for IE
         return toString.call(value) === '[object Arguments]' ||
             (value != null && typeof value === 'object' && 'callee' in value);
     };
 
     // is a given value Array?
-    is.array = Array.isArray || function(value) {    // check native isArray first
+    is.array = Array.isArray || (value => {    // check native isArray first
         return toString.call(value) === '[object Array]';
-    };
+    });
 
     // is a given value Boolean?
-    is.boolean = function(value) {
+    is.boolean = value => {
         return value === true || value === false || toString.call(value) === '[object Boolean]';
     };
 
     // is a given value Char?
-    is.char = function(value) {
+    is.char = value => {
         return is.string(value) && value.length === 1;
     };
 
     // is a given value Date Object?
-    is.date = function(value) {
+    is.date = value => {
         return toString.call(value) === '[object Date]';
     };
 
     // is a given object a DOM node?
-    is.domNode = function(object) {
+    is.domNode = object => {
         return is.object(object) && object.nodeType > 0;
     };
 
     // is a given value Error object?
-    is.error = function(value) {
+    is.error = value => {
         return toString.call(value) === '[object Error]';
     };
 
     // is a given value function?
-    is['function'] = function(value) {    // fallback check is for IE
+    is['function'] = value => {    // fallback check is for IE
         return toString.call(value) === '[object Function]' || typeof value === 'function';
     };
 
     // is given value a pure JSON object?
-    is.json = function(value) {
+    is.json = value => {
         return toString.call(value) === '[object Object]';
     };
 
     // is a given value NaN?
-    is.nan = function(value) {
+    is.nan = value => {
         return Number.isNaN(value);
     };
 
     // is a given value null?
-    is['null'] = function(value) {
+    is['null'] = value => {
         return value === null;
     };
 
     // is a given value number?
-    is.number = function(value) {
+    is.number = value => {
         return Number.isFinite(value);
     };
 
     // is a given value object?
-    is.object = function(value) {
+    is.object = value => {
         return Object(value) === value;
     };
 
     // is a given value RegExp?
-    is.regexp = function(value) {
+    is.regexp = value => {
         return toString.call(value) === '[object RegExp]';
     };
 
     // are given values same type?
     // prevent NaN, Number same type check
-    is.sameType = function(value, other) {
+    is.sameType = (value, other) => {
         const tag = toString.call(value);
         if (tag !== toString.call(other)) {
             return false;
@@ -192,18 +192,18 @@
     is.sameType.api = ['not'];
 
     // is a given value String?
-    is.string = function(value) {
+    is.string = value => {
         return toString.call(value) === '[object String]';
     };
 
     // is a given value undefined?
-    is.undefined = function(value) {
+    is.undefined = value => {
         return value === void 0;
     };
 
     // is a given value window?
     // setInterval method is only available for window object
-    is.windowObject = function(value) {
+    is.windowObject = value => {
         return value != null && typeof value === 'object' && 'setInterval' in value;
     };
 
@@ -224,12 +224,12 @@
     };
 
     // is a given value existy?
-    is.existy = function(value) {
+    is.existy = value => {
         return value != null;
     };
 
     // is a given value falsy?
-    is.falsy = function(value) {
+    is.falsy = value => {
         return !value;
     };
 
@@ -240,20 +240,20 @@
     /* -------------------------------------------------------------------------- */
 
     // is a given number above minimum parameter?
-    is.above = function(n, min) {
+    is.above = (n, min) => {
         return is.all.number(n, min) && n > min;
     };
     // above method does not support 'all' and 'any' interfaces
     is.above.api = ['not'];
 
     // is a given number decimal?
-    is.decimal = function(n) {
+    is.decimal = n => {
         return is.number(n) && n % 1 !== 0;
     };
 
     // are given values equal? supports numbers, strings, regexes, booleans
     // TODO: Add object and array support
-    is.equal = function(value, other) {
+    is.equal = (value, other) => {
         // check 0 and -0 equity with Infinity and -Infinity
         if (is.all.number(value, other)) {
             return value === other && 1 / value === 1 / other;
@@ -271,49 +271,49 @@
     is.equal.api = ['not'];
 
     // is a given number even?
-    is.even = function(n) {
+    is.even = n => {
         return is.number(n) && n % 2 === 0;
     };
 
     // is a given number finite?
-    is.finite = isFinite || function(n) {
+    is.finite = isFinite || (n => {
         return is.not.infinite(n) && is.not.nan(n);
-    };
+    });
 
     // is a given number infinite?
-    is.infinite = function(n) {
+    is.infinite = n => {
         return n === Infinity || n === -Infinity;
     };
 
     // is a given number integer?
-    is.integer = function(n) {
+    is.integer = n => {
         return Number.isInteger(n);
     };
 
     // is a given number negative?
-    is.negative = function(n) {
+    is.negative = n => {
         return is.number(n) && n < 0;
     };
 
     // is a given number odd?
-    is.odd = function(n) {
+    is.odd = n => {
         return is.number(n) && (n % 2 === 1 || n % 2 === -1);
     };
 
     // is a given number positive?
-    is.positive = function(n) {
+    is.positive = n => {
         return is.number(n) && n > 0;
     };
 
     // is a given number above maximum parameter?
-    is.under = function(n, max) {
+    is.under = (n, max) => {
         return is.all.number(n, max) && n < max;
     };
     // least method does not support 'all' and 'any' interfaces
     is.under.api = ['not'];
 
     // is a given number within minimum and maximum parameters?
-    is.within = function(n, min, max) {
+    is.within = (n, min, max) => {
         return is.all.number(n, min, max) && n > min && n < max;
     };
     // within method does not support 'all' and 'any' interfaces
@@ -349,7 +349,7 @@
     };
 
     function regexpCheck(regexp, regexes) {
-        is[regexp] = function(value) {
+        is[regexp] = value => {
             return is.existy(value) && regexes[regexp].test(value);
         };
     }
@@ -362,7 +362,7 @@
     }
 
     // simplify IP checks by calling the regex helpers for IPv4 and IPv6
-    is.ip = function(value) {
+    is.ip = value => {
         return is.ipv4(value) || is.ipv6(value);
     };
 
@@ -370,13 +370,13 @@
     /* -------------------------------------------------------------------------- */
 
     // is a given string or sentence capitalized?
-    is.capitalized = function(string) {
+    is.capitalized = string => {
         if (is.not.string(string)) {
             return false;
         }
         const words = string.split(' ');
-        for (let i = 0; i < words.length; i++) {
-            const word = words[i];
+
+        for (const word of words) {
             if (word.length) {
                 const chr = word.charAt(0);
                 if (chr !== chr.toUpperCase()) {
@@ -388,7 +388,7 @@
     };
 
     // is string end with a given target parameter?
-    is.endWith = function(string, target) {
+    is.endWith = (string, target) => {
         if (is.not.string(string)) {
             return false;
         }
@@ -400,19 +400,19 @@
     is.endWith.api = ['not'];
 
     // is a given string include parameter target?
-    is.include = function(string, target) {
+    is.include = (string, target) => {
         return string.includes(target);
     };
     // include method does not support 'all' and 'any' interfaces
     is.include.api = ['not'];
 
     // is a given string all lowercase?
-    is.lowerCase = function(string) {
+    is.lowerCase = string => {
         return is.string(string) && string === string.toLowerCase();
     };
 
     // is a given string palindrome?
-    is.palindrome = function(string) {
+    is.palindrome = string => {
         if (is.not.string(string)) {
             return false;
         }
@@ -428,7 +428,7 @@
 
     // is a given value space?
     // horizontal tab: 9, line feed: 10, vertical tab: 11, form feed: 12, carriage return: 13, space: 32
-    is.space = function(value) {
+    is.space = value => {
         if (is.not.char(value)) {
             return false;
         }
@@ -437,14 +437,14 @@
     };
 
     // is string start with a given target parameter?
-    is.startWith = function(string, target) {
+    is.startWith = (string, target) => {
         return is.string(string) && string.indexOf(target) === 0;
     };
     // startWith method does not support 'all' and 'any' interfaces
     is.startWith.api = ['not'];
 
     // is a given string all uppercase?
-    is.upperCase = function(string) {
+    is.upperCase = string => {
         return is.string(string) && string === string.toUpperCase();
     };
 
@@ -455,14 +455,14 @@
     const months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
 
     // is a given dates day equal given day parameter?
-    is.day = function(date, day) {
+    is.day = (date, day) => {
         return is.date(date) && day.toLowerCase() === days[date.getDay()];
     };
     // day method does not support 'all' and 'any' interfaces
     is.day.api = ['not'];
 
     // is a given date in daylight saving time?
-    is.dayLightSavingTime = function(date) {
+    is.dayLightSavingTime = date => {
         const january = new Date(date.getFullYear(), 0, 1);
         const july = new Date(date.getFullYear(), 6, 1);
         const stdTimezoneOffset = Math.max(january.getTimezoneOffset(), july.getTimezoneOffset());
@@ -470,13 +470,13 @@
     };
 
     // is a given date future?
-    is.future = function(date) {
+    is.future = date => {
         const now = new Date();
         return is.date(date) && date.getTime() > now.getTime();
     };
 
     // is date within given range?
-    is.inDateRange = function(date, start, end) {
+    is.inDateRange = (date, start, end) => {
         if (is.not.date(date) || is.not.date(start) || is.not.date(end)) {
             return false;
         }
@@ -487,69 +487,69 @@
     is.inDateRange.api = ['not'];
 
     // is a given date in last month range?
-    is.inLastMonth = function(date) {
+    is.inLastMonth = date => {
         return is.inDateRange(date, new Date(new Date().setMonth(new Date().getMonth() - 1)), new Date());
     };
 
     // is a given date in last week range?
-    is.inLastWeek = function(date) {
+    is.inLastWeek = date => {
         return is.inDateRange(date, new Date(new Date().setDate(new Date().getDate() - 7)), new Date());
     };
 
     // is a given date in last year range?
-    is.inLastYear = function(date) {
+    is.inLastYear = date => {
         return is.inDateRange(date, new Date(new Date().setFullYear(new Date().getFullYear() - 1)), new Date());
     };
 
     // is a given date in next month range?
-    is.inNextMonth = function(date) {
+    is.inNextMonth = date => {
         return is.inDateRange(date, new Date(), new Date(new Date().setMonth(new Date().getMonth() + 1)));
     };
 
     // is a given date in next week range?
-    is.inNextWeek = function(date) {
+    is.inNextWeek = date => {
         return is.inDateRange(date, new Date(), new Date(new Date().setDate(new Date().getDate() + 7)));
     };
 
     // is a given date in next year range?
-    is.inNextYear = function(date) {
+    is.inNextYear = date => {
         return is.inDateRange(date, new Date(), new Date(new Date().setFullYear(new Date().getFullYear() + 1)));
     };
 
     // is the given year a leap year?
-    is.leapYear = function(year) {
+    is.leapYear = year => {
         return is.number(year) && ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0);
     };
 
     // is a given dates month equal given month parameter?
-    is.month = function(date, month) {
+    is.month = (date, month) => {
         return is.date(date) && month.toLowerCase() === months[date.getMonth()];
     };
     // month method does not support 'all' and 'any' interfaces
     is.month.api = ['not'];
 
     // is a given date past?
-    is.past = function(date) {
+    is.past = date => {
         const now = new Date();
         return is.date(date) && date.getTime() < now.getTime();
     };
 
     // is a given date in the parameter quarter?
-    is.quarterOfYear = function(date, quarter) {
+    is.quarterOfYear = (date, quarter) => {
         return is.date(date) && is.number(quarter) && quarter === Math.floor((date.getMonth() + 3) / 3);
     };
     // quarterOfYear method does not support 'all' and 'any' interfaces
     is.quarterOfYear.api = ['not'];
 
     // is a given date indicate today?
-    is.today = function(date) {
+    is.today = date => {
         const now = new Date();
         const todayString = now.toDateString();
         return is.date(date) && date.toDateString() === todayString;
     };
 
     // is a given date indicate tomorrow?
-    is.tomorrow = function(date) {
+    is.tomorrow = date => {
         const now = new Date();
         const tomorrowString = new Date(now.setDate(now.getDate() + 1)).toDateString();
         return is.date(date) && date.toDateString() === tomorrowString;
@@ -557,7 +557,7 @@
 
     // is a given date weekend?
     // 6: Saturday, 0: Sunday
-    is.weekend = function(date) {
+    is.weekend = date => {
         return is.date(date) && (date.getDay() === 6 || date.getDay() === 0);
     };
 
@@ -565,14 +565,14 @@
     is.weekday = not(is.weekend);
 
     // is a given dates year equal given year parameter?
-    is.year = function(date, year) {
+    is.year = (date, year) => {
         return is.date(date) && is.number(year) && year === date.getFullYear();
     };
     // year method does not support 'all' and 'any' interfaces
     is.year.api = ['not'];
 
     // is a given date indicate yesterday?
-    is.yesterday = function(date) {
+    is.yesterday = date => {
         const now = new Date();
         const yesterdayString = new Date(now.setDate(now.getDate() - 1)).toDateString();
         return is.date(date) && date.toDateString() === yesterdayString;
@@ -596,28 +596,28 @@
     const vendor = (navigator && navigator.vendor || '').toLowerCase();
 
     // is current device android?
-    is.android = function() {
+    is.android = () => {
         return /android/.test(userAgent);
     };
     // android method does not support 'all' and 'any' interfaces
     is.android.api = ['not'];
 
     // is current device android phone?
-    is.androidPhone = function() {
+    is.androidPhone = () => {
         return /android/.test(userAgent) && /mobile/.test(userAgent);
     };
     // androidPhone method does not support 'all' and 'any' interfaces
     is.androidPhone.api = ['not'];
 
     // is current device android tablet?
-    is.androidTablet = function() {
+    is.androidTablet = () => {
         return /android/.test(userAgent) && !/mobile/.test(userAgent);
     };
     // androidTablet method does not support 'all' and 'any' interfaces
     is.androidTablet.api = ['not'];
 
     // is current device blackberry?
-    is.blackberry = function() {
+    is.blackberry = () => {
         return /blackberry/.test(userAgent) || /bb10/.test(userAgent);
     };
     // blackberry method does not support 'all' and 'any' interfaces
@@ -625,7 +625,7 @@
 
     // is current browser chrome?
     // parameter is optional
-    is.chrome = function(range) {
+    is.chrome = range => {
         const match = /google inc/.test(vendor) ? userAgent.match(/(?:chrome|crios)\/(\d+)/) : null;
         return match !== null && is.not.opera() && compareVersion(match[1], range);
     };
@@ -633,7 +633,7 @@
     is.chrome.api = ['not'];
 
     // is current device desktop?
-    is.desktop = function() {
+    is.desktop = () => {
         return is.not.mobile() && is.not.tablet();
     };
     // desktop method does not support 'all' and 'any' interfaces
@@ -641,7 +641,7 @@
 
     // is current browser edge?
     // parameter is optional
-    is.edge = function(range) {
+    is.edge = range => {
         const match = userAgent.match(/edge\/(\d+)/);
         return match !== null && compareVersion(match[1], range);
     };
@@ -650,7 +650,7 @@
 
     // is current browser firefox?
     // parameter is optional
-    is.firefox = function(range) {
+    is.firefox = range => {
         const match = userAgent.match(/(?:firefox|fxios)\/(\d+)/);
         return match !== null && compareVersion(match[1], range);
     };
@@ -659,7 +659,7 @@
 
     // is current browser internet explorer?
     // parameter is optional
-    is.ie = function(range) {
+    is.ie = range => {
         const match = userAgent.match(/(?:msie |trident.+?; rv:)(\d+)/);
         return match !== null && compareVersion(match[1], range);
     };
@@ -667,7 +667,7 @@
     is.ie.api = ['not'];
 
     // is current device ios?
-    is.ios = function() {
+    is.ios = () => {
         return is.iphone() || is.ipad() || is.ipod();
     };
     // ios method does not support 'all' and 'any' interfaces
@@ -675,7 +675,7 @@
 
     // is current device ipad?
     // parameter is optional
-    is.ipad = function(range) {
+    is.ipad = range => {
         const match = userAgent.match(/ipad.+?os (\d+)/);
         return match !== null && compareVersion(match[1], range);
     };
@@ -684,7 +684,7 @@
 
     // is current device iphone?
     // parameter is optional
-    is.iphone = function(range) {
+    is.iphone = range => {
         // avoid false positive for Facebook in-app browser on ipad;
         // original iphone doesn't have the OS portion of the UA
         const match = is.ipad() ? null : userAgent.match(/iphone(?:.+?os (\d+))?/);
@@ -695,7 +695,7 @@
 
     // is current device ipod?
     // parameter is optional
-    is.ipod = function(range) {
+    is.ipod = range => {
         const match = userAgent.match(/ipod.+?os (\d+)/);
         return match !== null && compareVersion(match[1], range);
     };
@@ -703,21 +703,21 @@
     is.ipod.api = ['not'];
 
     // is current operating system linux?
-    is.linux = function() {
+    is.linux = () => {
         return /linux/.test(platform) && is.not.android();
     };
     // linux method does not support 'all' and 'any' interfaces
     is.linux.api = ['not'];
 
     // is current operating system mac?
-    is.mac = function() {
+    is.mac = () => {
         return /mac/.test(platform);
     };
     // mac method does not support 'all' and 'any' interfaces
     is.mac.api = ['not'];
 
     // is current device mobile?
-    is.mobile = function() {
+    is.mobile = () => {
         return is.iphone() || is.ipod() || is.androidPhone() || is.blackberry() || is.windowsPhone();
     };
     // mobile method does not support 'all' and 'any' interfaces
@@ -729,7 +729,7 @@
     is.offline.api = ['not'];
 
     // is current state online?
-    is.online = function() {
+    is.online = () => {
         return !navigator || navigator.onLine === true;
     };
     // online method does not support 'all' and 'any' interfaces
@@ -737,7 +737,7 @@
 
     // is current browser opera?
     // parameter is optional
-    is.opera = function(range) {
+    is.opera = range => {
         const match = userAgent.match(/(?:^opera.+?version|opr)\/(\d+)/);
         return match !== null && compareVersion(match[1], range);
     };
@@ -746,7 +746,7 @@
 
     // is current browser opera mini?
     // parameter is optional
-    is.operaMini = function(range) {
+    is.operaMini = range => {
         const match = userAgent.match(/opera mini\/(\d+)/);
         return match !== null && compareVersion(match[1], range);
     };
@@ -755,7 +755,7 @@
 
     // is current browser phantomjs?
     // parameter is optional
-    is.phantom = function(range) {
+    is.phantom = range => {
         const match = userAgent.match(/phantomjs\/(\d+)/);
         return match !== null && compareVersion(match[1], range);
     };
@@ -764,7 +764,7 @@
 
     // is current browser safari?
     // parameter is optional
-    is.safari = function(range) {
+    is.safari = range => {
         const match = userAgent.match(/version\/(\d+).+?safari/);
         return match !== null && compareVersion(match[1], range);
     };
@@ -772,14 +772,14 @@
     is.safari.api = ['not'];
 
     // is current device tablet?
-    is.tablet = function() {
+    is.tablet = () => {
         return is.ipad() || is.androidTablet() || is.windowsTablet();
     };
     // tablet method does not support 'all' and 'any' interfaces
     is.tablet.api = ['not'];
 
     // is current device supports touch?
-    is.touchDevice = function() {
+    is.touchDevice = () => {
         return !!document && ('ontouchstart' in freeSelf ||
             ('DocumentTouch' in freeSelf && document instanceof DocumentTouch));
     };
@@ -787,21 +787,21 @@
     is.touchDevice.api = ['not'];
 
     // is current operating system windows?
-    is.windows = function() {
+    is.windows = () => {
         return /win/.test(platform);
     };
     // windows method does not support 'all' and 'any' interfaces
     is.windows.api = ['not'];
 
     // is current device windows phone?
-    is.windowsPhone = function() {
+    is.windowsPhone = () => {
         return is.windows() && /phone/.test(userAgent);
     };
     // windowsPhone method does not support 'all' and 'any' interfaces
     is.windowsPhone.api = ['not'];
 
     // is current device windows tablet?
-    is.windowsTablet = function() {
+    is.windowsTablet = () => {
         return is.windows() && is.not.windowsPhone() && /touch/.test(userAgent);
     };
     // windowsTablet method does not support 'all' and 'any' interfaces
@@ -811,7 +811,7 @@
     /* -------------------------------------------------------------------------- */
 
     // has a given object got parameterized count property?
-    is.propertyCount = function(object, count) {
+    is.propertyCount = (object, count) => {
         if (is.not.object(object) || is.not.number(count)) {
             return false;
         }
@@ -827,14 +827,14 @@
     is.propertyCount.api = ['not'];
 
     // is given object has parameterized property?
-    is.propertyDefined = function(object, property) {
+    is.propertyDefined = (object, property) => {
         return is.object(object) && is.string(property) && property in object;
     };
     // propertyDefined method does not support 'all' and 'any' interfaces
     is.propertyDefined.api = ['not'];
 
     // is a given value thenable (like Promise)?
-    is.thenable = function(value) {
+    is.thenable = value => {
         return is.object(value) && typeof value.then === 'function';
     };
 
@@ -842,7 +842,7 @@
     /* -------------------------------------------------------------------------- */
 
     // is a given item in an array?
-    is.inArray = function(value, array) {
+    is.inArray = (value, array) => {
         if (is.not.array(array)) {
             return false;
         }
@@ -857,7 +857,7 @@
     is.inArray.api = ['not'];
 
     // is a given array sorted?
-    is.sorted = function(array, sign) {
+    is.sorted = (array, sign) => {
         if (is.not.array(array)) {
             return false;
         }
@@ -910,7 +910,7 @@
     };
 
     // set optional regexes to methods
-    is.setRegexp = function(regexp, name) {
+    is.setRegexp = (regexp, name) => {
         for (const r in regexes) {
             if (hasOwnProperty.call(regexes, r) && (name === r)) {
                 regexes[r] = regexp;
@@ -919,4 +919,4 @@
     };
 
     return is;
-}));
+});
