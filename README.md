@@ -1,6 +1,6 @@
 is-it-check
 =====
-#### A general purpose check library
+#### A tiny general purpose check library
 
 <p align="center">
   <img width="110" height="110" src=https://user-images.githubusercontent.com/39374084/158694685-67fbc155-ea23-4b37-837d-850f1ac2fa10.png />
