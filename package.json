@@ -1,6 +1,6 @@
 {
   "name": "is-it-check",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "main": "is-it-check.js",
   "license": "MIT",
   "description": "micro check library",
