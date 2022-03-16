@@ -1,15 +1,15 @@
 {
-  "name": "is_js",
+  "name": "is-it-check",
   "version": "0.9.1",
-  "main": "is.js",
+  "main": "is-it-check.js",
   "license": "MIT",
   "description": "micro check library",
-  "homepage": "https://github.com/evdama/is.js",
-  "repository": "evdama/is.js",
+  "homepage": "https://github.com/evdama/is-it-check",
+  "repository": "evdama/is-it-check",
   "scripts": {
     "build": "npm run lint && npm run min",
     "lint": "eslint .",
-    "min": "uglifyjs is.js -m --comments \"/^!/\" -o is.min.js",
+    "min": "uglifyjs is-it-check.js -m --comments \"/^!/\" -o is-it-check.min.js",
     "test": "mocha --check-leaks -R dot",
     "test:phantom": "mocha-phantomjs -R dot test/index.html"
   },
@@ -26,7 +26,7 @@
     "uglify-js": "^3.15.3"
   },
   "files": [
-    "is.js",
-    "is.min.js"
+    "is-it-check.js",
+    "is-it-check.min.js"
   ]
 }

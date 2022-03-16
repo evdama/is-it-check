@@ -1,6 +1,6 @@
 {
-  "name": "is_js",
-  "main": "is.js",
+  "name": "is-it-check",
+  "main": "is-it-check.js",
   "ignore": [
     "bower_components",
     "node_modules",

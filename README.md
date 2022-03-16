@@ -1,4 +1,4 @@
-is.js
+is-it-check
 =====
 
 [![JS.ORG](https://img.shields.io/badge/js.org-is-ffb400.svg?style=flat-square)](http://js.org)
@@ -11,12 +11,12 @@ is.js
 
 Node.js:
 ```
-npm install is_js
+npm install is-it-check
 ```
 
 Bower:
 ```
-bower install is_js
+bower install is-it-check
 ```
 
 Build:
@@ -33,7 +33,7 @@ npm test
 Thanks for considering to contribute. Check [here](CONTRIBUTING.md)
 
 #### Contributors:
-Many thanks to our contributors: https://github.com/arasatasaygin/is.js/graphs/contributors
+Many thanks to our contributors: https://github.com/evdama/is-it-check/graphs/contributors
 
 Type checks
 ===========
