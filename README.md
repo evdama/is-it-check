@@ -2,6 +2,10 @@ is-it-check
 =====
 #### A general purpose check library
 
+
+![image](https://user-images.githubusercontent.com/39374084/158694685-67fbc155-ea23-4b37-837d-850f1ac2fa10.png)
+
+
 ... for runtime checks of js & ts apps
 
 ... because more often than not, static typechecking with typescript for compiletime checks is not enough 🤗
