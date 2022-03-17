@@ -50,12 +50,13 @@ is.all.macAddress(null, '255.255.255.255', 4, 'a4:11:e2:67:89:1f'))  // false
 
 
 // useful for runtime checks such as validating data from external sources
-const clientIPAddress = getClientIP( // from your hosting platform, nodejs, etc. )
+const clientIPAddress = getClientIP() // from your hosting platform, nodejs, etc.
 
 if (ipv4(clientIPAddress)) {
-  // check IP address provider for infos regarding this IP address e.g. country for geolocation services in your app
+  // all good, we have a valid IPv4 address... 👍
+  // let's check with an IP address provider's API for infos regarding this IP e.g. country for geolocation services in your app
 } else {
-  // no valid IP address, drop request
+  // no valid IP address
 }
 ```
 -----------------------
