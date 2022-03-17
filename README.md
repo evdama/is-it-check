@@ -38,7 +38,27 @@ Test:
 npm test
 ```
 -----------------------
+then use like any other library in your js or ts code...
 
+```javascript
+import is from 'is-it-check'
+
+is.ipv4('198.12.3.142') // true
+is.array(['foo', 'bar', 'baz']) // true
+is.macAddress('01:23:45:67:89:ab')  // true
+is.all.macAddress(null, '255.255.255.255', 4, 'a4:11:e2:67:89:1f'))  // false
+
+
+// useful for runtime checks such as validating data from external sources
+const clientIPAddress = getClientIP( // from your hosting platform, nodejs, etc. )
+
+if (ipv4(clientIPAddress)) {
+  // check IP address provider for infos regarding this IP address e.g. country for geolocation services in your app
+} else {
+  // no valid IP address, drop request
+}
+```
+-----------------------
 
 Type checks
 ===========
