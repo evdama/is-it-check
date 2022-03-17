@@ -6,7 +6,7 @@ is-it-check
   <img width="110" height="110" src=https://user-images.githubusercontent.com/39374084/158694685-67fbc155-ea23-4b37-837d-850f1ac2fa10.png />
 </p>
 
-... for runtime checks of js & ts apps    
+... for runtime checks of js & ts apps
 ... because more often than not, static typechecking with typescript for compiletime checks is not enough 🤗
 
 <ul>
@@ -1091,6 +1091,29 @@ is.any.ipv6('255.255.255.255', '2001:DB8:0:0:1::1');
 // 'all' and 'any' interfaces can also take array parameter
 is.all.ipv6(['2001:DB8:0:0:1::1', '1.2.3']);
 => false
+```
+
+is.macAddress(value:any)
+-------------------------
+#### Checks if the given value matches macAddress regexp
+interfaces: not, all, any
+
+```javascript
+is.macAddress('01:23:45:67:89:ab');
+=> true
+
+is.not.macAddress('01:23:45:67:89:ab:21');
+=> true
+
+is.all.macAddress('01:23:45:67:89:ab', 'a4:11:e2:67:89:1f');
+=> true
+
+is.any.macAddress(null, '255.255.255.255', 4, 'a4:11:e2:67:89:1f');
+=> true
+
+// 'all' and 'any' interfaces can also take array parameter
+is.any.macAddress(['2001:DB8:0:0:1::1', '01:23:45:67:89:ab']);
+=> true
 ```
 
 String checks

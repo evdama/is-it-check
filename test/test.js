@@ -705,7 +705,19 @@
             });
         });
         checkApi('ipv6');
+
+        describe("is.macAddress", function() {
+            it("should return true if given value is a MAC address", function() {
+                expect(is.macAddress('01:23:45:67:89:ab')).to.be.true;
+            });
+            it("should return false if given value is not a MAC address", function() {
+                expect(is.macAddress('0123456789ab')).to.be.false;
+            });
+        });
+        checkApi('macAddress');
     });
+
+
 
     describe('string checks', function() {
         describe('is.include', function() {
