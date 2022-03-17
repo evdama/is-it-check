@@ -1,9 +1,9 @@
 {
   "name": "is-it-check",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "main": "is-it-check.js",
   "license": "MIT",
-  "description": "micro check library",
+  "description": "Tiny & fast runtime check library for js and ts",
   "homepage": "https://github.com/evdama/is-it-check",
   "repository": "evdama/is-it-check",
   "scripts": {
