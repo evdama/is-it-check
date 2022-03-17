@@ -711,11 +711,13 @@
         if (is.not.array(array)) {
             return false
         }
-        const predicate = comparator[sign] || comparator['>=']
-        for (let i = 1; i < array.length; i++) {
-            if (!predicate(array[i], array[i - 1])) {
-                return false
-            }
+
+        const predicate = comparator[ sign ] || comparator[ '>=' ]
+
+        for ( const [ i, v ] of array.entries() ) {
+          if (i >= 1 && !predicate(array[i], array[i-1])) {
+            return false
+          }
         }
         return true
     }
