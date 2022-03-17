@@ -3,7 +3,7 @@
   "version": "0.9.6",
   "main": "is-it-check.js",
   "license": "MIT",
-  "description": "Tiny & fast runtime check library for js and ts.",
+  "description": "A tiny general purpose runtime check library for js and ts.",
   "homepage": "https://github.com/evdama/is-it-check",
   "repository": "evdama/is-it-check",
   "scripts": {
