@@ -45,11 +45,10 @@
     // helper function which call predicate function per parameter and return true if all pass
     const all = func => (...args) => {
         const params = getParams(args)
-        const length = params.length
-        for (let i = 0; i < length; i++) {
-            if (!func.call(null, params[i])) {
-                return false
-            }
+        for (const param of params) {
+          if (!func.call(null, param)) {
+              return false
+          }
         }
         return true
     }
@@ -57,11 +56,10 @@
     // helper function which call predicate function per parameter and return true if any pass
     const any = func => (...args) => {
         const params = getParams(args)
-        const length = params.length
-        for (let i = 0; i < length; i++) {
-            if (func.call(null, params[i])) {
-                return true
-            }
+        for (const param of params) {
+          if (func.call(null, param)) {
+              return true
+          }
         }
         return false
     }
@@ -340,14 +338,9 @@
         if (is.not.string(string)) {
             return false
         }
-        string = string.replace(/[^a-zA-Z0-9]+/g, '').toLowerCase()
-        const length = string.length - 1
-        for (let i = 0, half = Math.floor(length / 2); i <= half; i++) {
-            if (string.charAt(i) !== string.charAt(length - i)) {
-                return false
-            }
-        }
-        return true
+        string = string.replace( /[^a-zA-Z0-9]+/g, '' ).toLowerCase()
+        // https://itnext.io/11-way-to-check-for-palindromes-in-javascript-85dbfe7dfb5d
+        return string.split('').every((c, i) => c === string[string.length - 1 - i])
     }
 
     // is a given value space?
@@ -708,12 +701,7 @@
         if (is.not.array(array)) {
             return false
         }
-        for (let i = 0; i < array.length; i++) {
-            if (array[i] === value) {
-                return true
-            }
-        }
-        return false
+        return array.includes(value)
     }
     // inArray method does not support 'all' and 'any' interfaces
     is.inArray.api = ['not']
@@ -742,14 +730,14 @@
         for (const option in options) {
             if (hasOwnProperty.call(options, option) && is['function'](options[option])) {
                 const interfaces = options[option].api || ['not', 'all', 'any']
-                for (let i = 0; i < interfaces.length; i++) {
-                    if (interfaces[i] === 'not') {
+                for (const item of interfaces) {
+                    if (item === 'not') {
                         is.not[option] = not(is[option])
                     }
-                    if (interfaces[i] === 'all') {
+                    if (item === 'all') {
                         is.all[option] = all(is[option])
                     }
-                    if (interfaces[i] === 'any') {
+                    if (item === 'any') {
                         is.any[option] = any(is[option])
                     }
                 }
