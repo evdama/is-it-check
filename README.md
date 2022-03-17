@@ -43,13 +43,14 @@ then use like any other library in your js or ts code...
 ```javascript
 import is from 'is-it-check'
 
+
 is.ipv4('198.12.3.142') // true
 is.array(['foo', 'bar', 'baz']) // true
 is.macAddress('01:23:45:67:89:ab')  // true
 is.all.macAddress(null, '255.255.255.255', 4, 'a4:11:e2:67:89:1f'))  // false
 
 
-// useful for runtime checks such as validating data from external sources
+// useful for runtime checks such as validating data from external sources; we do this in addition to static type-checking with Typescript
 const clientIPAddress = getClientIP() // from your hosting platform, nodejs, etc.
 
 if (ipv4(clientIPAddress)) {
