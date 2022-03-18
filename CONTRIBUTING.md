@@ -6,7 +6,7 @@ Thanks for considering to contribute is-it-check
 
 - Please don’t re-build minified library on your pull request.
 - Be sure you’ve added tests if you are sending a new feature.
-- I’ll take care of the documentation and github page.
+- Add documentation to README.md e.g. in case of API changes (new/altered checks).
 
 Cheers.
 
