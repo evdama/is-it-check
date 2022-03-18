@@ -8,7 +8,7 @@ is-it-check
 
 <p>
   <div>... for runtime checks of js & ts apps</div>
-  <div>... because more often than not, static typechecking with typescript for compiletime checks is not enough 🤗,.</div>
+  <div>... because more often than not, static typechecking with typescript for compiletime checks is not enough 🤗</div>
 </p>
 
 <ul>
