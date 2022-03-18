@@ -1,11 +1,11 @@
+<p align="right">
+  <img src=https://badgen.net/npm/v/is-it-check />
+  <img src=https://badgen.net/npm/license/is-it-check />
+</p>
+
 is-it-check
 =====
 #### A tiny general purpose check library
-
-<p>
-  <img align="right" src=https://badgen.net/npm/v/is-it-check />
-  <img align="right" src=https://badgen.net/npm/license/is-it-check />
-</p>
 
 <p align="center">
   <img width="110" height="110" src=https://user-images.githubusercontent.com/39374084/158694685-67fbc155-ea23-4b37-837d-850f1ac2fa10.png />
