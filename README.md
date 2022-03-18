@@ -79,10 +79,10 @@ is.arguments(value:any)
 interfaces: not, all, any
 
 ```javascript
-var getArguments = function() {
+const getArguments = function() {
     return arguments;
 };
-var arguments = getArguments();
+const arguments = getArguments();
 
 is.arguments(arguments);
 => true
@@ -176,7 +176,7 @@ is.domNode(value:any)
 interfaces: not, all, any
 
 ```javascript
-var obj = document.createElement('div');
+const obj = document.createElement('div');
 is.domNode(obj);
 => true
 
@@ -2109,11 +2109,11 @@ is.today(value:date)
 interfaces: not, all, any
 
 ```javascript
-var today = new Date();
+const today = new Date();
 is.today(today);
 => true
 
-var yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
+const yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
 is.today(yesterday);
 => false
 
@@ -2137,11 +2137,11 @@ is.yesterday(value:date)
 interfaces: not, all, any
 
 ```javascript
-var today = new Date();
+const today = new Date();
 is.yesterday(today);
 => false
 
-var yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
+const yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
 is.yesterday(yesterday);
 => true
 
@@ -2165,11 +2165,11 @@ is.tomorrow(value:date)
 interfaces: not, all, any
 
 ```javascript
-var today = new Date();
+const today = new Date();
 is.tomorrow(today);
 => false
 
-var tomorrow = new Date(new Date().setDate(new Date().getDate() + 1));
+const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1));
 is.tomorrow(tomorrow);
 => true
 
@@ -2193,8 +2193,8 @@ is.past(value:date)
 interfaces: not, all, any
 
 ```javascript
-var yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
-var tomorrow = new Date(new Date().setDate(new Date().getDate() + 1));
+const yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
+const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1));
 
 is.past(yesterday);
 => true
@@ -2222,8 +2222,8 @@ is.future(value:date)
 interfaces: not, all, any
 
 ```javascript
-var yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
-var tomorrow = new Date(new Date().setDate(new Date().getDate() + 1));
+const yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
+const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1));
 
 is.future(yesterday);
 => false
@@ -2251,8 +2251,8 @@ is.day(value:date, day:string)
 interface: not
 
 ```javascript
-var mondayObj = new Date('01/26/2015');
-var tuesdayObj = new Date('01/27/2015');
+const mondayObj = new Date('01/26/2015');
+const tuesdayObj = new Date('01/27/2015');
 is.day(mondayObj, 'monday');
 => true
 
@@ -2269,8 +2269,8 @@ is.month(value:date, month:string)
 interface: not
 
 ```javascript
-var januaryObj = new Date('01/26/2015');
-var februaryObj = new Date('02/26/2015');
+const januaryObj = new Date('01/26/2015');
+const februaryObj = new Date('02/26/2015');
 is.month(januaryObj, 'january');
 => true
 
@@ -2287,8 +2287,8 @@ is.year(value:date, year:number)
 interface: not
 
 ```javascript
-var year2015 = new Date('01/26/2015');
-var year2016 = new Date('01/26/2016');
+const year2015 = new Date('01/26/2015');
+const year2016 = new Date('01/26/2016');
 is.year(year2015, 2015);
 => true
 
@@ -2331,9 +2331,9 @@ is.weekend(value:date)
 interfaces: not, all, any
 
 ```javascript
-var monday = new Date('01/26/2015');
-var sunday = new Date('01/25/2015');
-var saturday = new Date('01/24/2015');
+const monday = new Date('01/26/2015');
+const sunday = new Date('01/25/2015');
+const saturday = new Date('01/24/2015');
 is.weekend(sunday);
 => true
 
@@ -2360,9 +2360,9 @@ is.weekday(value:date)
 interfaces: not, all, any
 
 ```javascript
-var monday = new Date('01/26/2015');
-var sunday = new Date('01/25/2015');
-var saturday = new Date('01/24/2015');
+const monday = new Date('01/26/2015');
+const sunday = new Date('01/25/2015');
+const saturday = new Date('01/24/2015');
 is.weekday(monday);
 => true
 
@@ -2389,9 +2389,9 @@ is.inDateRange(value:date, start:date, end:date)
 interface: not
 
 ```javascript
-var saturday = new Date('01/24/2015');
-var sunday = new Date('01/25/2015');
-var monday = new Date('01/26/2015');
+const saturday = new Date('01/24/2015');
+const sunday = new Date('01/25/2015');
+const monday = new Date('01/26/2015');
 is.inDateRange(sunday, saturday, monday);
 => true
 
@@ -2408,8 +2408,8 @@ is.inLastWeek(value:date)
 interface: not
 
 ```javascript
-var twoDaysAgo = new Date(new Date().setDate(new Date().getDate() - 2));
-var nineDaysAgo = new Date(new Date().setDate(new Date().getDate() - 9));
+const twoDaysAgo = new Date(new Date().setDate(new Date().getDate() - 2));
+const nineDaysAgo = new Date(new Date().setDate(new Date().getDate() - 9));
 is.inLastWeek(twoDaysAgo);
 => true
 
@@ -2426,8 +2426,8 @@ is.inLastMonth(value:date)
 interface: not
 
 ```javascript
-var tenDaysAgo = new Date(new Date().setDate(new Date().getDate() - 10));
-var fortyDaysAgo = new Date(new Date().setDate(new Date().getDate() - 40));
+const tenDaysAgo = new Date(new Date().setDate(new Date().getDate() - 10));
+const fortyDaysAgo = new Date(new Date().setDate(new Date().getDate() - 40));
 is.inLastMonth(tenDaysAgo);
 => true
 
@@ -2444,8 +2444,8 @@ is.inLastYear(value:date)
 interface: not
 
 ```javascript
-var twoMonthsAgo = new Date(new Date().setMonth(new Date().getMonth() - 2));
-var thirteenMonthsAgo = new Date(new Date().setMonth(new Date().getMonth() - 13));
+const twoMonthsAgo = new Date(new Date().setMonth(new Date().getMonth() - 2));
+const thirteenMonthsAgo = new Date(new Date().setMonth(new Date().getMonth() - 13));
 is.inLastYear(twoMonthsAgo);
 => true
 
@@ -2462,8 +2462,8 @@ is.inNextWeek(value:date)
 interface: not
 
 ```javascript
-var twoDaysLater = new Date(new Date().setDate(new Date().getDate() + 2));
-var nineDaysLater = new Date(new Date().setDate(new Date().getDate() + 9));
+const twoDaysLater = new Date(new Date().setDate(new Date().getDate() + 2));
+const nineDaysLater = new Date(new Date().setDate(new Date().getDate() + 9));
 is.inNextWeek(twoDaysLater);
 => true
 
@@ -2480,8 +2480,8 @@ is.inNextMonth(value:date)
 interface: not
 
 ```javascript
-var tenDaysLater = new Date(new Date().setDate(new Date().getDate() + 10));
-var fortyDaysLater = new Date(new Date().setDate(new Date().getDate() + 40));
+const tenDaysLater = new Date(new Date().setDate(new Date().getDate() + 10));
+const fortyDaysLater = new Date(new Date().setDate(new Date().getDate() + 40));
 is.inNextMonth(tenDaysLater);
 => true
 
@@ -2498,8 +2498,8 @@ is.inNextYear(value:date)
 interface: not
 
 ```javascript
-var twoMonthsLater = new Date(new Date().setMonth(new Date().getMonth() + 2));
-var thirteenMonthsLater = new Date(new Date().setMonth(new Date().getMonth() + 13));
+const twoMonthsLater = new Date(new Date().setMonth(new Date().getMonth() + 2));
+const thirteenMonthsLater = new Date(new Date().setMonth(new Date().getMonth() + 13));
 is.inNextYear(twoMonthsLater);
 => true
 
@@ -2516,8 +2516,8 @@ is.quarterOfYear(value:date, quarter:number)
 interface: not
 
 ```javascript
-var firstQuarter = new Date('01/26/2015');
-var secondQuarter = new Date('05/26/2015');
+const firstQuarter = new Date('01/26/2015');
+const secondQuarter = new Date('05/26/2015');
 is.quarterOfYear(firstQuarter, 1);
 => true
 
@@ -2535,8 +2535,8 @@ interface: not
 
 ```javascript
 // For Turkey Time Zone
-var january1 = new Date('01/01/2015');
-var june1 = new Date('06/01/2015');
+const january1 = new Date('01/01/2015');
+const june1 = new Date('06/01/2015');
 
 is.dayLightSavingTime(june1);
 => true
@@ -2556,7 +2556,7 @@ is.setNamespace()
 Change namespace of library to prevent name collisions.
 
 ```javascript
-var customName = is.setNamespace();
+const customName = is.setNamespace();
 customName.odd(3);
 => true
 ```
