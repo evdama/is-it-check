@@ -522,7 +522,7 @@
     // is current browser edge?
     // parameter is optional
     is.edge = range => {
-        const match = userAgent.match(/edge\/(\d+)/)
+        const match = userAgent.match(/edg(e|a|ios)?\/(\d+)/)
         return match !== null && compareVersion(match[1], range)
     }
     // edge method does not support 'all' and 'any' interfaces
