@@ -61,8 +61,8 @@ is.all.macAddress(null, '255.255.255.255', 4, 'a4:11:e2:67:89:1f'))  // false
 // - We do this in addition to static type-checking with Typescript during compiletime.
 const clientIPAddress = getClientIP() // from your hosting platform, nodejs, etc.
 
-if (ipv4(clientIPAddress)) {
-  // all good, we have a valid IPv4 address... 👍
+if (is.ip(clientIPAddress)) {
+  // all good, we have a valid IP address... 👍
   // let's check with an IP address provider's API e.g. country of this IP for geolocation services in our app
 } else {
   // no valid IP address
