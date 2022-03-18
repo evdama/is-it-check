@@ -38,7 +38,7 @@ Test:
 npm test
 ```
 -----------------------
-then use like any other library in your js or ts code...
+Use like any other library in your js or ts code...
 
 ```javascript
 import is from 'is-it-check'
@@ -50,8 +50,8 @@ is.macAddress('01:23:45:67:89:ab')  // true
 is.all.macAddress(null, '255.255.255.255', 4, 'a4:11:e2:67:89:1f'))  // false
 
 
-// useful for runtime checks such as validating data from external sources
-// we do this in addition to static type-checking with Typescript
+// - Useful for runtime checks such as e.g. validating data from external sources.
+// - We do this in addition to static type-checking with Typescript.
 const clientIPAddress = getClientIP() // from your hosting platform, nodejs, etc.
 
 if (ipv4(clientIPAddress)) {
