@@ -82,22 +82,22 @@ interfaces: not, all, any
 const getArguments = () => {
     return arguments;
 };
-const arguments = getArguments();
+const arguments = getArguments()
 
-is.arguments(arguments);
+is.arguments(arguments)
 => true
 
-is.not.arguments({foo: 'bar'});
+is.not.arguments({foo: 'bar'})
 => true
 
-is.all.arguments(arguments, 'bar');
+is.all.arguments(arguments, 'bar')
 => false
 
-is.any.arguments(['foo'], arguments);
+is.any.arguments(['foo'], arguments)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.arguments([arguments, 'foo', 'bar']);
+is.all.arguments([arguments, 'foo', 'bar'])
 => false
 ```
 
@@ -107,20 +107,20 @@ is.array(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.array(['foo', 'bar', 'baz']);
+is.array(['foo', 'bar', 'baz'])
 => true
 
-is.not.array({foo: 'bar'});
+is.not.array({foo: 'bar'})
 => true
 
-is.all.array(['foo'], 'bar');
+is.all.array(['foo'], 'bar')
 => false
 
-is.any.array(['foo'], 'bar');
+is.any.array(['foo'], 'bar')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.array([[1, 2], 'foo', 'bar']);
+is.all.array([[1, 2], 'foo', 'bar'])
 => false
 ```
 
@@ -130,20 +130,20 @@ is.boolean(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.boolean(true);
+is.boolean(true)
 => true
 
-is.not.boolean({foo: 'bar'});
+is.not.boolean({foo: 'bar'})
 => true
 
-is.all.boolean(true, 'bar');
+is.all.boolean(true, 'bar')
 => false
 
-is.any.boolean(true, 'bar');
+is.any.boolean(true, 'bar')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.boolean([true, 'foo', 'bar']);
+is.all.boolean([true, 'foo', 'bar'])
 => false
 ```
 
@@ -153,20 +153,20 @@ is.date(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.date(new Date());
+is.date(new Date())
 => true
 
-is.not.date({foo: 'bar'});
+is.not.date({foo: 'bar'})
 => true
 
-is.all.date(new Date(), 'bar');
+is.all.date(new Date(), 'bar')
 => false
 
-is.any.date(new Date(), 'bar');
+is.any.date(new Date(), 'bar')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.date([new Date(), 'foo', 'bar']);
+is.all.date([new Date(), 'foo', 'bar'])
 => false
 ```
 
@@ -176,24 +176,24 @@ is.domNode(value:any)
 interfaces: not, all, any
 
 ```javascript
-const obj = document.createElement('div');
-is.domNode(obj);
+const obj = document.createElement('div')
+is.domNode(obj)
 => true
 
-is.domNode({nope: 'nope'});
+is.domNode({nope: 'nope'})
 => false
 
-is.not.domNode({});
+is.not.domNode({})
 => true
 
-is.all.domNode(obj, obj);
+is.all.domNode(obj, obj)
 => true
 
-is.any.domNode(obj, {nope: 'nope'});
+is.any.domNode(obj, {nope: 'nope'})
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.domNode([obj, {nope: 'nope'}]);
+is.all.domNode([obj, {nope: 'nope'}])
 => false
 ```
 
@@ -203,20 +203,20 @@ is.error(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.error(new Error());
+is.error(new Error())
 => true
 
-is.not.error({foo: 'bar'});
+is.not.error({foo: 'bar'})
 => true
 
-is.all.error(new Error(), 'bar');
+is.all.error(new Error(), 'bar')
 => false
 
-is.any.error(new Error(), 'bar');
+is.any.error(new Error(), 'bar')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.error([new Error(), 'foo', 'bar']);
+is.all.error([new Error(), 'foo', 'bar'])
 => false
 ```
 
@@ -226,20 +226,20 @@ is.function(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.function(toString);
+is.function(toString)
 => true
 
-is.not.function({foo: 'bar'});
+is.not.function({foo: 'bar'})
 => true
 
-is.all.function(toString, 'bar');
+is.all.function(toString, 'bar')
 => false
 
-is.any.function(toString, 'bar');
+is.any.function(toString, 'bar')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.function([toString, 'foo', 'bar']);
+is.all.function([toString, 'foo', 'bar'])
 => false
 ```
 
@@ -249,20 +249,20 @@ is.nan(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.nan(NaN);
+is.nan(NaN)
 => true
 
-is.not.nan(42);
+is.not.nan(42)
 => true
 
-is.all.nan(NaN, 1);
+is.all.nan(NaN, 1)
 => false
 
-is.any.nan(NaN, 2);
+is.any.nan(NaN, 2)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.nan([NaN, 'foo', 1]);
+is.all.nan([NaN, 'foo', 1])
 => false
 ```
 
@@ -272,20 +272,20 @@ is.null(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.null(null);
+is.null(null)
 => true
 
-is.not.null(42);
+is.not.null(42)
 => true
 
-is.all.null(null, 1);
+is.all.null(null, 1)
 => false
 
-is.any.null(null, 2);
+is.any.null(null, 2)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.null([null, 'foo', 1]);
+is.all.null([null, 'foo', 1])
 => false
 ```
 
@@ -295,23 +295,23 @@ is.number(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.number(42);
+is.number(42)
 => true
 
-is.number(NaN);
+is.number(NaN)
 => false
 
-is.not.number('42');
+is.not.number('42')
 => true
 
-is.all.number('foo', 1);
+is.all.number('foo', 1)
 => false
 
-is.any.number({}, 2);
+is.any.number({}, 2)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.number([42, 'foo', 1]);
+is.all.number([42, 'foo', 1])
 => false
 ```
 
@@ -321,24 +321,24 @@ is.object(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.object({foo: 'bar'});
+is.object({foo: 'bar'})
 => true
 
 // functions are also returning as true
-is.object(toString);
+is.object(toString)
 => true
 
-is.not.object('foo');
+is.not.object('foo')
 => true
 
-is.all.object({}, 1);
+is.all.object({}, 1)
 => false
 
-is.any.object({}, 2);
+is.any.object({}, 2)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.object([{}, new Object()]);
+is.all.object([{}, new Object()])
 => true
 ```
 
@@ -348,24 +348,24 @@ is.json(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.json({foo: 'bar'});
+is.json({foo: 'bar'})
 => true
 
 // functions are returning as false
-is.json(toString);
+is.json(toString)
 => false
 
-is.not.json([]);
+is.not.json([])
 => true
 
-is.all.json({}, 1);
+is.all.json({}, 1)
 => false
 
-is.any.json({}, 2);
+is.any.json({}, 2)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.json([{}, {foo: 'bar'}]);
+is.all.json([{}, {foo: 'bar'}])
 => true
 ```
 
@@ -375,20 +375,20 @@ is.regexp(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.regexp(/test/);
+is.regexp(/test/)
 => true
 
-is.not.regexp(['foo']);
+is.not.regexp(['foo'])
 => true
 
-is.all.regexp(/test/, 1);
+is.all.regexp(/test/, 1)
 => false
 
-is.any.regexp(new RegExp('ab+c'), 2);
+is.any.regexp(new RegExp('ab+c'), 2)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.regexp([{}, /test/]);
+is.all.regexp([{}, /test/])
 => false
 ```
 
@@ -398,20 +398,20 @@ is.string(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.string('foo');
+is.string('foo')
 => true
 
-is.not.string(['foo']);
+is.not.string(['foo'])
 => true
 
-is.all.string('foo', 1);
+is.all.string('foo', 1)
 => false
 
-is.any.string('foo', 2);
+is.any.string('foo', 2)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.string([{}, 'foo']);
+is.all.string([{}, 'foo'])
 => false
 ```
 
@@ -421,20 +421,20 @@ is.char(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.char('f');
+is.char('f')
 => true
 
-is.not.char(['foo']);
+is.not.char(['foo'])
 => true
 
-is.all.char('f', 1);
+is.all.char('f', 1)
 => false
 
-is.any.char('f', 2);
+is.any.char('f', 2)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.char(['f', 'o', 'o']);
+is.all.char(['f', 'o', 'o'])
 => true
 ```
 
@@ -444,20 +444,20 @@ is.undefined(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.undefined(undefined);
+is.undefined(undefined)
 => true
 
-is.not.undefined(null);
+is.not.undefined(null)
 => true
 
-is.all.undefined(undefined, 1);
+is.all.undefined(undefined, 1)
 => false
 
-is.any.undefined(undefined, 2);
+is.any.undefined(undefined, 2)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.undefined([{}, undefined]);
+is.all.undefined([{}, undefined])
 => false
 ```
 
@@ -467,13 +467,13 @@ is.sameType(value:any, other:any)
 interface: not
 
 ```javascript
-is.sameType(42, 7);
+is.sameType(42, 7)
 => true
 
-is.sameType(42, '7');
+is.sameType(42, '7')
 => false
 
-is.not.sameType(42, 7);
+is.not.sameType(42, 7)
 => false
 ```
 
@@ -483,23 +483,23 @@ is.windowObject(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.windowObject(window);
+is.windowObject(window)
 => true
 
-is.windowObject({nope: 'nope'});
+is.windowObject({nope: 'nope'})
 => false
 
-is.not.windowObject({});
+is.not.windowObject({})
 => true
 
-is.all.windowObject(window, {nope: 'nope'});
+is.all.windowObject(window, {nope: 'nope'})
 => false
 
-is.any.windowObject(window, {nope: 'nope'});
+is.any.windowObject(window, {nope: 'nope'})
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.windowObject([window, {nope: 'nope'}]);
+is.all.windowObject([window, {nope: 'nope'}])
 => false
 ```
 
@@ -512,26 +512,26 @@ is.empty(value:array|object|string)
 interfaces: not, all, any
 
 ```javascript
-is.empty({});
+is.empty({})
 => true
 
-is.empty([]);
+is.empty([])
 => true
 
-is.empty('');
+is.empty('')
 => true
 
-is.not.empty(['foo']);
+is.not.empty(['foo'])
 => true
 
-is.all.empty('', {}, ['foo']);
+is.all.empty('', {}, ['foo'])
 => false
 
-is.any.empty([], 42);
+is.any.empty([], 42)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.empty([{}, 'foo']);
+is.all.empty([{}, 'foo'])
 => false
 ```
 
@@ -541,23 +541,23 @@ is.existy(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.existy({});
+is.existy({})
 => true
 
-is.existy(null);
+is.existy(null)
 => false
 
-is.not.existy(undefined);
+is.not.existy(undefined)
 => true
 
-is.all.existy(null, ['foo']);
+is.all.existy(null, ['foo'])
 => false
 
-is.any.existy(undefined, 42);
+is.any.existy(undefined, 42)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.existy([{}, 'foo']);
+is.all.existy([{}, 'foo'])
 => true
 ```
 
@@ -567,23 +567,23 @@ is.truthy(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.truthy(true);
+is.truthy(true)
 => true
 
-is.truthy(null);
+is.truthy(null)
 => false
 
-is.not.truthy(false);
+is.not.truthy(false)
 => true
 
-is.all.truthy(null, true);
+is.all.truthy(null, true)
 => false
 
-is.any.truthy(undefined, true);
+is.any.truthy(undefined, true)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.truthy([{}, true]);
+is.all.truthy([{}, true])
 => true
 ```
 
@@ -593,23 +593,23 @@ is.falsy(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.falsy(false);
+is.falsy(false)
 => true
 
-is.falsy(null);
+is.falsy(null)
 => true
 
-is.not.falsy(true);
+is.not.falsy(true)
 => true
 
-is.all.falsy(null, false);
+is.all.falsy(null, false)
 => true
 
-is.any.falsy(undefined, true);
+is.any.falsy(undefined, true)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.falsy([false, true, undefined]);
+is.all.falsy([false, true, undefined])
 => false
 ```
 
@@ -619,23 +619,23 @@ is.space(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.space(' ');
+is.space(' ')
 => true
 
-is.space('foo');
+is.space('foo')
 => false
 
-is.not.space(true);
+is.not.space(true)
 => true
 
-is.all.space(' ', 'foo');
+is.all.space(' ', 'foo')
 => false
 
-is.any.space(' ', true);
+is.any.space(' ', true)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.space([' ', 'foo', undefined]);
+is.all.space([' ', 'foo', undefined])
 => false
 ```
 
@@ -648,23 +648,23 @@ is.url(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.url('http://www.test.com');
+is.url('http://www.test.com')
 => true
 
-is.url('foo');
+is.url('foo')
 => false
 
-is.not.url(true);
+is.not.url(true)
 => true
 
-is.all.url('http://www.test.com', 'foo');
+is.all.url('http://www.test.com', 'foo')
 => false
 
-is.any.url('http://www.test.com', true);
+is.any.url('http://www.test.com', true)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.url(['http://www.test.com', 'foo', undefined]);
+is.all.url(['http://www.test.com', 'foo', undefined])
 => false
 ```
 
@@ -674,23 +674,23 @@ is.email(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.email('test@test.com');
+is.email('test@test.com')
 => true
 
-is.email('foo');
+is.email('foo')
 => false
 
-is.not.email('foo');
+is.not.email('foo')
 => true
 
-is.all.email('test@test.com', 'foo');
+is.all.email('test@test.com', 'foo')
 => false
 
-is.any.email('test@test.com', 'foo');
+is.any.email('test@test.com', 'foo')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.email(['test@test.com', 'foo', undefined]);
+is.all.email(['test@test.com', 'foo', undefined])
 => false
 ```
 
@@ -700,23 +700,23 @@ is.creditCard(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.creditCard(378282246310005);
+is.creditCard(378282246310005)
 => true
 
-is.creditCard(123);
+is.creditCard(123)
 => false
 
-is.not.creditCard(123);
+is.not.creditCard(123)
 => true
 
-is.all.creditCard(378282246310005, 123);
+is.all.creditCard(378282246310005, 123)
 => false
 
-is.any.creditCard(378282246310005, 123);
+is.any.creditCard(378282246310005, 123)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.creditCard([378282246310005, 123, undefined]);
+is.all.creditCard([378282246310005, 123, undefined])
 => false
 ```
 
@@ -726,23 +726,23 @@ is.alphaNumeric(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.alphaNumeric('alphaNu3er1k');
+is.alphaNumeric('alphaNu3er1k')
 => true
 
-is.alphaNumeric('*?');
+is.alphaNumeric('*?')
 => false
 
-is.not.alphaNumeric('*?');
+is.not.alphaNumeric('*?')
 => true
 
-is.all.alphaNumeric('alphaNu3er1k', '*?');
+is.all.alphaNumeric('alphaNu3er1k', '*?')
 => false
 
-is.any.alphaNumeric('alphaNu3er1k', '*?');
+is.any.alphaNumeric('alphaNu3er1k', '*?')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.alphaNumeric(['alphaNu3er1k', '*?']);
+is.all.alphaNumeric(['alphaNu3er1k', '*?'])
 => false
 ```
 
@@ -752,23 +752,23 @@ is.timeString(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.timeString('13:45:30');
+is.timeString('13:45:30')
 => true
 
-is.timeString('90:90:90');
+is.timeString('90:90:90')
 => false
 
-is.not.timeString('90:90:90');
+is.not.timeString('90:90:90')
 => true
 
-is.all.timeString('13:45:30', '90:90:90');
+is.all.timeString('13:45:30', '90:90:90')
 => false
 
-is.any.timeString('13:45:30', '90:90:90');
+is.any.timeString('13:45:30', '90:90:90')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.timeString(['13:45:30', '90:90:90']);
+is.all.timeString(['13:45:30', '90:90:90'])
 => false
 ```
 
@@ -778,26 +778,26 @@ is.dateString(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.dateString('11/11/2011');
+is.dateString('11/11/2011')
 => true
 
-is.dateString('10-21-2012');
+is.dateString('10-21-2012')
 => true
 
-is.dateString('90/11/2011');
+is.dateString('90/11/2011')
 => false
 
-is.not.dateString('90/11/2011');
+is.not.dateString('90/11/2011')
 => true
 
-is.all.dateString('11/11/2011', '90/11/2011');
+is.all.dateString('11/11/2011', '90/11/2011')
 => false
 
-is.any.dateString('11-11-2011', '90/11/2011');
+is.any.dateString('11-11-2011', '90/11/2011')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.dateString(['11/11/2011', '90/11/2011']);
+is.all.dateString(['11/11/2011', '90/11/2011'])
 => false
 ```
 
@@ -807,23 +807,23 @@ is.usZipCode(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.usZipCode('02201-1020');
+is.usZipCode('02201-1020')
 => true
 
-is.usZipCode('123');
+is.usZipCode('123')
 => false
 
-is.not.usZipCode('123');
+is.not.usZipCode('123')
 => true
 
-is.all.usZipCode('02201-1020', '123');
+is.all.usZipCode('02201-1020', '123')
 => false
 
-is.any.usZipCode('02201-1020', '123');
+is.any.usZipCode('02201-1020', '123')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.usZipCode(['02201-1020', '123']);
+is.all.usZipCode(['02201-1020', '123'])
 => false
 ```
 
@@ -833,26 +833,26 @@ is.caPostalCode(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.caPostalCode('L8V3Y1');
+is.caPostalCode('L8V3Y1')
 => true
 
-is.caPostalCode('L8V 3Y1');
+is.caPostalCode('L8V 3Y1')
 => true
 
-is.caPostalCode('123');
+is.caPostalCode('123')
 => false
 
-is.not.caPostalCode('123');
+is.not.caPostalCode('123')
 => true
 
-is.all.caPostalCode('L8V3Y1', '123');
+is.all.caPostalCode('L8V3Y1', '123')
 => false
 
-is.any.caPostalCode('L8V3Y1', '123');
+is.any.caPostalCode('L8V3Y1', '123')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.caPostalCode(['L8V3Y1', '123']);
+is.all.caPostalCode(['L8V3Y1', '123'])
 => false
 ```
 
@@ -862,23 +862,23 @@ is.ukPostCode(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.ukPostCode('B184BJ');
+is.ukPostCode('B184BJ')
 => true
 
-is.ukPostCode('123');
+is.ukPostCode('123')
 => false
 
-is.not.ukPostCode('123');
+is.not.ukPostCode('123')
 => true
 
-is.all.ukPostCode('B184BJ', '123');
+is.all.ukPostCode('B184BJ', '123')
 => false
 
-is.any.ukPostCode('B184BJ', '123');
+is.any.ukPostCode('B184BJ', '123')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.ukPostCode(['B184BJ', '123']);
+is.all.ukPostCode(['B184BJ', '123'])
 => false
 ```
 
@@ -888,23 +888,23 @@ is.nanpPhone(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.nanpPhone('609-555-0175');
+is.nanpPhone('609-555-0175')
 => true
 
-is.nanpPhone('123');
+is.nanpPhone('123')
 => false
 
-is.not.nanpPhone('123');
+is.not.nanpPhone('123')
 => true
 
-is.all.nanpPhone('609-555-0175', '123');
+is.all.nanpPhone('609-555-0175', '123')
 => false
 
-is.any.nanpPhone('609-555-0175', '123');
+is.any.nanpPhone('609-555-0175', '123')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.nanpPhone(['609-555-0175', '123']);
+is.all.nanpPhone(['609-555-0175', '123'])
 => false
 ```
 
@@ -914,23 +914,23 @@ is.eppPhone(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.eppPhone('+90.2322456789');
+is.eppPhone('+90.2322456789')
 => true
 
-is.eppPhone('123');
+is.eppPhone('123')
 => false
 
-is.not.eppPhone('123');
+is.not.eppPhone('123')
 => true
 
-is.all.eppPhone('+90.2322456789', '123');
+is.all.eppPhone('+90.2322456789', '123')
 => false
 
-is.any.eppPhone('+90.2322456789', '123');
+is.any.eppPhone('+90.2322456789', '123')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.eppPhone(['+90.2322456789', '123']);
+is.all.eppPhone(['+90.2322456789', '123'])
 => false
 ```
 
@@ -940,26 +940,26 @@ is.socialSecurityNumber(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.socialSecurityNumber('017-90-7890');
+is.socialSecurityNumber('017-90-7890')
 => true
 
-is.socialSecurityNumber('017907890');
+is.socialSecurityNumber('017907890')
 => true
 
-is.socialSecurityNumber('123');
+is.socialSecurityNumber('123')
 => false
 
-is.not.socialSecurityNumber('123');
+is.not.socialSecurityNumber('123')
 => true
 
-is.all.socialSecurityNumber('017-90-7890', '123');
+is.all.socialSecurityNumber('017-90-7890', '123')
 => false
 
-is.any.socialSecurityNumber('017907890', '123');
+is.any.socialSecurityNumber('017907890', '123')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.socialSecurityNumber(['017-90-7890', '123']);
+is.all.socialSecurityNumber(['017-90-7890', '123'])
 => false
 ```
 
@@ -969,23 +969,23 @@ is.affirmative(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.affirmative('yes');
+is.affirmative('yes')
 => true
 
-is.affirmative('no');
+is.affirmative('no')
 => false
 
-is.not.affirmative('no');
+is.not.affirmative('no')
 => true
 
-is.all.affirmative('yes', 'no');
+is.all.affirmative('yes', 'no')
 => false
 
-is.any.affirmative('yes', 'no');
+is.any.affirmative('yes', 'no')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.affirmative(['yes', 'y', 'true', 't', 'ok', 'okay']);
+is.all.affirmative(['yes', 'y', 'true', 't', 'ok', 'okay'])
 => true
 ```
 
@@ -995,26 +995,26 @@ is.hexadecimal(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.hexadecimal('f0f0f0');
+is.hexadecimal('f0f0f0')
 => true
 
-is.hexadecimal('0xf0f0f0');
+is.hexadecimal('0xf0f0f0')
 => true
 
-is.hexadecimal(2.5);
+is.hexadecimal(2.5)
 => false
 
-is.not.hexadecimal('string');
+is.not.hexadecimal('string')
 => true
 
-is.all.hexadecimal('ff', 'f50');
+is.all.hexadecimal('ff', 'f50')
 => true
 
-is.any.hexadecimal('0xff5500', true);
+is.any.hexadecimal('0xff5500', true)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.hexadecimal(['fff', '333', 'f50']);
+is.all.hexadecimal(['fff', '333', 'f50'])
 => true
 ```
 
@@ -1024,23 +1024,23 @@ is.hexColor(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.hexColor('#333');
+is.hexColor('#333')
 => true
 
-is.hexColor('#3333');
+is.hexColor('#3333')
 => false
 
-is.not.hexColor(0.5);
+is.not.hexColor(0.5)
 => true
 
-is.all.hexColor('fff', 'f50');
+is.all.hexColor('fff', 'f50')
 => true
 
-is.any.hexColor('ff5500', 0.5);
+is.any.hexColor('ff5500', 0.5)
 => false
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.hexColor(['fff', '333', 'f50']);
+is.all.hexColor(['fff', '333', 'f50'])
 => true
 ```
 
@@ -1050,23 +1050,23 @@ is.ip(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.ip('198.156.23.5');
+is.ip('198.156.23.5')
 => true
 
-is.ip('1.2..5');
+is.ip('1.2..5')
 => false
 
-is.not.ip('8:::::::7');
+is.not.ip('8:::::::7')
 => true
 
-is.all.ip('0:1::4:ff5:54:987:C', '123.123.123.123');
+is.all.ip('0:1::4:ff5:54:987:C', '123.123.123.123')
 => true
 
-is.any.ip('123.8.4.3', '0.0.0.0');
+is.any.ip('123.8.4.3', '0.0.0.0')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.ip(['123.123.23.12', 'A:B:C:D:E:F:0:0']);
+is.all.ip(['123.123.23.12', 'A:B:C:D:E:F:0:0'])
 => true
 ```
 
@@ -1076,23 +1076,23 @@ is.ipv4(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.ipv4('198.12.3.142');
+is.ipv4('198.12.3.142')
 => true
 
-is.ipv4('1.2..5');
+is.ipv4('1.2..5')
 => false
 
-is.not.ipv4('8:::::::7');
+is.not.ipv4('8:::::::7')
 => true
 
-is.all.ipv4('198.12.3.142', '123.123.123.123');
+is.all.ipv4('198.12.3.142', '123.123.123.123')
 => true
 
-is.any.ipv4('255.255.255.255', '850..1.4');
+is.any.ipv4('255.255.255.255', '850..1.4')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.ipv4(['198.12.3.142', '1.2.3']);
+is.all.ipv4(['198.12.3.142', '1.2.3'])
 => false
 
 ```
@@ -1103,23 +1103,23 @@ is.ipv6(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.ipv6('2001:DB8:0:0:1::1');
+is.ipv6('2001:DB8:0:0:1::1')
 => true
 
-is.ipv6('985.12.3.4');
+is.ipv6('985.12.3.4')
 => true
 
-is.not.ipv6('8:::::::7');
+is.not.ipv6('8:::::::7')
 => true
 
-is.all.ipv6('2001:DB8:0:0:1::1', '1:50:198:2::1:2:8');
+is.all.ipv6('2001:DB8:0:0:1::1', '1:50:198:2::1:2:8')
 => true
 
-is.any.ipv6('255.255.255.255', '2001:DB8:0:0:1::1');
+is.any.ipv6('255.255.255.255', '2001:DB8:0:0:1::1')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.ipv6(['2001:DB8:0:0:1::1', '1.2.3']);
+is.all.ipv6(['2001:DB8:0:0:1::1', '1.2.3'])
 => false
 ```
 
@@ -1129,20 +1129,20 @@ is.macAddress(value:any)
 interfaces: not, all, any
 
 ```javascript
-is.macAddress('01:23:45:67:89:ab');
+is.macAddress('01:23:45:67:89:ab')
 => true
 
-is.not.macAddress('01:23:45:67:89:ab:21');
+is.not.macAddress('01:23:45:67:89:ab:21')
 => true
 
-is.all.macAddress('01:23:45:67:89:ab', 'a4:11:e2:67:89:1f');
+is.all.macAddress('01:23:45:67:89:ab', 'a4:11:e2:67:89:1f')
 => true
 
-is.any.macAddress(null, '255.255.255.255', 4, 'a4:11:e2:67:89:1f');
+is.any.macAddress(null, '255.255.255.255', 4, 'a4:11:e2:67:89:1f')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.any.macAddress(['2001:DB8:0:0:1::1', '01:23:45:67:89:ab']);
+is.any.macAddress(['2001:DB8:0:0:1::1', '01:23:45:67:89:ab'])
 => true
 ```
 
@@ -1155,13 +1155,13 @@ is.include(value:string, target:string)
 interface: not
 
 ```javascript
-is.include('Some text goes here', 'text');
+is.include('Some text goes here', 'text')
 => true
 
-is.include('test', 'text');
+is.include('test', 'text')
 => false
 
-is.not.include('test', 'text');
+is.not.include('test', 'text')
 => true
 ```
 
@@ -1171,23 +1171,23 @@ is.upperCase(value:string)
 interfaces: not, all, any
 
 ```javascript
-is.upperCase('YEAP');
+is.upperCase('YEAP')
 => true
 
-is.upperCase('nope');
+is.upperCase('nope')
 => false
 
-is.not.upperCase('Nope');
+is.not.upperCase('Nope')
 => true
 
-is.all.upperCase('YEAP', 'nope');
+is.all.upperCase('YEAP', 'nope')
 => false
 
-is.any.upperCase('YEAP', 'nope');
+is.any.upperCase('YEAP', 'nope')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.upperCase(['YEAP', 'ALL UPPERCASE']);
+is.all.upperCase(['YEAP', 'ALL UPPERCASE'])
 => true
 ```
 
@@ -1198,23 +1198,23 @@ is.lowerCase(value:string)
 interfaces: not, all, any
 
 ```javascript
-is.lowerCase('yeap');
+is.lowerCase('yeap')
 => true
 
-is.lowerCase('NOPE');
+is.lowerCase('NOPE')
 => false
 
-is.not.lowerCase('Nope');
+is.not.lowerCase('Nope')
 => true
 
-is.all.lowerCase('yeap', 'NOPE');
+is.all.lowerCase('yeap', 'NOPE')
 => false
 
-is.any.lowerCase('yeap', 'NOPE');
+is.any.lowerCase('yeap', 'NOPE')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.lowerCase(['yeap', 'all lowercase']);
+is.all.lowerCase(['yeap', 'all lowercase'])
 => true
 ```
 
@@ -1224,13 +1224,13 @@ is.startWith(value:string, target:string)
 interface: not
 
 ```javascript
-is.startWith('yeap', 'ye');
+is.startWith('yeap', 'ye')
 => true
 
-is.startWith('nope', 'ye');
+is.startWith('nope', 'ye')
 => false
 
-is.not.startWith('nope not that', 'not');
+is.not.startWith('nope not that', 'not')
 => true
 ```
 
@@ -1240,16 +1240,16 @@ is.endWith(value:string, target:string)
 interfaces: not
 
 ```javascript
-is.endWith('yeap', 'ap');
+is.endWith('yeap', 'ap')
 => true
 
-is.endWith('nope', 'no');
+is.endWith('nope', 'no')
 => false
 
-is.not.endWith('nope not that', 'not');
+is.not.endWith('nope not that', 'not')
 => true
 
-is.endWith('yeap that one', 'one');
+is.endWith('yeap that one', 'one')
 => true
 ```
 
@@ -1259,26 +1259,26 @@ is.capitalized(value:string)
 interfaces: not, all, any
 
 ```javascript
-is.capitalized('Yeap');
+is.capitalized('Yeap')
 => true
 
-is.capitalized('nope');
+is.capitalized('nope')
 => false
 
-is.not.capitalized('nope not capitalized');
+is.not.capitalized('nope not capitalized')
 => true
 
-is.not.capitalized('nope Capitalized');
+is.not.capitalized('nope Capitalized')
 => true
 
-is.all.capitalized('Yeap', 'All', 'Capitalized');
+is.all.capitalized('Yeap', 'All', 'Capitalized')
 => true
 
-is.any.capitalized('Yeap', 'some', 'Capitalized');
+is.any.capitalized('Yeap', 'some', 'Capitalized')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.capitalized(['Nope', 'not']);
+is.all.capitalized(['Nope', 'not'])
 => false
 ```
 
@@ -1288,29 +1288,29 @@ is.palindrome(value:string)
 interfaces: not, all, any
 
 ```javascript
-is.palindrome('testset');
+is.palindrome('testset')
 => true
 
-is.palindrome('A man, a plan, a canal - Panama!');
+is.palindrome('A man, a plan, a canal - Panama!')
 => true
 
-is.palindrome('nope');
+is.palindrome('nope')
 => false
 
-is.not.palindrome('nope not palindrome');
+is.not.palindrome('nope not palindrome')
 => true
 
-is.not.palindrome('tt');
+is.not.palindrome('tt')
 => false
 
-is.all.palindrome('testset', 'tt');
+is.all.palindrome('testset', 'tt')
 => true
 
-is.any.palindrome('Yeap', 'some', 'testset');
+is.any.palindrome('Yeap', 'some', 'testset')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.palindrome(['Nope', 'testset']);
+is.all.palindrome(['Nope', 'testset'])
 => false
 ```
 
@@ -1323,16 +1323,16 @@ is.equal(value:any, other:any)
 interfaces: not
 
 ```javascript
-is.equal(42, 40 + 2);
+is.equal(42, 40 + 2)
 => true
 
-is.equal('yeap', 'yeap');
+is.equal('yeap', 'yeap')
 => true
 
-is.equal(true, true);
+is.equal(true, true)
 => true
 
-is.not.equal('yeap', 'nope');
+is.not.equal('yeap', 'nope')
 => true
 ```
 
@@ -1342,20 +1342,20 @@ is.even(value:number)
 interfaces: not, all, any
 
 ```javascript
-is.even(42);
+is.even(42)
 => true
 
-is.not.even(41);
+is.not.even(41)
 => true
 
-is.all.even(40, 42, 44);
+is.all.even(40, 42, 44)
 => true
 
-is.any.even(39, 42, 43);
+is.any.even(39, 42, 43)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.even([40, 42, 43]);
+is.all.even([40, 42, 43])
 => false
 ```
 
@@ -1365,20 +1365,20 @@ is.odd(value:number)
 interfaces: not, all, any
 
 ```javascript
-is.odd(41);
+is.odd(41)
 => true
 
-is.not.odd(42);
+is.not.odd(42)
 => true
 
-is.all.odd(39, 41, 43);
+is.all.odd(39, 41, 43)
 => true
 
-is.any.odd(39, 42, 44);
+is.any.odd(39, 42, 44)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.odd([40, 42, 43]);
+is.all.odd([40, 42, 43])
 => false
 ```
 
@@ -1388,20 +1388,20 @@ is.positive(value:number)
 interfaces: not, all, any
 
 ```javascript
-is.positive(41);
+is.positive(41)
 => true
 
-is.not.positive(-42);
+is.not.positive(-42)
 => true
 
-is.all.positive(39, 41, 43);
+is.all.positive(39, 41, 43)
 => true
 
-is.any.positive(-39, 42, -44);
+is.any.positive(-39, 42, -44)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.positive([40, 42, -43]);
+is.all.positive([40, 42, -43])
 => false
 ```
 
@@ -1411,20 +1411,20 @@ is.negative(value:number)
 interfaces: not, all, any
 
 ```javascript
-is.negative(-41);
+is.negative(-41)
 => true
 
-is.not.negative(42);
+is.not.negative(42)
 => true
 
-is.all.negative(-39, -41, -43);
+is.all.negative(-39, -41, -43)
 => true
 
-is.any.negative(-39, 42, 44);
+is.any.negative(-39, 42, 44)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.negative([40, 42, -43]);
+is.all.negative([40, 42, -43])
 => false
 ```
 
@@ -1434,10 +1434,10 @@ is.above(value:number, min:number)
 interface: not
 
 ```javascript
-is.above(41, 30);
+is.above(41, 30)
 => true
 
-is.not.above(42, 50);
+is.not.above(42, 50)
 => true
 ```
 
@@ -1447,10 +1447,10 @@ is.under(value:number, max:number)
 interface: not
 
 ```javascript
-is.under(30, 35);
+is.under(30, 35)
 => true
 
-is.not.under(42, 30);
+is.not.under(42, 30)
 => true
 ```
 
@@ -1460,10 +1460,10 @@ is.within(value:number, min:number, max:number)
 interface: not
 
 ```javascript
-is.within(30, 20, 40);
+is.within(30, 20, 40)
 => true
 
-is.not.within(40, 30, 35);
+is.not.within(40, 30, 35)
 => true
 ```
 
@@ -1473,20 +1473,20 @@ is.decimal(value:number)
 interfaces: not, all, any
 
 ```javascript
-is.decimal(41.5);
+is.decimal(41.5)
 => true
 
-is.not.decimal(42);
+is.not.decimal(42)
 => true
 
-is.all.decimal(39.5, 41.5, -43.5);
+is.all.decimal(39.5, 41.5, -43.5)
 => true
 
-is.any.decimal(-39, 42.5, 44);
+is.any.decimal(-39, 42.5, 44)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.decimal([40, 42.5, -43]);
+is.all.decimal([40, 42.5, -43])
 => false
 ```
 
@@ -1496,20 +1496,20 @@ is.integer(value:number)
 interfaces: not, all, any
 
 ```javascript
-is.integer(41);
+is.integer(41)
 => true
 
-is.not.integer(42.5);
+is.not.integer(42.5)
 => true
 
-is.all.integer(39, 41, -43);
+is.all.integer(39, 41, -43)
 => true
 
-is.any.integer(-39, 42.5, 44);
+is.any.integer(-39, 42.5, 44)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.integer([40, 42.5, -43]);
+is.all.integer([40, 42.5, -43])
 => false
 ```
 
@@ -1519,20 +1519,20 @@ is.finite(value:number)
 interfaces: not, all, any
 
 ```javascript
-is.finite(41);
+is.finite(41)
 => true
 
-is.not.finite(42 / 0);
+is.not.finite(42 / 0)
 => true
 
-is.all.finite(39, 41, -43);
+is.all.finite(39, 41, -43)
 => true
 
-is.any.finite(-39, Infinity, 44);
+is.any.finite(-39, Infinity, 44)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.finite([Infinity, -Infinity, 42.5]);
+is.all.finite([Infinity, -Infinity, 42.5])
 => false
 ```
 
@@ -1542,20 +1542,20 @@ is.infinite(value:number)
 interfaces: not, all, any
 
 ```javascript
-is.infinite(Infinity);
+is.infinite(Infinity)
 => true
 
-is.not.infinite(42);
+is.not.infinite(42)
 => true
 
-is.all.infinite(Infinity, -Infinity, -43 / 0);
+is.all.infinite(Infinity, -Infinity, -43 / 0)
 => true
 
-is.any.infinite(-39, Infinity, 44);
+is.any.infinite(-39, Infinity, 44)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.infinite([Infinity, -Infinity, 42.5]);
+is.all.infinite([Infinity, -Infinity, 42.5])
 => false
 ```
 
@@ -1568,13 +1568,13 @@ is.propertyCount(value:object, count:number)
 interface: not
 
 ```javascript
-is.propertyCount({this: 'is', 'sample': object}, 2);
+is.propertyCount({this: 'is', 'sample': object}, 2)
 => true
 
-is.propertyCount({this: 'is', 'sample': object}, 3);
+is.propertyCount({this: 'is', 'sample': object}, 3)
 => false
 
-is.not.propertyCount({}, 2);
+is.not.propertyCount({}, 2)
 => true
 ```
 
@@ -1584,13 +1584,13 @@ is.propertyDefined(value:object, property:string)
 interface: not
 
 ```javascript
-is.propertyDefined({yeap: 'yeap'}, 'yeap');
+is.propertyDefined({yeap: 'yeap'}, 'yeap')
 => true
 
-is.propertyDefined({yeap: 'yeap'}, 'nope');
+is.propertyDefined({yeap: 'yeap'}, 'nope')
 => false
 
-is.not.propertyDefined({}, 'nope');
+is.not.propertyDefined({}, 'nope')
 => true
 ```
 
@@ -1602,13 +1602,13 @@ is.inArray(value:any, array)
 #### Checks if the given item is in array?
 interface: not
 ```javascript
-is.inArray(2, [1, 2, 3]);
+is.inArray(2, [1, 2, 3])
 => true
 
-is.inArray(4, [1, 2, 3]);
+is.inArray(4, [1, 2, 3])
 => false
 
-is.not.inArray(4, [1, 2, 3]);
+is.not.inArray(4, [1, 2, 3])
 => true
 ```
 
@@ -1618,41 +1618,41 @@ is.sorted(value:array, sign:string)
 interfaces: not, all, any
 
 ```javascript
-is.sorted([1, 2, 3]);
+is.sorted([1, 2, 3])
 => true
 
-is.sorted([1, 2, 4, 3]);
+is.sorted([1, 2, 4, 3])
 => false
 
-is.sorted([1, 1, 2, 2], '>=');
+is.sorted([1, 1, 2, 2], '>=')
 => true
 
-is.sorted([1, 2, 3, 4], '>');
+is.sorted([1, 2, 3, 4], '>')
 => true
 
-is.sorted([4, 3, 3, 1], '<=');
+is.sorted([4, 3, 3, 1], '<=')
 => true
 
-is.sorted([4, 3, 2, 1], '<');
+is.sorted([4, 3, 2, 1], '<')
 => true
 
-is.sorted([1, 2, 3, 3], '>');
+is.sorted([1, 2, 3, 3], '>')
 => false
 
-is.not.sorted([5, 4, 3]);
+is.not.sorted([5, 4, 3])
 => true
 
-is.not.sorted([5, 4, 3], '<');
+is.not.sorted([5, 4, 3], '<')
 => false
 
-is.all.sorted([1, 2], [3, 4]);
+is.all.sorted([1, 2], [3, 4])
 => true
 
-is.any.sorted([1, 2], [5, 4]);
+is.any.sorted([1, 2], [5, 4])
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.sorted([[1, 2], [5, 4]]);
+is.all.sorted([[1, 2], [5, 4]])
 => false
 ```
 
@@ -1666,20 +1666,20 @@ is.ie(range:number|string)
 interface: not
 
 ```javascript
-is.ie();
+is.ie()
 => true if current browser is ie
 
-is.not.ie();
+is.not.ie()
 => false if current browser is ie
 
 // also supports version number
-is.ie(10);
+is.ie(10)
 => true if current version of ie is 10
 
-is.ie('>=10');
+is.ie('>=10')
 => true if current version of ie is greater than or equal to 10
 
-is.not.ie('<9');
+is.not.ie('<9')
 => true if current version of ie is not less than 9
 ```
 
@@ -1689,20 +1689,20 @@ is.chrome(range:number|string)
 interface: not
 
 ```javascript
-is.chrome();
+is.chrome()
 => true if current browser is chrome
 
-is.not.chrome();
+is.not.chrome()
 => false if current browser is chrome
 
 // also supports version number
-is.chrome(50);
+is.chrome(50)
 => true if current version of chrome is 50
 
-is.chrome('>=40');
+is.chrome('>=40')
 => true if current version of chrome is greater than or equal to 40
 
-is.not.chrome('<30');
+is.not.chrome('<30')
 => true if current version of chrome is not less than 30
 ```
 
@@ -1712,20 +1712,20 @@ is.firefox(range:number|string)
 interface: not
 
 ```javascript
-is.firefox();
+is.firefox()
 => true if current browser is firefox
 
-is.not.firefox();
+is.not.firefox()
 => false if current browser is firefox
 
 // also supports version number
-is.firefox(41);
+is.firefox(41)
 => true if current version of firefox is 41
 
-is.firefox('>=40');
+is.firefox('>=40')
 => true if current version of firefox is greater than or equal to 40
 
-is.not.firefox('<30');
+is.not.firefox('<30')
 => true if current version of firefox is not less than 30
 ```
 
@@ -1735,20 +1735,20 @@ is.edge(range:number|string)
 interface: not
 
 ```javascript
-is.edge();
+is.edge()
 => true if current browser is edge
 
-is.not.edge();
+is.not.edge()
 => false if current browser is edge
 
 // also supports version number
-is.edge(13);
+is.edge(13)
 => true if current version of edge is 13
 
-is.edge('>=12');
+is.edge('>=12')
 => true if current version of edge is greater than or equal to 12
 
-is.not.edge('<13');
+is.not.edge('<13')
 => true if current version of edge is not less than 13
 ```
 
@@ -1758,20 +1758,20 @@ is.opera(range:number|string)
 interface: not
 
 ```javascript
-is.opera();
+is.opera()
 => true if current browser is opera
 
-is.not.opera();
+is.not.opera()
 => false if current browser is opera
 
 // also supports version number
-is.opera(36);
+is.opera(36)
 => true if current version of opera is 36
 
-is.opera('>=35');
+is.opera('>=35')
 => true if current version of opera is greater than or equal to 35
 
-is.not.opera('<20');
+is.not.opera('<20')
 => true if current version of opera is not less than 20
 ```
 
@@ -1781,20 +1781,20 @@ is.safari(range:number|string)
 interface: not
 
 ```javascript
-is.safari();
+is.safari()
 => true if current browser is safari
 
-is.not.safari();
+is.not.safari()
 => false if current browser is safari
 
 // also supports version number
-is.safari(9);
+is.safari(9)
 => true if current version of safari is 9
 
-is.safari('>=8');
+is.safari('>=8')
 => true if current version of safari is greater than or equal to 8
 
-is.not.safari('<7');
+is.not.safari('<7')
 => true if current version of safari is not less than 7
 ```
 
@@ -1804,20 +1804,20 @@ is.phantom(range:number|string)
 interface: not
 
 ```javascript
-is.phantom();
+is.phantom()
 => true if current browser is phantomjs
 
-is.not.phantom();
+is.not.phantom()
 => false if current browser is phantomjs
 
 // also supports version number
-is.phantom(2);
+is.phantom(2)
 => true if current version of phantom is 2
 
-is.phantom('>=1');
+is.phantom('>=1')
 => true if current version of phantomjs is greater than or equal to 1
 
-is.not.phantom('<2');
+is.not.phantom('<2')
 => true if current version of phantomjs is not less than 2
 ```
 
@@ -1827,10 +1827,10 @@ is.ios()
 interface: not
 
 ```javascript
-is.ios();
+is.ios()
 => true if current device is iPhone, iPad or iPod
 
-is.not.ios();
+is.not.ios()
 => true if current device is not iPhone, iPad or iPod
 ```
 
@@ -1840,20 +1840,20 @@ is.iphone(range:number|string)
 interface: not
 
 ```javascript
-is.iphone();
+is.iphone()
 => true if current device is iPhone
 
-is.not.iphone();
+is.not.iphone()
 => true if current device is not iPhone
 
 // also supports version number
-is.iphone(9);
+is.iphone(9)
 => true if current version of iPhone is 9
 
-is.iphone('>=7');
+is.iphone('>=7')
 => true if current version of iPhone is greater than or equal to 7
 
-is.not.iphone('<8');
+is.not.iphone('<8')
 => true if current version of iPhone is not less than 8
 ```
 
@@ -1863,20 +1863,20 @@ is.ipad(range:number|string)
 interface: not
 
 ```javascript
-is.ipad();
+is.ipad()
 => true if current device is iPad
 
-is.not.ipad();
+is.not.ipad()
 => true if current device is not iPad
 
 // also supports version number
-is.ipad(9);
+is.ipad(9)
 => true if current version of iPad is 9
 
-is.ipad('>=7');
+is.ipad('>=7')
 => true if current version of iPad is greater than or equal to 7
 
-is.not.ipad('<8');
+is.not.ipad('<8')
 => true if current version of iPad is not less than 8
 ```
 
@@ -1886,20 +1886,20 @@ is.ipod(range:number|string)
 interface: not
 
 ```javascript
-is.ipod();
+is.ipod()
 => true if current device is iPod
 
-is.not.ipod();
+is.not.ipod()
 => true if current device is not iPod
 
 // also supports version number
-is.ipod(7);
+is.ipod(7)
 => true if current version of iPod is 7
 
-is.ipod('>=5');
+is.ipod('>=5')
 => true if current version of iPod is greater than or equal to 5
 
-is.not.ipod('<5');
+is.not.ipod('<5')
 => true if current version of iPod is not less than 5
 ```
 
@@ -1909,10 +1909,10 @@ is.android()
 interface: not
 
 ```javascript
-is.android();
+is.android()
 => true if current device has Android OS
 
-is.not.android();
+is.not.android()
 => true if current device has not Android OS
 ```
 
@@ -1922,10 +1922,10 @@ is.androidPhone()
 interface: not
 
 ```javascript
-is.androidPhone();
+is.androidPhone()
 => true if current device is Android phone
 
-is.not.androidPhone();
+is.not.androidPhone()
 => true if current device is not Android phone
 ```
 
@@ -1935,10 +1935,10 @@ is.androidTablet()
 interface: not
 
 ```javascript
-is.androidTablet();
+is.androidTablet()
 => true if current device is Android tablet
 
-is.not.androidTablet();
+is.not.androidTablet()
 => true if current device is not Android tablet
 ```
 
@@ -1948,10 +1948,10 @@ is.blackberry()
 interface: not
 
 ```javascript
-is.blackberry();
+is.blackberry()
 => true if current device is Blackberry
 
-is.not.blackberry();
+is.not.blackberry()
 => true if current device is not Blackberry
 ```
 
@@ -1961,10 +1961,10 @@ is.windowsPhone()
 interface: not
 
 ```javascript
-is.windowsPhone();
+is.windowsPhone()
 => true if current device is Windows phone
 
-is.not.windowsPhone();
+is.not.windowsPhone()
 => true if current device is not Windows Phone
 ```
 
@@ -1974,10 +1974,10 @@ is.windowsTablet()
 interface: not
 
 ```javascript
-is.windowsTablet();
+is.windowsTablet()
 => true if current device is Windows tablet
 
-is.not.windowsTablet();
+is.not.windowsTablet()
 => true if current device is not Windows tablet
 ```
 
@@ -1987,10 +1987,10 @@ is.windows()
 interface: not
 
 ```javascript
-is.windows();
+is.windows()
 => true if current OS is Windows
 
-is.not.windows();
+is.not.windows()
 => true if current OS is not Windows
 ```
 
@@ -2000,10 +2000,10 @@ is.mac()
 interface: not
 
 ```javascript
-is.mac();
+is.mac()
 => true if current OS is Mac OS X
 
-is.not.mac();
+is.not.mac()
 => true if current OS is not Mac OS X
 ```
 
@@ -2013,10 +2013,10 @@ is.linux()
 interface: not
 
 ```javascript
-is.linux();
+is.linux()
 => true if current OS is linux
 
-is.not.linux();
+is.not.linux()
 => true if current OS is not linux
 ```
 
@@ -2026,10 +2026,10 @@ is.desktop()
 interface: not
 
 ```javascript
-is.desktop();
+is.desktop()
 => true if current device is desktop
 
-is.not.desktop();
+is.not.desktop()
 => true if current device is not desktop
 ```
 
@@ -2040,10 +2040,10 @@ interface: not
 iPhone, iPod, Android Phone, Windows Phone, Blackberry.
 ```javascript
 
-is.mobile();
+is.mobile()
 => true if current device is mobile
 
-is.not.mobile();
+is.not.mobile()
 => true if current device is not mobile
 ```
 
@@ -2054,10 +2054,10 @@ interface: not
 iPad, Android Tablet, Windows Tablet
 ```javascript
 
-is.tablet();
+is.tablet()
 => true if current device is tablet
 
-is.not.tablet();
+is.not.tablet()
 => true if current device is not tablet
 ```
 
@@ -2067,10 +2067,10 @@ is.online()
 interface: not
 
 ```javascript
-is.online();
+is.online()
 => true if current device is online
 
-is.not.online();
+is.not.online()
 => true if current device is not online
 ```
 
@@ -2080,10 +2080,10 @@ is.offline()
 interface: not
 
 ```javascript
-is.offline();
+is.offline()
 => true if current device is offline
 
-is.not.offline();
+is.not.offline()
 => true if current device is not offline
 ```
 
@@ -2093,10 +2093,10 @@ is.touchDevice()
 interface: not
 
 ```javascript
-is.touchDevice();
+is.touchDevice()
 => true if current device supports touch
 
-is.not.touchDevice();
+is.not.touchDevice()
 => true if current device does not support touch
 ```
 
@@ -2109,25 +2109,25 @@ is.today(value:date)
 interfaces: not, all, any
 
 ```javascript
-const today = new Date();
-is.today(today);
+const today = new Date()
+is.today(today)
 => true
 
-const yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
-is.today(yesterday);
+const yesterday = new Date(new Date().setDate(new Date().getDate() - 1))
+is.today(yesterday)
 => false
 
-is.not.today(yesterday);
+is.not.today(yesterday)
 => true
 
-is.all.today(today, today);
+is.all.today(today, today)
 => true
 
-is.any.today(today, yesterday);
+is.any.today(today, yesterday)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.today([today, yesterday]);
+is.all.today([today, yesterday])
 => false
 ```
 
@@ -2137,25 +2137,25 @@ is.yesterday(value:date)
 interfaces: not, all, any
 
 ```javascript
-const today = new Date();
-is.yesterday(today);
+const today = new Date()
+is.yesterday(today)
 => false
 
-const yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
-is.yesterday(yesterday);
+const yesterday = new Date(new Date().setDate(new Date().getDate() - 1))
+is.yesterday(yesterday)
 => true
 
-is.not.yesterday(today);
+is.not.yesterday(today)
 => true
 
-is.all.yesterday(yesterday, today);
+is.all.yesterday(yesterday, today)
 => false
 
-is.any.yesterday(today, yesterday);
+is.any.yesterday(today, yesterday)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.yesterday([today, yesterday]);
+is.all.yesterday([today, yesterday])
 => false
 ```
 
@@ -2165,25 +2165,25 @@ is.tomorrow(value:date)
 interfaces: not, all, any
 
 ```javascript
-const today = new Date();
-is.tomorrow(today);
+const today = new Date()
+is.tomorrow(today)
 => false
 
-const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1));
-is.tomorrow(tomorrow);
+const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1))
+is.tomorrow(tomorrow)
 => true
 
-is.not.tomorrow(today);
+is.not.tomorrow(today)
 => true
 
-is.all.tomorrow(tomorrow, today);
+is.all.tomorrow(tomorrow, today)
 => false
 
-is.any.tomorrow(today, tomorrow);
+is.any.tomorrow(today, tomorrow)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.tomorrow([today, tomorrow]);
+is.all.tomorrow([today, tomorrow])
 => false
 ```
 
@@ -2193,26 +2193,26 @@ is.past(value:date)
 interfaces: not, all, any
 
 ```javascript
-const yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
-const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1));
+const yesterday = new Date(new Date().setDate(new Date().getDate() - 1))
+const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1))
 
-is.past(yesterday);
+is.past(yesterday)
 => true
 
-is.past(tomorrow);
+is.past(tomorrow)
 => false
 
-is.not.past(tomorrow);
+is.not.past(tomorrow)
 => true
 
-is.all.past(tomorrow, yesterday);
+is.all.past(tomorrow, yesterday)
 => false
 
-is.any.past(yesterday, tomorrow);
+is.any.past(yesterday, tomorrow)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.past([yesterday, tomorrow]);
+is.all.past([yesterday, tomorrow])
 => false
 ```
 
@@ -2222,26 +2222,26 @@ is.future(value:date)
 interfaces: not, all, any
 
 ```javascript
-const yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
-const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1));
+const yesterday = new Date(new Date().setDate(new Date().getDate() - 1))
+const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1))
 
-is.future(yesterday);
+is.future(yesterday)
 => false
 
-is.future(tomorrow);
+is.future(tomorrow)
 => true
 
-is.not.future(yesterday);
+is.not.future(yesterday)
 => true
 
-is.all.future(tomorrow, yesterday);
+is.all.future(tomorrow, yesterday)
 => false
 
-is.any.future(yesterday, tomorrow);
+is.any.future(yesterday, tomorrow)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.future([yesterday, tomorrow]);
+is.all.future([yesterday, tomorrow])
 => false
 ```
 
@@ -2251,15 +2251,15 @@ is.day(value:date, day:string)
 interface: not
 
 ```javascript
-const mondayObj = new Date('01/26/2015');
-const tuesdayObj = new Date('01/27/2015');
-is.day(mondayObj, 'monday');
+const mondayObj = new Date('01/26/2015')
+const tuesdayObj = new Date('01/27/2015')
+is.day(mondayObj, 'monday')
 => true
 
-is.day(mondayObj, 'tuesday');
+is.day(mondayObj, 'tuesday')
 => false
 
-is.not.day(mondayObj, 'tuesday');
+is.not.day(mondayObj, 'tuesday')
 => true
 ```
 
@@ -2269,15 +2269,15 @@ is.month(value:date, month:string)
 interface: not
 
 ```javascript
-const januaryObj = new Date('01/26/2015');
-const februaryObj = new Date('02/26/2015');
-is.month(januaryObj, 'january');
+const januaryObj = new Date('01/26/2015')
+const februaryObj = new Date('02/26/2015')
+is.month(januaryObj, 'january')
 => true
 
-is.month(februaryObj, 'january');
+is.month(februaryObj, 'january')
 => false
 
-is.not.month(februaryObj, 'january');
+is.not.month(februaryObj, 'january')
 => true
 ```
 
@@ -2287,15 +2287,15 @@ is.year(value:date, year:number)
 interface: not
 
 ```javascript
-const year2015 = new Date('01/26/2015');
-const year2016 = new Date('01/26/2016');
-is.year(year2015, 2015);
+const year2015 = new Date('01/26/2015')
+const year2016 = new Date('01/26/2016')
+is.year(year2015, 2015)
 => true
 
-is.year(year2016, 2015);
+is.year(year2016, 2015)
 => false
 
-is.not.year(year2016, 2015);
+is.not.year(year2016, 2015)
 => true
 ```
 
@@ -2305,23 +2305,23 @@ is.leapYear(value:number)
 interfaces: not, all, any
 
 ```javascript
-is.leapYear(2016);
+is.leapYear(2016)
 => true
 
-is.leapYear(2015);
+is.leapYear(2015)
 => false
 
-is.not.leapYear(2015);
+is.not.leapYear(2015)
 => true
 
-is.all.leapYear(2015, 2016);
+is.all.leapYear(2015, 2016)
 => false
 
-is.any.leapYear(2015, 2016);
+is.any.leapYear(2015, 2016)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.leapYear([2016, 2080]);
+is.all.leapYear([2016, 2080])
 => true
 ```
 
@@ -2331,26 +2331,26 @@ is.weekend(value:date)
 interfaces: not, all, any
 
 ```javascript
-const monday = new Date('01/26/2015');
-const sunday = new Date('01/25/2015');
-const saturday = new Date('01/24/2015');
-is.weekend(sunday);
+const monday = new Date('01/26/2015')
+const sunday = new Date('01/25/2015')
+const saturday = new Date('01/24/2015')
+is.weekend(sunday)
 => true
 
-is.weekend(monday);
+is.weekend(monday)
 => false
 
-is.not.weekend(monday);
+is.not.weekend(monday)
 => true
 
-is.all.weekend(sunday, saturday);
+is.all.weekend(sunday, saturday)
 => true
 
-is.any.weekend(sunday, saturday, monday);
+is.any.weekend(sunday, saturday, monday)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.weekend([sunday, saturday, monday]);
+is.all.weekend([sunday, saturday, monday])
 => false
 ```
 
@@ -2360,26 +2360,26 @@ is.weekday(value:date)
 interfaces: not, all, any
 
 ```javascript
-const monday = new Date('01/26/2015');
-const sunday = new Date('01/25/2015');
-const saturday = new Date('01/24/2015');
-is.weekday(monday);
+const monday = new Date('01/26/2015')
+const sunday = new Date('01/25/2015')
+const saturday = new Date('01/24/2015')
+is.weekday(monday)
 => true
 
-is.weekday(sunday);
+is.weekday(sunday)
 => false
 
-is.not.weekday(sunday);
+is.not.weekday(sunday)
 => true
 
-is.all.weekday(monday, saturday);
+is.all.weekday(monday, saturday)
 => false
 
-is.any.weekday(sunday, saturday, monday);
+is.any.weekday(sunday, saturday, monday)
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
-is.all.weekday([sunday, saturday, monday]);
+is.all.weekday([sunday, saturday, monday])
 => false
 ```
 
@@ -2389,16 +2389,16 @@ is.inDateRange(value:date, start:date, end:date)
 interface: not
 
 ```javascript
-const saturday = new Date('01/24/2015');
-const sunday = new Date('01/25/2015');
-const monday = new Date('01/26/2015');
-is.inDateRange(sunday, saturday, monday);
+const saturday = new Date('01/24/2015')
+const sunday = new Date('01/25/2015')
+const monday = new Date('01/26/2015')
+is.inDateRange(sunday, saturday, monday)
 => true
 
-is.inDateRange(saturday, sunday, monday);
+is.inDateRange(saturday, sunday, monday)
 => false
 
-is.not.inDateRange(saturday, sunday, monday);
+is.not.inDateRange(saturday, sunday, monday)
 => true
 ```
 
@@ -2408,15 +2408,15 @@ is.inLastWeek(value:date)
 interface: not
 
 ```javascript
-const twoDaysAgo = new Date(new Date().setDate(new Date().getDate() - 2));
-const nineDaysAgo = new Date(new Date().setDate(new Date().getDate() - 9));
-is.inLastWeek(twoDaysAgo);
+const twoDaysAgo = new Date(new Date().setDate(new Date().getDate() - 2))
+const nineDaysAgo = new Date(new Date().setDate(new Date().getDate() - 9))
+is.inLastWeek(twoDaysAgo)
 => true
 
-is.inLastWeek(nineDaysAgo);
+is.inLastWeek(nineDaysAgo)
 => false
 
-is.not.inLastWeek(nineDaysAgo);
+is.not.inLastWeek(nineDaysAgo)
 => true
 ```
 
@@ -2426,15 +2426,15 @@ is.inLastMonth(value:date)
 interface: not
 
 ```javascript
-const tenDaysAgo = new Date(new Date().setDate(new Date().getDate() - 10));
-const fortyDaysAgo = new Date(new Date().setDate(new Date().getDate() - 40));
-is.inLastMonth(tenDaysAgo);
+const tenDaysAgo = new Date(new Date().setDate(new Date().getDate() - 10))
+const fortyDaysAgo = new Date(new Date().setDate(new Date().getDate() - 40))
+is.inLastMonth(tenDaysAgo)
 => true
 
-is.inLastMonth(fortyDaysAgo);
+is.inLastMonth(fortyDaysAgo)
 => false
 
-is.not.inLastMonth(fortyDaysAgo);
+is.not.inLastMonth(fortyDaysAgo)
 => true
 ```
 
@@ -2444,15 +2444,15 @@ is.inLastYear(value:date)
 interface: not
 
 ```javascript
-const twoMonthsAgo = new Date(new Date().setMonth(new Date().getMonth() - 2));
-const thirteenMonthsAgo = new Date(new Date().setMonth(new Date().getMonth() - 13));
-is.inLastYear(twoMonthsAgo);
+const twoMonthsAgo = new Date(new Date().setMonth(new Date().getMonth() - 2))
+const thirteenMonthsAgo = new Date(new Date().setMonth(new Date().getMonth() - 13))
+is.inLastYear(twoMonthsAgo)
 => true
 
-is.inLastYear(thirteenMonthsAgo);
+is.inLastYear(thirteenMonthsAgo)
 => false
 
-is.not.inLastYear(thirteenMonthsAgo);
+is.not.inLastYear(thirteenMonthsAgo)
 => true
 ```
 
@@ -2462,15 +2462,15 @@ is.inNextWeek(value:date)
 interface: not
 
 ```javascript
-const twoDaysLater = new Date(new Date().setDate(new Date().getDate() + 2));
-const nineDaysLater = new Date(new Date().setDate(new Date().getDate() + 9));
-is.inNextWeek(twoDaysLater);
+const twoDaysLater = new Date(new Date().setDate(new Date().getDate() + 2))
+const nineDaysLater = new Date(new Date().setDate(new Date().getDate() + 9))
+is.inNextWeek(twoDaysLater)
 => true
 
-is.inNextWeek(nineDaysLater);
+is.inNextWeek(nineDaysLater)
 => false
 
-is.not.inNextWeek(nineDaysLater);
+is.not.inNextWeek(nineDaysLater)
 => true
 ```
 
@@ -2480,15 +2480,15 @@ is.inNextMonth(value:date)
 interface: not
 
 ```javascript
-const tenDaysLater = new Date(new Date().setDate(new Date().getDate() + 10));
-const fortyDaysLater = new Date(new Date().setDate(new Date().getDate() + 40));
-is.inNextMonth(tenDaysLater);
+const tenDaysLater = new Date(new Date().setDate(new Date().getDate() + 10))
+const fortyDaysLater = new Date(new Date().setDate(new Date().getDate() + 40))
+is.inNextMonth(tenDaysLater)
 => true
 
-is.inNextMonth(fortyDaysLater);
+is.inNextMonth(fortyDaysLater)
 => false
 
-is.not.inNextMonth(fortyDaysLater);
+is.not.inNextMonth(fortyDaysLater)
 => true
 ```
 
@@ -2498,15 +2498,15 @@ is.inNextYear(value:date)
 interface: not
 
 ```javascript
-const twoMonthsLater = new Date(new Date().setMonth(new Date().getMonth() + 2));
-const thirteenMonthsLater = new Date(new Date().setMonth(new Date().getMonth() + 13));
-is.inNextYear(twoMonthsLater);
+const twoMonthsLater = new Date(new Date().setMonth(new Date().getMonth() + 2))
+const thirteenMonthsLater = new Date(new Date().setMonth(new Date().getMonth() + 13))
+is.inNextYear(twoMonthsLater)
 => true
 
-is.inNextYear(thirteenMonthsLater);
+is.inNextYear(thirteenMonthsLater)
 => false
 
-is.not.inNextYear(thirteenMonthsLater);
+is.not.inNextYear(thirteenMonthsLater)
 => true
 ```
 
@@ -2516,15 +2516,15 @@ is.quarterOfYear(value:date, quarter:number)
 interface: not
 
 ```javascript
-const firstQuarter = new Date('01/26/2015');
-const secondQuarter = new Date('05/26/2015');
-is.quarterOfYear(firstQuarter, 1);
+const firstQuarter = new Date('01/26/2015')
+const secondQuarter = new Date('05/26/2015')
+is.quarterOfYear(firstQuarter, 1)
 => true
 
-is.quarterOfYear(secondQuarter, 1);
+is.quarterOfYear(secondQuarter, 1)
 => false
 
-is.not.quarterOfYear(secondQuarter, 1);
+is.not.quarterOfYear(secondQuarter, 1)
 => true
 ```
 
@@ -2535,16 +2535,16 @@ interface: not
 
 ```javascript
 // For Turkey Time Zone
-const january1 = new Date('01/01/2015');
-const june1 = new Date('06/01/2015');
+const january1 = new Date('01/01/2015')
+const june1 = new Date('06/01/2015')
 
-is.dayLightSavingTime(june1);
+is.dayLightSavingTime(june1)
 => true
 
-is.dayLightSavingTime(january1);
+is.dayLightSavingTime(january1)
 => false
 
-is.not.dayLightSavingTime(january1);
+is.not.dayLightSavingTime(january1)
 => true
 ```
 
@@ -2556,8 +2556,8 @@ is.setNamespace()
 Change namespace of library to prevent name collisions.
 
 ```javascript
-const customName = is.setNamespace();
-customName.odd(3);
+const customName = is.setNamespace()
+customName.odd(3)
 => true
 ```
 
@@ -2566,11 +2566,11 @@ is.setRegexp(value:regexp, name:string)
 Override RegExps if you think they suck.
 
 ```javascript
-is.url('https://www.duckduckgo.com');
+is.url('https://www.duckduckgo.com')
 => true
 
-is.setRegexp(/quack/, 'url');
-is.url('quack');
+is.setRegexp(/quack/, 'url')
+is.url('quack')
 => true
 ```
 
