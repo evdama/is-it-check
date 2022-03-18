@@ -79,9 +79,7 @@ is.arguments(value:any)
 interfaces: not, all, any
 
 ```javascript
-const getArguments = () => {
-    return arguments
-}
+const getArguments = () => arguments
 const arguments = getArguments()
 
 is.arguments(arguments)
