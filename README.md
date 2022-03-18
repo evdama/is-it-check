@@ -53,7 +53,7 @@ is.all.macAddress(null, '255.255.255.255', 4, 'a4:11:e2:67:89:1f'))  // false
 
 
 // - Useful for runtime checks such as e.g. validating data from external sources.
-// - We do this in addition to static type-checking with Typescript.
+// - We do this in addition to static type-checking with Typescript during compiletime.
 const clientIPAddress = getClientIP() // from your hosting platform, nodejs, etc.
 
 if (ipv4(clientIPAddress)) {
