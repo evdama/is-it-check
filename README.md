@@ -6,8 +6,10 @@ is-it-check
   <img width="110" height="110" src=https://user-images.githubusercontent.com/39374084/158694685-67fbc155-ea23-4b37-837d-850f1ac2fa10.png />
 </p>
 
-... for runtime checks of js & ts apps
-... because more often than not, static typechecking with typescript for compiletime checks is not enough 🤗
+<p>
+  <div>... for runtime checks of js & ts apps</div>
+  <div>... because more often than not, static typechecking with typescript for compiletime checks is not enough 🤗,.</div>
+</p>
 
 <ul>
   <li>no dependencies</li>
