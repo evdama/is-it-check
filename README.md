@@ -80,8 +80,8 @@ interfaces: not, all, any
 
 ```javascript
 const getArguments = () => {
-    return arguments;
-};
+    return arguments
+}
 const arguments = getArguments()
 
 is.arguments(arguments)
