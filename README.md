@@ -46,6 +46,7 @@ Use like any other library in your js or ts code...
 import is from 'is-it-check'
 
 
+// some examples
 is.ipv4('198.12.3.142')  // true
 is.array(['foo', 'bar', 'baz'])  // true
 is.macAddress('01:23:45:67:89:ab')  // true
