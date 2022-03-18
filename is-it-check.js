@@ -554,8 +554,8 @@
     // is current device ipad?
     // parameter is optional
     is.ipad = range => {
-        const match = userAgent.match(/ipad.+?os (\d+)/)
-        return match !== null && compareVersion(match[1], range)
+      const match = is.not.iphone() && is.not.ipod() ? ( userAgent.match( /ipad.+?os (\d+)/ ) || ( ( userAgent.includes( "mac" ) && "ontouchend" in document ) ? userAgent.match( /version\/(\d+)/ ) : null ) ) : null
+      return match !== null && compareVersion(match[1], range)
     }
     // ipad method does not support 'all' and 'any' interfaces
     is.ipad.api = ['not']
