@@ -49,6 +49,7 @@ import is from 'is-it-check'
 is.ipv4('198.12.3.142') // true
 is.array(['foo', 'bar', 'baz']) // true
 is.macAddress('01:23:45:67:89:ab')  // true
+is.any.email('test@example.com', 'foo', 42) // true
 is.all.macAddress(null, '255.255.255.255', 4, 'a4:11:e2:67:89:1f'))  // false
 
 
@@ -58,7 +59,7 @@ const clientIPAddress = getClientIP() // from your hosting platform, nodejs, etc
 
 if (ipv4(clientIPAddress)) {
   // all good, we have a valid IPv4 address... 👍
-  // let's check with an IP address provider's API for infos regarding this IP e.g. country for geolocation services in your app
+  // let's check with an IP address provider's API e.g. country of this IP for geolocation services in our app
 } else {
   // no valid IP address
 }
