@@ -20,7 +20,7 @@
         // Browser globals (root is self)
         root.is = factory()
     }
-})(this, function() {
+})(this, () => {
 
     // Baseline
     /* -------------------------------------------------------------------------- */
@@ -161,7 +161,7 @@
 
     // is a given value window?
     // setInterval method is only available for window object
-    is.windowObject = value => typeof window === 'undefined' ? false : value != null && typeof value === 'object' && 'setInterval' in value
+    is.windowObject = value => value != null && typeof value === 'object' && 'setInterval' in value
 
     // Presence checks
     /* -------------------------------------------------------------------------- */
