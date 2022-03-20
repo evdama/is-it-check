@@ -539,6 +539,35 @@ is.all.empty([{}, 'foo'])
 => false
 ```
 
+is.map(value:any)
+-----------------------------------
+#### Checks if the given value is an instance of a map.
+interfaces: not, all, any
+
+```javascript
+is.map(new Map())
+=> true
+
+is.map({})
+=> false
+
+is.map('')
+=> false
+
+is.not.map([])
+=> true
+
+is.any.map(new Map(), 42)
+=> true
+
+// 'all' and 'any' interfaces can also take array parameter
+is.all.map([new Map(), {}, 'foo'])
+=> false
+
+is.all.map([new Map(), new Map()])
+=> true
+```
+
 is.existy(value:any)
 --------------------
 #### Checks if the given value is existy. (not null or undefined)

@@ -179,6 +179,15 @@
         return value === ''
     }
 
+    // is a given value a Map?
+    is.map = value => {
+        // checking stringified constructor in case toString() yields '[object Object]'
+        // instead of '[object Map]'
+        const mapRegex = /^function\s+Map\b/
+        const constructorStr = value.constructor ? value.constructor + '' : ''
+        return mapRegex.test(constructorStr)
+    }
+
     // is a given value existy?
     is.existy = value => value != null
 
