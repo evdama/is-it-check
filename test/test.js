@@ -2,10 +2,10 @@
     // eslint-disable-line no-extra-semi
     const _ = root._ || require('lodash')
 
-    const document = root.document;
+    const document = root.document
     const expect = _.get(root, 'chai.expect') || require('chai').expect
     const is = root.is || require('../is-it-check')
-    const window = root.window;
+    const window = root.window
     const ctx = (typeof window === 'undefined') ? global : window
 
     const checkApi = (name, list) => {
@@ -24,13 +24,13 @@
         describe('is.arguments', () => {
             it('should return true if passed parameter type is arguments', () => {
                 const getArguments = () => {
-                    return arguments;
+                    return arguments
                 }
                 const args = getArguments('test')
                 expect(is.arguments(args)).to.be.true
             })
             it('should return false if passed parameter type is not arguments', () => {
-                const notArgs = ['test'];
+                const notArgs = ['test']
                 expect(is.arguments(notArgs)).to.be.false
             })
         })
@@ -38,11 +38,11 @@
 
         describe('is.array', () => {
             it('should return true if passed parameter type is array', () => {
-                const array = ['test'];
+                const array = ['test']
                 expect(is.array(array)).to.be.true
             })
             it('should return false if passed parameter type is not array', () => {
-                const notArray = 'test';
+                const notArray = 'test'
                 expect(is.array(notArray)).to.be.false
             })
         })
@@ -50,11 +50,11 @@
 
         describe('is.boolean', () => {
             it('should return true if passed parameter type is boolean', () => {
-                const bool = true;
+                const bool = true
                 expect(is.boolean(bool)).to.be.true
             })
             it('should return false if passed parameter type is not boolean', () => {
-                const notBool = 'test';
+                const notBool = 'test'
                 expect(is.boolean(notBool)).to.be.false
             })
         })
@@ -66,7 +66,7 @@
                 expect(is.date(date)).to.be.true
             })
             it('should return false if passed parameter type is not date', () => {
-                const notDate = 'test';
+                const notDate = 'test'
                 expect(is.date(notDate)).to.be.false
             })
         })
@@ -78,7 +78,7 @@
                 expect(is.error(error)).to.be.true
             })
             it('should return false if passed parameter type is not error', () => {
-                const notError = 'test';
+                const notError = 'test'
                 expect(is.error(notError)).to.be.false
             })
         })
@@ -89,7 +89,7 @@
                 expect(is.function(is.function)).to.be.true
             })
             it('should return false if passed parameter type is not function', () => {
-                const notFunction = 'test';
+                const notFunction = 'test'
                 expect(is.function(notFunction)).to.be.false
             })
         })
@@ -100,7 +100,7 @@
                 expect(is.nan(NaN)).to.be.true
             })
             it('should return false if passed parameter type is not NaN', () => {
-                const notNaN = 'test';
+                const notNaN = 'test'
                 expect(is.nan(notNaN)).to.be.false
             })
         })
@@ -111,7 +111,7 @@
                 expect(is.null(null)).to.be.true
             })
             it('should return false if passed parameter type is not null', () => {
-                const notNull = 'test';
+                const notNull = 'test'
                 expect(is.null(notNull)).to.be.false
             })
         })
@@ -122,7 +122,7 @@
                 expect(is.number(1)).to.be.true
             })
             it('should return false if passed parameter type is not number', () => {
-                const notNumber = 'test';
+                const notNumber = 'test'
                 expect(is.number(notNumber)).to.be.false
             })
             it('should return false if passed parameter is NaN', () => {
@@ -142,7 +142,7 @@
                 expect(is.object({})).to.be.true
             })
             it('should return false if passed parameter type is not object', () => {
-                const notObject = 'test';
+                const notObject = 'test'
                 expect(is.object(notObject)).to.be.false
             })
         })
@@ -153,7 +153,7 @@
                 expect(is.json({})).to.be.true
             })
             it('should return false if passed parameter type is not a json object', () => {
-                const notObject = 'test';
+                const notObject = 'test'
                 expect(is.json(notObject)).to.be.false
             })
         })
@@ -165,7 +165,7 @@
                 expect(is.regexp(regexp)).to.be.true
             })
             it('should return false if passed parameter type is not regexp', () => {
-                const notRegexp = 'test';
+                const notRegexp = 'test'
                 expect(is.regexp(notRegexp)).to.be.false
             })
         })
@@ -183,7 +183,7 @@
                 }
             })
             it('should return false if passed parameter type is not map', () => {
-                const notMap = 'test';
+                const notMap = 'test'
                 expect(is.map(notMap)).to.be.false
             })
         })
@@ -900,11 +900,11 @@
 
         describe('is.day', () => {
             it('should return true if given day string is the day of the date object', () => {
-                const time = 1421572235303;
+                const time = 1421572235303
                 expect(is.day(new Date(time), 'sunday')).to.be.true
             })
             it('should return false if given day string is not the day of the date object', () => {
-                const time = 1421572235303;
+                const time = 1421572235303
                 expect(is.day(new Date(time), 'monday')).to.be.false
             })
         })
@@ -912,11 +912,11 @@
 
         describe('is.month', () => {
             it('should return true if given month string is the month of the date object', () => {
-                const time = 1421572235303;
+                const time = 1421572235303
                 expect(is.month(new Date(time), 'january')).to.be.true
             })
             it('should return false if given month string is not the month of the date object', () => {
-                const time = 1421572235303;
+                const time = 1421572235303
                 expect(is.month(new Date(time), 'february')).to.be.false
             })
         })
@@ -924,11 +924,11 @@
 
         describe('is.year', () => {
             it('should return true if given year string is the year of the date object', () => {
-                const time = 1421572235303;
+                const time = 1421572235303
                 expect(is.year(new Date(time), 2015)).to.be.true
             })
             it('should return false if given year string is not the year of the date object', () => {
-                const time = 1421572235303;
+                const time = 1421572235303
                 expect(is.year(new Date(time), 2016)).to.be.false
             })
         })
@@ -946,11 +946,11 @@
 
         describe('is.weekend', () => {
             it('should return true if given date is weekend', () => {
-                const time = 1421572235303;
+                const time = 1421572235303
                 expect(is.weekend(new Date(time))).to.be.true
             })
             it('should return false if given date is not weekend', () => {
-                const time = 1421572235303;
+                const time = 1421572235303
                 const date = new Date(time)
                 const friday = new Date(date.setDate(date.getDate() - 2))
                 expect(is.weekend(friday)).to.be.false
@@ -960,13 +960,13 @@
 
         describe('is.weekday', () => {
             it('should return true if given date is weekday', () => {
-                const time = 1421572235303;
+                const time = 1421572235303
                 const date = new Date(time)
                 const friday = new Date(date.setDate(date.getDate() - 2))
                 expect(is.weekday(friday)).to.be.true
             })
             it('should return false if given date is not weekday', () => {
-                const time = 1421572235303;
+                const time = 1421572235303
                 const sunday = new Date(time)
                 expect(is.weekday(sunday)).to.be.false
             })
@@ -1077,12 +1077,12 @@
 
         describe('is.quarterOfYear', () => {
             it('should return true if given quarter is the quarter of the date object', () => {
-                const time = 1421572235303;
+                const time = 1421572235303
                 const date = new Date(time)
                 expect(is.quarterOfYear(date, 1)).to.be.true
             })
             it('should return false if given quarter is not the quarter of the date object', () => {
-                const time = 1421572235303;
+                const time = 1421572235303
                 const date = new Date(time)
                 expect(is.quarterOfYear(date, 2)).to.be.false
             })
@@ -1091,12 +1091,12 @@
 
         describe('is.dayLightSavingTime', () => {
             it('should return false if given date is not in daylight saving time', () => {
-                const time = 1421572235303;
+                const time = 1421572235303
                 const date = new Date(time)
                 expect(is.dayLightSavingTime(date)).to.be.false
             })
             it('should return false if given date is in daylight saving time', () => {
-                const time = 1421572235303;
+                const time = 1421572235303
                 const date = new Date(time)
                 const sixMonthsAgo = new Date(date.setMonth(date.getMonth() - 6))
                 expect(is.dayLightSavingTime(sixMonthsAgo)).to.be.true
@@ -1146,7 +1146,7 @@
 
         describe('is.windowObject', () => {
             it('should return true if given object is window object', () => {
-                expect(is.windowObject(window)).to.be[!!window];
+                expect(is.windowObject(window)).to.be[!!window]
             })
             it('should return false if given object is not window object', () => {
                 expect(is.windowObject({})).to.be.false
@@ -1157,7 +1157,7 @@
         describe('is.domNode', () => {
             it('should return true if given object is a DOM node', () => {
                 const obj = document && document.createElement('div')
-                expect(is.domNode(obj)).to.be[!!document];
+                expect(is.domNode(obj)).to.be[!!document]
             })
             it('should return false if given object is not a DOM node', () => {
                 expect(is.domNode({})).to.be.false
@@ -1171,7 +1171,7 @@
                 expect(is.thenable(promise)).to.be.true
             })
             it('should return false if passed parameter type is not Promise', () => {
-                const notPromise = 'test';
+                const notPromise = 'test'
                 expect(is.thenable(notPromise)).to.be.false
             })
         })
@@ -1181,21 +1181,21 @@
     describe('array checks', () => {
         describe('is.sorted', () => {
             it('should return true if given array is sorted', () => {
-                const array1 = [1, 2, 3, 4, 5];
+                const array1 = [1, 2, 3, 4, 5]
                 expect(is.sorted(array1)).to.be.true
                 expect(is.sorted(array1, '>=')).to.be.true
                 expect(is.sorted(array1, '>')).to.be.true
                 expect(is.sorted(array1, '<=')).to.be.false
                 expect(is.sorted(array1, '<')).to.be.false
 
-                const array2 = [5, 4, 4, 3, 1];
+                const array2 = [5, 4, 4, 3, 1]
                 expect(is.sorted(array2)).to.be.false
                 expect(is.sorted(array2, '>=')).to.be.false
                 expect(is.sorted(array2, '>')).to.be.false
                 expect(is.sorted(array2, '<=')).to.be.true
                 expect(is.sorted(array2, '<')).to.be.false
 
-                const array3 = [10];
+                const array3 = [10]
                 expect(is.sorted(array3)).to.be.true
                 expect(is.sorted(array3, '>=')).to.be.true
                 expect(is.sorted(array3, '>')).to.be.true
@@ -1203,7 +1203,7 @@
                 expect(is.sorted(array3, '<')).to.be.true
             })
             it('should return false if given array is not sorted', () => {
-                const array = [1, 2, 3, 5, 4];
+                const array = [1, 2, 3, 5, 4]
                 expect(is.sorted(array)).to.be.false
                 expect(is.sorted(array, '>=')).to.be.false
                 expect(is.sorted(array, '>')).to.be.false
@@ -1215,13 +1215,13 @@
 
         describe('is.inArray', () => {
             it('should return true if the item is in the array', () => {
-                const value = 3;
-                const array = [1, 4, 6, 7, 3];
+                const value = 3
+                const array = [1, 4, 6, 7, 3]
                 expect(is.inArray(value, array)).to.be.true
             })
             it('should return false if the item is not in the array', () => {
-                const value = 2;
-                const array = [1, 4, 6, 7, 3];
+                const value = 2
+                const array = [1, 4, 6, 7, 3]
                 expect(is.inArray(value, array)).to.be.false
             })
         })
