@@ -1,6 +1,6 @@
 {
   "name": "is-it-check",
-  "version": "0.9.8",
+  "version": "0.9.9",
   "main": "is-it-check.js",
   "license": "MIT",
   "description": "A tiny general purpose runtime check library for js and ts.",
