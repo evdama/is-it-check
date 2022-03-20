@@ -1,15 +1,10 @@
 ;(function(root) {    // eslint-disable-line no-extra-semi
-    var _ = root._ || require('lodash'),
-        document = root.document,
-        expect = _.get(root, 'chai.expect') || require('chai').expect,
-        is = root.is || require('../is-it-check'),
-        window = root.window,
-        ctx = (typeof window === 'undefined') ? global : window;
+    const _ = root._ || require('lodash'), document = root.document, expect = _.get(root, 'chai.expect') || require('chai').expect, is = root.is || require('../is-it-check'), window = root.window, ctx = (typeof window === 'undefined') ? global : window;
 
     function checkApi(name, list) {
         list || (list = ['all', 'any', 'not']);
         _.each(['all', 'any', 'not'], function(api) {
-            var exists = _.includes(list, api);
+            const exists = _.includes(list, api);
             describe('is.' + api + '.' + name, function()  {
                 it('should ' + (exists ? '' : 'not ') + 'exist', function() {
                     expect(is[api][name]).to[exists ? 'be': 'not'].exist;
@@ -21,14 +16,14 @@
     describe('type checks', function() {
         describe('is.arguments', function() {
             it('should return true if passed parameter type is arguments', function() {
-                var getArguments = function() {
+                const getArguments = function() {
                     return arguments;
                 };
-                var args = getArguments('test');
+                const args = getArguments('test');
                 expect(is.arguments(args)).to.be.true;
             });
             it('should return false if passed parameter type is not arguments', function() {
-                var notArgs = ['test'];
+                const notArgs = ['test'];
                 expect(is.arguments(notArgs)).to.be.false;
             });
         });
@@ -36,11 +31,11 @@
 
         describe('is.array', function() {
             it('should return true if passed parameter type is array', function() {
-                var array = ['test'];
+                const array = ['test'];
                 expect(is.array(array)).to.be.true;
             });
             it('should return false if passed parameter type is not array', function() {
-                var notArray = 'test';
+                const notArray = 'test';
                 expect(is.array(notArray)).to.be.false;
             });
         });
@@ -48,11 +43,11 @@
 
         describe('is.boolean', function() {
             it('should return true if passed parameter type is boolean', function() {
-                var bool = true;
+                const bool = true;
                 expect(is.boolean(bool)).to.be.true;
             });
             it('should return false if passed parameter type is not boolean', function() {
-                var notBool = 'test';
+                const notBool = 'test';
                 expect(is.boolean(notBool)).to.be.false;
             });
         });
@@ -60,11 +55,11 @@
 
         describe('is.date', function() {
             it('should return true if passed parameter type is date', function() {
-                var date = new Date();
+                const date = new Date();
                 expect(is.date(date)).to.be.true;
             });
             it('should return false if passed parameter type is not date', function() {
-                var notDate = 'test';
+                const notDate = 'test';
                 expect(is.date(notDate)).to.be.false;
             });
         });
@@ -72,11 +67,11 @@
 
         describe('is.error', function() {
             it('should return true if passed parameter type is error', function() {
-                var error = new Error();
+                const error = new Error();
                 expect(is.error(error)).to.be.true;
             });
             it('should return false if passed parameter type is not error', function() {
-                var notError = 'test';
+                const notError = 'test';
                 expect(is.error(notError)).to.be.false;
             });
         });
@@ -87,7 +82,7 @@
                 expect(is.function(is.function)).to.be.true;
             });
             it('should return false if passed parameter type is not function', function() {
-                var notFunction = 'test';
+                const notFunction = 'test';
                 expect(is.function(notFunction)).to.be.false;
             });
         });
@@ -98,7 +93,7 @@
                 expect(is.nan(NaN)).to.be.true;
             });
             it('should return false if passed parameter type is not NaN', function() {
-                var notNaN = 'test';
+                const notNaN = 'test';
                 expect(is.nan(notNaN)).to.be.false;
             });
         });
@@ -109,7 +104,7 @@
                 expect(is.null(null)).to.be.true;
             });
             it('should return false if passed parameter type is not null', function() {
-                var notNull = 'test';
+                const notNull = 'test';
                 expect(is.null(notNull)).to.be.false;
             });
         });
@@ -120,7 +115,7 @@
                 expect(is.number(1)).to.be.true;
             });
             it('should return false if passed parameter type is not number', function() {
-                var notNumber = 'test';
+                const notNumber = 'test';
                 expect(is.number(notNumber)).to.be.false;
             });
             it('should return false if passed parameter is NaN', function() {
@@ -140,7 +135,7 @@
                 expect(is.object({})).to.be.true;
             });
             it('should return false if passed parameter type is not object', function() {
-                var notObject = 'test';
+                const notObject = 'test';
                 expect(is.object(notObject)).to.be.false;
             });
         });
@@ -151,7 +146,7 @@
                 expect(is.json({})).to.be.true;
             });
             it('should return false if passed parameter type is not a json object', function() {
-                var notObject = 'test';
+                const notObject = 'test';
                 expect(is.json(notObject)).to.be.false;
             });
         });
@@ -159,11 +154,11 @@
 
         describe('is.regexp', function() {
             it('should return true if passed parameter type is regexp', function() {
-                var regexp = new RegExp();
+                const regexp = new RegExp();
                 expect(is.regexp(regexp)).to.be.true;
             });
             it('should return false if passed parameter type is not regexp', function() {
-                var notRegexp = 'test';
+                const notRegexp = 'test';
                 expect(is.regexp(notRegexp)).to.be.false;
             });
         });
@@ -173,7 +168,7 @@
             it('should return true if passed parameter type is map', function() {
                 // check for Map support first
                 if ('Map' in ctx) {
-                    var map = new ctx.Map();
+                    const map = new ctx.Map();
                     expect(is.map(map)).to.be.true;
                 } else {
                     // no Map support - noop
@@ -181,7 +176,7 @@
                 }
             });
             it('should return false if passed parameter type is not map', function() {
-                var notMap = 'test';
+                const notMap = 'test';
                 expect(is.map(notMap)).to.be.false;
             });
         });
@@ -832,11 +827,11 @@
     describe('time checks', function() {
         describe('is.today', function() {
             it('should return true if given date is today', function() {
-                var date = new Date();
+                const date = new Date();
                 expect(is.today(date)).to.be.true;
             });
             it('should return false if given date is not today', function() {
-                var date = new Date();
+                const date = new Date();
                 expect(is.today(date.setDate(date.getDate() - 1))).to.be.false;
             });
         });
@@ -844,12 +839,12 @@
 
         describe('is.yesterday', function() {
             it('should return true if given date is yesterday', function() {
-                var date = new Date();
-                var yesterday = new Date(date.setDate(date.getDate() - 1));
+                const date = new Date();
+                const yesterday = new Date(date.setDate(date.getDate() - 1));
                 expect(is.yesterday(yesterday)).to.be.true;
             });
             it('should return false if given date is not yesterday', function() {
-                var date = new Date();
+                const date = new Date();
                 expect(is.yesterday(date)).to.be.false;
             });
         });
@@ -857,12 +852,12 @@
 
         describe('is.tomorrow', function() {
             it('should return true if given date is tomorrow', function() {
-                var date = new Date();
-                var tomorrow = new Date(date.setDate(date.getDate() + 1));
+                const date = new Date();
+                const tomorrow = new Date(date.setDate(date.getDate() + 1));
                 expect(is.tomorrow(tomorrow)).to.be.true;
             });
             it('should return false if given date is not tomorrow', function() {
-                var date = new Date();
+                const date = new Date();
                 expect(is.tomorrow(date)).to.be.false;
             });
         });
@@ -870,12 +865,12 @@
 
         describe('is.past', function() {
             it('should return true if given date is past', function() {
-                var date = new Date();
-                var past = new Date(date.setDate(date.getDate() - 1));
+                const date = new Date();
+                const past = new Date(date.setDate(date.getDate() - 1));
                 expect(is.past(past)).to.be.true;
             });
             it('should return false if given date is not past', function() {
-                var date = new Date();
+                const date = new Date();
                 expect(is.past(date)).to.be.false;
             });
         });
@@ -883,13 +878,13 @@
 
         describe('is.future', function() {
             it('should return true if given date is future', function() {
-                var date = new Date();
-                var future = new Date(date.setDate(date.getDate() + 1));
+                const date = new Date();
+                const future = new Date(date.setDate(date.getDate() + 1));
                 expect(is.future(future)).to.be.true;
             });
             it('should return false if given date is not future', function() {
-                var date = new Date();
-                var past = new Date(date.setDate(date.getDate() - 1));
+                const date = new Date();
+                const past = new Date(date.setDate(date.getDate() - 1));
                 expect(is.future(date)).to.be.false;
                 expect(is.future(past)).to.be.false;
             });
@@ -898,11 +893,11 @@
 
         describe('is.day', function() {
             it('should return true if given day string is the day of the date object', function() {
-                var time = 1421572235303;
+                const time = 1421572235303;
                 expect(is.day(new Date(time), 'sunday')).to.be.true;
             });
             it('should return false if given day string is not the day of the date object', function() {
-                var time = 1421572235303;
+                const time = 1421572235303;
                 expect(is.day(new Date(time), 'monday')).to.be.false;
             });
         });
@@ -910,11 +905,11 @@
 
         describe('is.month', function() {
             it('should return true if given month string is the month of the date object', function() {
-                var time = 1421572235303;
+                const time = 1421572235303;
                 expect(is.month(new Date(time), 'january')).to.be.true;
             });
             it('should return false if given month string is not the month of the date object', function() {
-                var time = 1421572235303;
+                const time = 1421572235303;
                 expect(is.month(new Date(time), 'february')).to.be.false;
             });
         });
@@ -922,11 +917,11 @@
 
         describe('is.year', function() {
             it('should return true if given year string is the year of the date object', function() {
-                var time = 1421572235303;
+                const time = 1421572235303;
                 expect(is.year(new Date(time), 2015)).to.be.true;
             });
             it('should return false if given year string is not the year of the date object', function() {
-                var time = 1421572235303;
+                const time = 1421572235303;
                 expect(is.year(new Date(time), 2016)).to.be.false;
             });
         });
@@ -944,13 +939,13 @@
 
         describe('is.weekend', function() {
             it('should return true if given date is weekend', function() {
-                var time = 1421572235303;
+                const time = 1421572235303;
                 expect(is.weekend(new Date(time))).to.be.true;
             });
             it('should return false if given date is not weekend', function() {
-                var time = 1421572235303;
-                var date = new Date(time);
-                var friday = new Date(date.setDate(date.getDate() - 2));
+                const time = 1421572235303;
+                const date = new Date(time);
+                const friday = new Date(date.setDate(date.getDate() - 2));
                 expect(is.weekend(friday)).to.be.false;
             });
         });
@@ -958,14 +953,14 @@
 
         describe('is.weekday', function() {
             it('should return true if given date is weekday', function() {
-                var time = 1421572235303;
-                var date = new Date(time);
-                var friday = new Date(date.setDate(date.getDate() - 2));
+                const time = 1421572235303;
+                const date = new Date(time);
+                const friday = new Date(date.setDate(date.getDate() - 2));
                 expect(is.weekday(friday)).to.be.true;
             });
             it('should return false if given date is not weekday', function() {
-                var time = 1421572235303;
-                var sunday = new Date(time);
+                const time = 1421572235303;
+                const sunday = new Date(time);
                 expect(is.weekday(sunday)).to.be.false;
             });
         });
@@ -973,17 +968,17 @@
 
         describe('is.inDateRange', function() {
             it('should return true if date is within given start date and end date', function() {
-                var today = new Date();
-                var date = new Date();
-                var tomorrow = new Date(date.setDate(date.getDate() + 1));
-                var yesterday = new Date(date.setDate(date.getDate() - 2));
+                const today = new Date();
+                const date = new Date();
+                const tomorrow = new Date(date.setDate(date.getDate() + 1));
+                const yesterday = new Date(date.setDate(date.getDate() - 2));
                 expect(is.inDateRange(today, yesterday, tomorrow)).to.be.true;
             });
             it('should return false if date is not within given start date and end date', function() {
-                var today = new Date();
-                var date = new Date();
-                var tomorrow = new Date(date.setDate(date.getDate() + 1));
-                var yesterday = new Date(date.setDate(date.getDate() - 2));
+                const today = new Date();
+                const date = new Date();
+                const tomorrow = new Date(date.setDate(date.getDate() + 1));
+                const yesterday = new Date(date.setDate(date.getDate() - 2));
                 expect(is.inDateRange(yesterday, today, tomorrow)).to.be.false;
             });
         });
@@ -991,13 +986,13 @@
 
         describe('is.inLastWeek', function() {
             it('should return true if date is within last week', function() {
-                var date = new Date();
-                var twoDaysAgo = new Date(date.setDate(date.getDate() - 2));
+                const date = new Date();
+                const twoDaysAgo = new Date(date.setDate(date.getDate() - 2));
                 expect(is.inLastWeek(twoDaysAgo)).to.be.true;
             });
             it('should return false if date is not within last week', function() {
-                var date = new Date();
-                var eightDaysAgo = new Date(date.setDate(date.getDate() - 8));
+                const date = new Date();
+                const eightDaysAgo = new Date(date.setDate(date.getDate() - 8));
                 expect(is.inLastWeek(eightDaysAgo)).to.be.false;
             });
         });
@@ -1005,13 +1000,13 @@
 
         describe('is.inLastMonth', function() {
             it('should return true if date is within last month', function() {
-                var date = new Date();
-                var tenDaysAgo = new Date(date.setDate(date.getDate() - 10));
+                const date = new Date();
+                const tenDaysAgo = new Date(date.setDate(date.getDate() - 10));
                 expect(is.inLastMonth(tenDaysAgo)).to.be.true;
             });
             it('should return false if date is not within last month', function() {
-                var date = new Date();
-                var fiftyDaysAgo = new Date(date.setDate(date.getDate() - 50));
+                const date = new Date();
+                const fiftyDaysAgo = new Date(date.setDate(date.getDate() - 50));
                 expect(is.inLastMonth(fiftyDaysAgo)).to.be.false;
             });
         });
@@ -1019,13 +1014,13 @@
 
         describe('is.inLastYear', function() {
             it('should return true if date is within last year', function() {
-                var date = new Date();
-                var threeMonthsAgo = new Date(date.setMonth(date.getMonth() - 3));
+                const date = new Date();
+                const threeMonthsAgo = new Date(date.setMonth(date.getMonth() - 3));
                 expect(is.inLastYear(threeMonthsAgo)).to.be.true;
             });
             it('should return false if date is not within last year', function() {
-                var date = new Date();
-                var future = new Date(date.setDate(date.getDate() + 1));
+                const date = new Date();
+                const future = new Date(date.setDate(date.getDate() + 1));
                 expect(is.inLastYear(future)).to.be.false;
             });
         });
@@ -1033,13 +1028,13 @@
 
         describe('is.inNextWeek', function() {
             it('should return true if date is within next week', function() {
-                var date = new Date();
-                var future = new Date(date.setDate(date.getDate() + 1));
+                const date = new Date();
+                const future = new Date(date.setDate(date.getDate() + 1));
                 expect(is.inNextWeek(future)).to.be.true;
             });
             it('should return false if date is not within next week', function() {
-                var date = new Date();
-                var yesterday = new Date(date.setDate(date.getDate() - 1));
+                const date = new Date();
+                const yesterday = new Date(date.setDate(date.getDate() - 1));
                 expect(is.inNextWeek(yesterday)).to.be.false;
             });
         });
@@ -1047,13 +1042,13 @@
 
         describe('is.inNextMonth', function() {
             it('should return true if date is within next month', function() {
-                var date = new Date();
-                var aWeekLater = new Date(date.setDate(date.getDate() + 7));
+                const date = new Date();
+                const aWeekLater = new Date(date.setDate(date.getDate() + 7));
                 expect(is.inNextMonth(aWeekLater)).to.be.true;
             });
             it('should return false if date is not within next month', function() {
-                var date = new Date();
-                var yesterday = new Date(date.setDate(date.getDate() - 1));
+                const date = new Date();
+                const yesterday = new Date(date.setDate(date.getDate() - 1));
                 expect(is.inNextMonth(yesterday)).to.be.false;
             });
         });
@@ -1061,13 +1056,13 @@
 
         describe('is.inNextYear', function() {
             it('should return true if date is within next year', function() {
-                var date = new Date();
-                var threeMonthsLater = new Date(date.setMonth(date.getMonth() + 3));
+                const date = new Date();
+                const threeMonthsLater = new Date(date.setMonth(date.getMonth() + 3));
                 expect(is.inNextYear(threeMonthsLater)).to.be.true;
             });
             it('should return false if date is not within next year', function() {
-                var date = new Date();
-                var past = new Date(date.setDate(date.getDate() - 1));
+                const date = new Date();
+                const past = new Date(date.setDate(date.getDate() - 1));
                 expect(is.inNextYear(past)).to.be.false;
             });
         });
@@ -1075,13 +1070,13 @@
 
         describe('is.quarterOfYear', function() {
             it('should return true if given quarter is the quarter of the date object', function() {
-                var time = 1421572235303;
-                var date = new Date(time);
+                const time = 1421572235303;
+                const date = new Date(time);
                 expect(is.quarterOfYear(date, 1)).to.be.true;
             });
             it('should return false if given quarter is not the quarter of the date object', function() {
-                var time = 1421572235303;
-                var date = new Date(time);
+                const time = 1421572235303;
+                const date = new Date(time);
                 expect(is.quarterOfYear(date, 2)).to.be.false;
             });
         });
@@ -1089,14 +1084,14 @@
 
         describe('is.dayLightSavingTime', function() {
             it('should return false if given date is not in daylight saving time', function() {
-                var time = 1421572235303;
-                var date = new Date(time);
+                const time = 1421572235303;
+                const date = new Date(time);
                 expect(is.dayLightSavingTime(date)).to.be.false;
             });
             it('should return false if given date is in daylight saving time', function() {
-                var time = 1421572235303;
-                var date = new Date(time);
-                var sixMonthsAgo = new Date(date.setMonth(date.getMonth() - 6));
+                const time = 1421572235303;
+                const date = new Date(time);
+                const sixMonthsAgo = new Date(date.setMonth(date.getMonth() - 6));
                 expect(is.dayLightSavingTime(sixMonthsAgo)).to.be.true;
             });
         });
@@ -1106,7 +1101,7 @@
     describe('object checks', function() {
         describe('is.propertyCount', function() {
             it('should return true if given count matches that of the object', function() {
-                var obj = {
+                const obj = {
                     test: 'test',
                     is: 'is',
                     good: 'good'
@@ -1114,7 +1109,7 @@
                 expect(is.propertyCount(obj, 3)).to.be.true;
             });
             it('should return false if given count does not match that of the object', function() {
-                var obj = {
+                const obj = {
                     test: 'test',
                     is: 'is'
                 };
@@ -1125,7 +1120,7 @@
 
         describe('is.propertyDefined', function() {
             it('should return true if given property is in objects', function() {
-                var obj = {
+                const obj = {
                     test: 'test',
                     is: 'is',
                     good: 'good'
@@ -1133,7 +1128,7 @@
                 expect(is.propertyDefined(obj, 'good')).to.be.true;
             });
             it('should return false if given property is not in objects', function() {
-                var obj = {
+                const obj = {
                     test: 'test',
                     is: 'is'
                 };
@@ -1154,7 +1149,7 @@
 
         describe('is.domNode', function() {
             it('should return true if given object is a DOM node', function() {
-                var obj = document && document.createElement('div');
+                const obj = document && document.createElement('div');
                 expect(is.domNode(obj)).to.be[!!document];
             });
             it('should return false if given object is not a DOM node', function() {
@@ -1165,11 +1160,11 @@
 
         describe('is.thenable', function() {
             it('should return true if passed parameter type is Promise', function() {
-                var promise = Promise.resolve(true); // eslint-disable-line no-undef
+                const promise = Promise.resolve(true); // eslint-disable-line no-undef
                 expect(is.thenable(promise)).to.be.true;
             });
             it('should return false if passed parameter type is not Promise', function() {
-                var notPromise = 'test';
+                const notPromise = 'test';
                 expect(is.thenable(notPromise)).to.be.false;
             });
         });
@@ -1179,21 +1174,21 @@
     describe('array checks', function() {
         describe('is.sorted', function() {
             it('should return true if given array is sorted', function() {
-                var array1 = [1, 2, 3, 4, 5];
+                const array1 = [1, 2, 3, 4, 5];
                 expect(is.sorted(array1)).to.be.true;
                 expect(is.sorted(array1, '>=')).to.be.true;
                 expect(is.sorted(array1, '>')).to.be.true;
                 expect(is.sorted(array1, '<=')).to.be.false;
                 expect(is.sorted(array1, '<')).to.be.false;
 
-                var array2 = [5, 4, 4, 3, 1];
+                const array2 = [5, 4, 4, 3, 1];
                 expect(is.sorted(array2)).to.be.false;
                 expect(is.sorted(array2, '>=')).to.be.false;
                 expect(is.sorted(array2, '>')).to.be.false;
                 expect(is.sorted(array2, '<=')).to.be.true;
                 expect(is.sorted(array2, '<')).to.be.false;
 
-                var array3 = [10];
+                const array3 = [10];
                 expect(is.sorted(array3)).to.be.true;
                 expect(is.sorted(array3, '>=')).to.be.true;
                 expect(is.sorted(array3, '>')).to.be.true;
@@ -1201,7 +1196,7 @@
                 expect(is.sorted(array3, '<')).to.be.true;
             });
             it('should return false if given array is not sorted', function() {
-                var array = [1, 2, 3, 5, 4];
+                const array = [1, 2, 3, 5, 4];
                 expect(is.sorted(array)).to.be.false;
                 expect(is.sorted(array, '>=')).to.be.false;
                 expect(is.sorted(array, '>')).to.be.false;
@@ -1213,13 +1208,13 @@
 
         describe('is.inArray', function()  {
             it('should return true if the item is in the array', function() {
-                var value = 3;
-                var array = [1, 4, 6, 7, 3];
+                const value = 3;
+                const array = [1, 4, 6, 7, 3];
                 expect(is.inArray(value, array)).to.be.true;
             });
             it('should return false if the item is not in the array', function() {
-                var value = 2;
-                var array = [1, 4, 6, 7, 3];
+                const value = 2;
+                const array = [1, 4, 6, 7, 3];
                 expect(is.inArray(value, array)).to.be.false;
             });
         });
