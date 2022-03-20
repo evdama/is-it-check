@@ -1,5 +1,12 @@
-;(root => {    // eslint-disable-line no-extra-semi
-    const _ = root._ || require('lodash'), document = root.document, expect = _.get(root, 'chai.expect') || require('chai').expect, is = root.is || require('../is-it-check'), window = root.window, ctx = (typeof window === 'undefined') ? global : window;
+(root => {
+    // eslint-disable-line no-extra-semi
+    const _ = root._ || require('lodash');
+
+    const document = root.document;
+    const expect = _.get(root, 'chai.expect') || require('chai').expect;
+    const is = root.is || require('../is-it-check');
+    const window = root.window;
+    const ctx = (typeof window === 'undefined') ? global : window;
 
     const checkApi = (name, list) => {
         list || (list = ['all', 'any', 'not']);
@@ -1220,5 +1227,4 @@
         });
         checkApi('inArray', ['not']);
     });
-
 })(this);
