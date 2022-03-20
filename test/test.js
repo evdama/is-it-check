@@ -1,20 +1,20 @@
 (root => {
     // eslint-disable-line no-extra-semi
-    const _ = root._ || require('lodash');
+    const _ = root._ || require('lodash')
 
     const document = root.document;
-    const expect = _.get(root, 'chai.expect') || require('chai').expect;
-    const is = root.is || require('../is-it-check');
+    const expect = _.get(root, 'chai.expect') || require('chai').expect
+    const is = root.is || require('../is-it-check')
     const window = root.window;
-    const ctx = (typeof window === 'undefined') ? global : window;
+    const ctx = (typeof window === 'undefined') ? global : window
 
     const checkApi = (name, list) => {
-        list || (list = ['all', 'any', 'not']);
+        list || (list = ['all', 'any', 'not'])
         _.each(['all', 'any', 'not'], api => {
-            const exists = _.includes(list, api);
+            const exists = _.includes(list, api)
             describe(`is.${api}.${name}`, () => {
                 it(`should ${exists ? '' : 'not '}exist`, () => {
-                    expect(is[api][name]).to[exists ? 'be': 'not'].exist;
+                    expect(is[api][name]).to[exists ? 'be': 'not'].exist
                 })
             })
         })
@@ -25,8 +25,8 @@
             it('should return true if passed parameter type is arguments', () => {
                 const getArguments = () => {
                     return arguments;
-                };
-                const args = getArguments('test');
+                }
+                const args = getArguments('test')
                 expect(is.arguments(args)).to.be.true
             })
             it('should return false if passed parameter type is not arguments', () => {
@@ -34,7 +34,7 @@
                 expect(is.arguments(notArgs)).to.be.false
             })
         })
-        checkApi('arguments');
+        checkApi('arguments')
 
         describe('is.array', () => {
             it('should return true if passed parameter type is array', () => {
@@ -46,7 +46,7 @@
                 expect(is.array(notArray)).to.be.false
             })
         })
-        checkApi('array');
+        checkApi('array')
 
         describe('is.boolean', () => {
             it('should return true if passed parameter type is boolean', () => {
@@ -58,11 +58,11 @@
                 expect(is.boolean(notBool)).to.be.false
             })
         })
-        checkApi('boolean');
+        checkApi('boolean')
 
         describe('is.date', () => {
             it('should return true if passed parameter type is date', () => {
-                const date = new Date();
+                const date = new Date()
                 expect(is.date(date)).to.be.true
             })
             it('should return false if passed parameter type is not date', () => {
@@ -70,11 +70,11 @@
                 expect(is.date(notDate)).to.be.false
             })
         })
-        checkApi('date');
+        checkApi('date')
 
         describe('is.error', () => {
             it('should return true if passed parameter type is error', () => {
-                const error = new Error();
+                const error = new Error()
                 expect(is.error(error)).to.be.true
             })
             it('should return false if passed parameter type is not error', () => {
@@ -82,7 +82,7 @@
                 expect(is.error(notError)).to.be.false
             })
         })
-        checkApi('error');
+        checkApi('error')
 
         describe('is.function', () => {
             it('should return true if passed parameter type is function', () => {
@@ -93,7 +93,7 @@
                 expect(is.function(notFunction)).to.be.false
             })
         })
-        checkApi('function');
+        checkApi('function')
 
         describe('is.nan', () => {
             it('should return true if passed parameter type is NaN', () => {
@@ -104,7 +104,7 @@
                 expect(is.nan(notNaN)).to.be.false
             })
         })
-        checkApi('nan');
+        checkApi('nan')
 
         describe('is.null', () => {
             it('should return true if passed parameter type is null', () => {
@@ -115,7 +115,7 @@
                 expect(is.null(notNull)).to.be.false
             })
         })
-        checkApi('null');
+        checkApi('null')
 
         describe('is.number', () => {
             it('should return true if passed parameter type is number', () => {
@@ -135,7 +135,7 @@
                 expect(is.number(-Infinity)).to.be.false
             })
         })
-        checkApi('number');
+        checkApi('number')
 
         describe('is.object', () => {
             it('should return true if passed parameter type is object', () => {
@@ -146,7 +146,7 @@
                 expect(is.object(notObject)).to.be.false
             })
         })
-        checkApi('object');
+        checkApi('object')
 
         describe('is.json',() => {
             it('should return true if passed parameter type is a json object', () => {
@@ -157,11 +157,11 @@
                 expect(is.json(notObject)).to.be.false
             })
         })
-        checkApi('json');
+        checkApi('json')
 
         describe('is.regexp', () => {
             it('should return true if passed parameter type is regexp', () => {
-                const regexp = new RegExp();
+                const regexp = new RegExp()
                 expect(is.regexp(regexp)).to.be.true
             })
             it('should return false if passed parameter type is not regexp', () => {
@@ -169,13 +169,13 @@
                 expect(is.regexp(notRegexp)).to.be.false
             })
         })
-        checkApi('regexp');
+        checkApi('regexp')
 
         describe('is.map', () => {
             it('should return true if passed parameter type is map', () => {
                 // check for Map support first
                 if ('Map' in ctx) {
-                    const map = new ctx.Map();
+                    const map = new ctx.Map()
                     expect(is.map(map)).to.be.true
                 } else {
                     // no Map support - noop
@@ -187,7 +187,7 @@
                 expect(is.map(notMap)).to.be.false
             })
         })
-        checkApi('map');
+        checkApi('map')
 
         describe('is.sameType', () => {
             it('should return true if passed parameter types are same', () => {
@@ -198,7 +198,7 @@
                 expect(is.sameType(1, 'test')).to.be.false
             })
         })
-        checkApi('sameType', ['not']);
+        checkApi('sameType', ['not'])
 
         describe('is.char', () => {
             it('should return true if passed parameter type is char', () => {
@@ -208,7 +208,7 @@
                 expect(is.char('test')).to.be.false
             })
         })
-        checkApi('char');
+        checkApi('char')
 
         describe('is.string', () => {
             it('should return true if passed parameter type is string', () => {
@@ -218,7 +218,7 @@
                 expect(is.string(1)).to.be.false
             })
         })
-        checkApi('string');
+        checkApi('string')
 
         describe('is.undefined', () => {
             it('should return true if passed parameter type is undefined', () => {
@@ -229,7 +229,7 @@
                 expect(is.undefined('test')).to.be.false
             })
         })
-        checkApi('undefined');
+        checkApi('undefined')
     })
 
     describe('presence checks', () => {
@@ -241,7 +241,7 @@
                 expect(is.empty({test: 'test'})).to.be.false
             })
         })
-        checkApi('empty');
+        checkApi('empty')
 
         describe('is.existy', () => {
             it('should return false if given value is null', () => {
@@ -254,7 +254,7 @@
                 expect(is.existy('test')).to.be.true
             })
         })
-        checkApi('existy');
+        checkApi('existy')
 
         describe('is.truthy', () => {
             it('should return true if given value is truthy', () => {
@@ -267,7 +267,7 @@
                 expect(is.truthy(false)).to.be.false
             })
         })
-        checkApi('truthy');
+        checkApi('truthy')
 
         describe('is.falsy', () => {
             it('should return false if given value is truthy', () => {
@@ -280,7 +280,7 @@
                 expect(is.falsy(false)).to.be.true
             })
         })
-        checkApi('falsy');
+        checkApi('falsy')
 
         describe('is.space', () => {
             it('should return false if given value is not string', () => {
@@ -290,7 +290,7 @@
                 expect(is.space(' ')).to.be.true
             })
         })
-        checkApi('space');
+        checkApi('space')
     })
 
     describe('arithmetic checks', () => {
@@ -314,7 +314,7 @@
                 expect(is.equal(false, true)).to.be.false
             })
         })
-        checkApi('equal', ['not']);
+        checkApi('equal', ['not'])
 
         describe('is.even', () => {
             it('should return true if given number is even', () => {
@@ -327,7 +327,7 @@
                 expect(is.even(2.5)).to.be.false
             })
         })
-        checkApi('even');
+        checkApi('even')
 
         describe('is.odd', () => {
             it('should return true if given number is odd', () => {
@@ -343,7 +343,7 @@
                 expect(is.odd(2.5)).to.be.false
             })
         })
-        checkApi('odd');
+        checkApi('odd')
 
         describe('is.positive', () => {
             it('should return true if given number is positive', () => {
@@ -353,7 +353,7 @@
                 expect(is.positive(-2)).to.be.false
             })
         })
-        checkApi('positive');
+        checkApi('positive')
 
         describe('is.negative', () => {
             it('should return true if given number is negative', () => {
@@ -363,7 +363,7 @@
                 expect(is.negative(2)).to.be.false
             })
         })
-        checkApi('negative');
+        checkApi('negative')
 
         describe('is.above', () => {
             it('should return true if given number is above minimum value', () => {
@@ -373,7 +373,7 @@
                 expect(is.above(12, 13)).to.be.false
             })
         })
-        checkApi('above', ['not']);
+        checkApi('above', ['not'])
 
         describe('is.under', () => {
             it('should return true if given number is under maximum value', () => {
@@ -383,7 +383,7 @@
                 expect(is.under(12, 11)).to.be.false
             })
         })
-        checkApi('under', ['not']);
+        checkApi('under', ['not'])
 
         describe('is.within', () => {
             it('should return true if given number is within minimum and maximum values', () => {
@@ -393,7 +393,7 @@
                 expect(is.within(20, 5, 15)).to.be.false
             })
         })
-        checkApi('within', ['not']);
+        checkApi('within', ['not'])
 
         describe('is.decimal', () => {
             it('should return true if given number is decimal', () => {
@@ -403,7 +403,7 @@
                 expect(is.decimal(2)).to.be.false
             })
         })
-        checkApi('decimal');
+        checkApi('decimal')
 
         describe('is.integer', () => {
             it('should return true if given number is integer', () => {
@@ -413,7 +413,7 @@
                 expect(is.integer(2.2)).to.be.false
             })
         })
-        checkApi('integer');
+        checkApi('integer')
 
         describe('is.finite', () => {
             it('should return true if given number is finite', () => {
@@ -423,7 +423,7 @@
                 expect(is.finite(Infinity)).to.be.false
             })
         })
-        checkApi('finite');
+        checkApi('finite')
 
         describe('is.infinite', () => {
             it('should return true if given number is infinite', () => {
@@ -434,7 +434,7 @@
                 expect(is.infinite(NaN)).to.be.false
             })
         })
-        checkApi('infinite');
+        checkApi('infinite')
     })
 
     describe('regexp checks', () => {
@@ -452,7 +452,7 @@
                 expect(is.url(undefined)).to.be.false
             })
         })
-        checkApi('url');
+        checkApi('url')
 
         describe('is.email', () => {
             it('should return true if given value is email', () => {
@@ -468,7 +468,7 @@
                 expect(is.email(undefined)).to.be.false
             })
         })
-        checkApi('email');
+        checkApi('email')
 
         describe('is.creditCard', () => {
             it('should return true if given value is credit card', () => {
@@ -484,7 +484,7 @@
                 expect(is.creditCard(undefined)).to.be.false
             })
         })
-        checkApi('creditCard');
+        checkApi('creditCard')
 
         describe('is.alphaNumeric', () => {
             it('should return true if given value is alpha numeric', () => {
@@ -500,7 +500,7 @@
                 expect(is.alphaNumeric(undefined)).to.be.false
             })
         })
-        checkApi('alphaNumeric');
+        checkApi('alphaNumeric')
 
         describe('is.timeString', () => {
             it('should return true if given value is time string', () => {
@@ -516,7 +516,7 @@
                 expect(is.timeString(undefined)).to.be.false
             })
         })
-        checkApi('timeString');
+        checkApi('timeString')
 
         describe('is.dateString', () => {
             it('should return true if given value is date string', () => {
@@ -534,7 +534,7 @@
                 expect(is.dateString(undefined)).to.be.false
             })
         })
-        checkApi('dateString');
+        checkApi('dateString')
 
         describe('is.usZipCode', () => {
             it('should return true if given value is US zip code', () => {
@@ -550,7 +550,7 @@
                 expect(is.usZipCode(undefined)).to.be.false
             })
         })
-        checkApi('usZipCode');
+        checkApi('usZipCode')
 
         describe('is.caPostalCode', () => {
             it('should return true if given value is Canada postal code', () => {
@@ -569,7 +569,7 @@
                 expect(is.caPostalCode(undefined)).to.be.false
             })
         })
-        checkApi('caPostalCode');
+        checkApi('caPostalCode')
 
         describe('is.ukPostCode', () => {
             it('should return true if given value is UK post code', () => {
@@ -585,7 +585,7 @@
                 expect(is.ukPostCode(undefined)).to.be.false
             })
         })
-        checkApi('ukPostCode');
+        checkApi('ukPostCode')
 
         describe('is.nanpPhone', () => {
             it('should return true if given value is nanpPhone', () => {
@@ -601,7 +601,7 @@
                 expect(is.nanpPhone(undefined)).to.be.false
             })
         })
-        checkApi('nanpPhone');
+        checkApi('nanpPhone')
 
         describe('is.eppPhone', () => {
             it('should return true if given value is eppPhone', () => {
@@ -617,7 +617,7 @@
                 expect(is.eppPhone(undefined)).to.be.false
             })
         })
-        checkApi('eppPhone');
+        checkApi('eppPhone')
 
         describe('is.socialSecurityNumber', () => {
             it('should return true if given value is socialSecurityNumber', () => {
@@ -634,7 +634,7 @@
                 expect(is.socialSecurityNumber(undefined)).to.be.false
             })
         })
-        checkApi('socialSecurityNumber');
+        checkApi('socialSecurityNumber')
 
         describe('is.affirmative', () => {
             it('should return true if given value is affirmative', () => {
@@ -650,7 +650,7 @@
                 expect(is.affirmative(undefined)).to.be.false
             })
         })
-        checkApi('affirmative');
+        checkApi('affirmative')
 
         describe('is.hexadecimal', () => {
             it('should return true if given value is hexadecimal', () => {
@@ -667,7 +667,7 @@
                 expect(is.hexadecimal(undefined)).to.be.false
             })
         })
-        checkApi('hexadecimal');
+        checkApi('hexadecimal')
 
         describe('is.hexColor', () => {
             it('should return true if given value is hexColor', () => {
@@ -683,7 +683,7 @@
                 expect(is.hexColor(undefined)).to.be.false
             })
         })
-        checkApi('hexColor');
+        checkApi('hexColor')
 
         describe('is.ip', () => {
             it('should return true if given value is a valid IP address', () => {
@@ -699,7 +699,7 @@
                 expect(is.ip(undefined)).to.be.false
             })
         })
-        checkApi('ip');
+        checkApi('ip')
 
         describe('is.ipv4', () => {
             it('should return true if given value is a valid IPv4 address', () => {
@@ -715,7 +715,7 @@
                 expect(is.ipv4(undefined)).to.be.false
             })
         })
-        checkApi('ipv4');
+        checkApi('ipv4')
 
         describe('is.ipv6', () => {
             it('should return true if given value is a valid IPv6 address', () => {
@@ -731,7 +731,7 @@
                 expect(is.ipv6(undefined)).to.be.false
             })
         })
-        checkApi('ipv6');
+        checkApi('ipv6')
 
         describe("is.macAddress", () => {
             it("should return true if given value is a MAC address", () => {
@@ -741,7 +741,7 @@
                 expect(is.macAddress('0123456789ab')).to.be.false
             })
         })
-        checkApi('macAddress');
+        checkApi('macAddress')
     })
 
 
@@ -755,7 +755,7 @@
                 expect(is.include('test.com', 'nope')).to.be.false
             })
         })
-        checkApi('include', ['not']);
+        checkApi('include', ['not'])
 
         describe('is.upperCase', () => {
             it('should return true if given string is uppercase', () => {
@@ -765,7 +765,7 @@
                 expect(is.upperCase('test')).to.be.false
             })
         })
-        checkApi('upperCase');
+        checkApi('upperCase')
 
         describe('is.lowerCase', () => {
             it('should return true if given string is lowerCase', () => {
@@ -775,7 +775,7 @@
                 expect(is.lowerCase('TEST')).to.be.false
             })
         })
-        checkApi('lowerCase');
+        checkApi('lowerCase')
 
         describe('is.startWith', () => {
             it('should return true if given string starts with substring', () => {
@@ -785,7 +785,7 @@
                 expect(is.startWith('test', 'st')).to.be.false
             })
         })
-        checkApi('startWith', ['not']);
+        checkApi('startWith', ['not'])
 
         describe('is.endWith', () => {
             it('should return true if given string ends with substring', () => {
@@ -799,7 +799,7 @@
                 expect(is.endWith('id', '_id')).to.be.false
             })
         })
-        checkApi('endWith', ['not']);
+        checkApi('endWith', ['not'])
 
         describe('is.capitalized', () => {
             it('should return true if given string is capitalized', () => {
@@ -816,7 +816,7 @@
                 expect(is.capitalized('Test is good')).to.be.false
             })
         })
-        checkApi('capitalized');
+        checkApi('capitalized')
 
         describe('is.palindrome', () => {
             it('should return true if given string is palindrome', () => {
@@ -828,75 +828,75 @@
                 expect(is.palindrome('test')).to.be.false
             })
         })
-        checkApi('palindrome');
+        checkApi('palindrome')
     })
 
     describe('time checks', () => {
         describe('is.today', () => {
             it('should return true if given date is today', () => {
-                const date = new Date();
+                const date = new Date()
                 expect(is.today(date)).to.be.true
             })
             it('should return false if given date is not today', () => {
-                const date = new Date();
+                const date = new Date()
                 expect(is.today(date.setDate(date.getDate() - 1))).to.be.false
             })
         })
-        checkApi('today');
+        checkApi('today')
 
         describe('is.yesterday', () => {
             it('should return true if given date is yesterday', () => {
-                const date = new Date();
-                const yesterday = new Date(date.setDate(date.getDate() - 1));
+                const date = new Date()
+                const yesterday = new Date(date.setDate(date.getDate() - 1))
                 expect(is.yesterday(yesterday)).to.be.true
             })
             it('should return false if given date is not yesterday', () => {
-                const date = new Date();
+                const date = new Date()
                 expect(is.yesterday(date)).to.be.false
             })
         })
-        checkApi('yesterday');
+        checkApi('yesterday')
 
         describe('is.tomorrow', () => {
             it('should return true if given date is tomorrow', () => {
-                const date = new Date();
-                const tomorrow = new Date(date.setDate(date.getDate() + 1));
+                const date = new Date()
+                const tomorrow = new Date(date.setDate(date.getDate() + 1))
                 expect(is.tomorrow(tomorrow)).to.be.true
             })
             it('should return false if given date is not tomorrow', () => {
-                const date = new Date();
+                const date = new Date()
                 expect(is.tomorrow(date)).to.be.false
             })
         })
-        checkApi('tomorrow');
+        checkApi('tomorrow')
 
         describe('is.past', () => {
             it('should return true if given date is past', () => {
-                const date = new Date();
-                const past = new Date(date.setDate(date.getDate() - 1));
+                const date = new Date()
+                const past = new Date(date.setDate(date.getDate() - 1))
                 expect(is.past(past)).to.be.true
             })
             it('should return false if given date is not past', () => {
-                const date = new Date();
+                const date = new Date()
                 expect(is.past(date)).to.be.false
             })
         })
-        checkApi('past');
+        checkApi('past')
 
         describe('is.future', () => {
             it('should return true if given date is future', () => {
-                const date = new Date();
-                const future = new Date(date.setDate(date.getDate() + 1));
+                const date = new Date()
+                const future = new Date(date.setDate(date.getDate() + 1))
                 expect(is.future(future)).to.be.true
             })
             it('should return false if given date is not future', () => {
-                const date = new Date();
-                const past = new Date(date.setDate(date.getDate() - 1));
+                const date = new Date()
+                const past = new Date(date.setDate(date.getDate() - 1))
                 expect(is.future(date)).to.be.false
                 expect(is.future(past)).to.be.false
             })
         })
-        checkApi('future');
+        checkApi('future')
 
         describe('is.day', () => {
             it('should return true if given day string is the day of the date object', () => {
@@ -908,7 +908,7 @@
                 expect(is.day(new Date(time), 'monday')).to.be.false
             })
         })
-        checkApi('day', ['not']);
+        checkApi('day', ['not'])
 
         describe('is.month', () => {
             it('should return true if given month string is the month of the date object', () => {
@@ -920,7 +920,7 @@
                 expect(is.month(new Date(time), 'february')).to.be.false
             })
         })
-        checkApi('month', ['not']);
+        checkApi('month', ['not'])
 
         describe('is.year', () => {
             it('should return true if given year string is the year of the date object', () => {
@@ -932,7 +932,7 @@
                 expect(is.year(new Date(time), 2016)).to.be.false
             })
         })
-        checkApi('year', ['not']);
+        checkApi('year', ['not'])
 
         describe('is.leapYear', () => {
             it('should return true if given year is a leap year', () => {
@@ -942,7 +942,7 @@
                 expect(is.leapYear(2015)).to.be.false
             })
         })
-        checkApi('leapYear');
+        checkApi('leapYear')
 
         describe('is.weekend', () => {
             it('should return true if given date is weekend', () => {
@@ -951,158 +951,158 @@
             })
             it('should return false if given date is not weekend', () => {
                 const time = 1421572235303;
-                const date = new Date(time);
-                const friday = new Date(date.setDate(date.getDate() - 2));
+                const date = new Date(time)
+                const friday = new Date(date.setDate(date.getDate() - 2))
                 expect(is.weekend(friday)).to.be.false
             })
         })
-        checkApi('weekend');
+        checkApi('weekend')
 
         describe('is.weekday', () => {
             it('should return true if given date is weekday', () => {
                 const time = 1421572235303;
-                const date = new Date(time);
-                const friday = new Date(date.setDate(date.getDate() - 2));
+                const date = new Date(time)
+                const friday = new Date(date.setDate(date.getDate() - 2))
                 expect(is.weekday(friday)).to.be.true
             })
             it('should return false if given date is not weekday', () => {
                 const time = 1421572235303;
-                const sunday = new Date(time);
+                const sunday = new Date(time)
                 expect(is.weekday(sunday)).to.be.false
             })
         })
-        checkApi('weekday');
+        checkApi('weekday')
 
         describe('is.inDateRange', () => {
             it('should return true if date is within given start date and end date', () => {
-                const today = new Date();
-                const date = new Date();
-                const tomorrow = new Date(date.setDate(date.getDate() + 1));
-                const yesterday = new Date(date.setDate(date.getDate() - 2));
+                const today = new Date()
+                const date = new Date()
+                const tomorrow = new Date(date.setDate(date.getDate() + 1))
+                const yesterday = new Date(date.setDate(date.getDate() - 2))
                 expect(is.inDateRange(today, yesterday, tomorrow)).to.be.true
             })
             it('should return false if date is not within given start date and end date', () => {
-                const today = new Date();
-                const date = new Date();
-                const tomorrow = new Date(date.setDate(date.getDate() + 1));
-                const yesterday = new Date(date.setDate(date.getDate() - 2));
+                const today = new Date()
+                const date = new Date()
+                const tomorrow = new Date(date.setDate(date.getDate() + 1))
+                const yesterday = new Date(date.setDate(date.getDate() - 2))
                 expect(is.inDateRange(yesterday, today, tomorrow)).to.be.false
             })
         })
-        checkApi('inDateRange', ['not']);
+        checkApi('inDateRange', ['not'])
 
         describe('is.inLastWeek', () => {
             it('should return true if date is within last week', () => {
-                const date = new Date();
-                const twoDaysAgo = new Date(date.setDate(date.getDate() - 2));
+                const date = new Date()
+                const twoDaysAgo = new Date(date.setDate(date.getDate() - 2))
                 expect(is.inLastWeek(twoDaysAgo)).to.be.true
             })
             it('should return false if date is not within last week', () => {
-                const date = new Date();
-                const eightDaysAgo = new Date(date.setDate(date.getDate() - 8));
+                const date = new Date()
+                const eightDaysAgo = new Date(date.setDate(date.getDate() - 8))
                 expect(is.inLastWeek(eightDaysAgo)).to.be.false
             })
         })
-        checkApi('inLastWeek');
+        checkApi('inLastWeek')
 
         describe('is.inLastMonth', () => {
             it('should return true if date is within last month', () => {
-                const date = new Date();
-                const tenDaysAgo = new Date(date.setDate(date.getDate() - 10));
+                const date = new Date()
+                const tenDaysAgo = new Date(date.setDate(date.getDate() - 10))
                 expect(is.inLastMonth(tenDaysAgo)).to.be.true
             })
             it('should return false if date is not within last month', () => {
-                const date = new Date();
-                const fiftyDaysAgo = new Date(date.setDate(date.getDate() - 50));
+                const date = new Date()
+                const fiftyDaysAgo = new Date(date.setDate(date.getDate() - 50))
                 expect(is.inLastMonth(fiftyDaysAgo)).to.be.false
             })
         })
-        checkApi('inLastMonth');
+        checkApi('inLastMonth')
 
         describe('is.inLastYear', () => {
             it('should return true if date is within last year', () => {
-                const date = new Date();
-                const threeMonthsAgo = new Date(date.setMonth(date.getMonth() - 3));
+                const date = new Date()
+                const threeMonthsAgo = new Date(date.setMonth(date.getMonth() - 3))
                 expect(is.inLastYear(threeMonthsAgo)).to.be.true
             })
             it('should return false if date is not within last year', () => {
-                const date = new Date();
-                const future = new Date(date.setDate(date.getDate() + 1));
+                const date = new Date()
+                const future = new Date(date.setDate(date.getDate() + 1))
                 expect(is.inLastYear(future)).to.be.false
             })
         })
-        checkApi('inLastYear');
+        checkApi('inLastYear')
 
         describe('is.inNextWeek', () => {
             it('should return true if date is within next week', () => {
-                const date = new Date();
-                const future = new Date(date.setDate(date.getDate() + 1));
+                const date = new Date()
+                const future = new Date(date.setDate(date.getDate() + 1))
                 expect(is.inNextWeek(future)).to.be.true
             })
             it('should return false if date is not within next week', () => {
-                const date = new Date();
-                const yesterday = new Date(date.setDate(date.getDate() - 1));
+                const date = new Date()
+                const yesterday = new Date(date.setDate(date.getDate() - 1))
                 expect(is.inNextWeek(yesterday)).to.be.false
             })
         })
-        checkApi('inNextWeek');
+        checkApi('inNextWeek')
 
         describe('is.inNextMonth', () => {
             it('should return true if date is within next month', () => {
-                const date = new Date();
-                const aWeekLater = new Date(date.setDate(date.getDate() + 7));
+                const date = new Date()
+                const aWeekLater = new Date(date.setDate(date.getDate() + 7))
                 expect(is.inNextMonth(aWeekLater)).to.be.true
             })
             it('should return false if date is not within next month', () => {
-                const date = new Date();
-                const yesterday = new Date(date.setDate(date.getDate() - 1));
+                const date = new Date()
+                const yesterday = new Date(date.setDate(date.getDate() - 1))
                 expect(is.inNextMonth(yesterday)).to.be.false
             })
         })
-        checkApi('inNextMonth');
+        checkApi('inNextMonth')
 
         describe('is.inNextYear', () => {
             it('should return true if date is within next year', () => {
-                const date = new Date();
-                const threeMonthsLater = new Date(date.setMonth(date.getMonth() + 3));
+                const date = new Date()
+                const threeMonthsLater = new Date(date.setMonth(date.getMonth() + 3))
                 expect(is.inNextYear(threeMonthsLater)).to.be.true
             })
             it('should return false if date is not within next year', () => {
-                const date = new Date();
-                const past = new Date(date.setDate(date.getDate() - 1));
+                const date = new Date()
+                const past = new Date(date.setDate(date.getDate() - 1))
                 expect(is.inNextYear(past)).to.be.false
             })
         })
-        checkApi('inNextYear');
+        checkApi('inNextYear')
 
         describe('is.quarterOfYear', () => {
             it('should return true if given quarter is the quarter of the date object', () => {
                 const time = 1421572235303;
-                const date = new Date(time);
+                const date = new Date(time)
                 expect(is.quarterOfYear(date, 1)).to.be.true
             })
             it('should return false if given quarter is not the quarter of the date object', () => {
                 const time = 1421572235303;
-                const date = new Date(time);
+                const date = new Date(time)
                 expect(is.quarterOfYear(date, 2)).to.be.false
             })
         })
-        checkApi('quarterOfYear', ['not']);
+        checkApi('quarterOfYear', ['not'])
 
         describe('is.dayLightSavingTime', () => {
             it('should return false if given date is not in daylight saving time', () => {
                 const time = 1421572235303;
-                const date = new Date(time);
+                const date = new Date(time)
                 expect(is.dayLightSavingTime(date)).to.be.false
             })
             it('should return false if given date is in daylight saving time', () => {
                 const time = 1421572235303;
-                const date = new Date(time);
-                const sixMonthsAgo = new Date(date.setMonth(date.getMonth() - 6));
+                const date = new Date(time)
+                const sixMonthsAgo = new Date(date.setMonth(date.getMonth() - 6))
                 expect(is.dayLightSavingTime(sixMonthsAgo)).to.be.true
             })
         })
-        checkApi('dayLightSavingTime');
+        checkApi('dayLightSavingTime')
     })
 
     describe('object checks', () => {
@@ -1112,18 +1112,18 @@
                     test: 'test',
                     is: 'is',
                     good: 'good'
-                };
+                }
                 expect(is.propertyCount(obj, 3)).to.be.true
             })
             it('should return false if given count does not match that of the object', () => {
                 const obj = {
                     test: 'test',
                     is: 'is'
-                };
+                }
                 expect(is.propertyCount(obj, 3)).to.be.false
             })
         })
-        checkApi('propertyCount', ['not']);
+        checkApi('propertyCount', ['not'])
 
         describe('is.propertyDefined', () => {
             it('should return true if given property is in objects', () => {
@@ -1131,18 +1131,18 @@
                     test: 'test',
                     is: 'is',
                     good: 'good'
-                };
+                }
                 expect(is.propertyDefined(obj, 'good')).to.be.true
             })
             it('should return false if given property is not in objects', () => {
                 const obj = {
                     test: 'test',
                     is: 'is'
-                };
+                }
                 expect(is.propertyDefined(obj, 'good')).to.be.false
             })
         })
-        checkApi('propertyDefined', ['not']);
+        checkApi('propertyDefined', ['not'])
 
         describe('is.windowObject', () => {
             it('should return true if given object is window object', () => {
@@ -1152,22 +1152,22 @@
                 expect(is.windowObject({})).to.be.false
             })
         })
-        checkApi('windowObject');
+        checkApi('windowObject')
 
         describe('is.domNode', () => {
             it('should return true if given object is a DOM node', () => {
-                const obj = document && document.createElement('div');
+                const obj = document && document.createElement('div')
                 expect(is.domNode(obj)).to.be[!!document];
             })
             it('should return false if given object is not a DOM node', () => {
                 expect(is.domNode({})).to.be.false
             })
         })
-        checkApi('domNode');
+        checkApi('domNode')
 
         describe('is.thenable', () => {
             it('should return true if passed parameter type is Promise', () => {
-                const promise = Promise.resolve(true); // eslint-disable-line no-undef
+                const promise = Promise.resolve(true) // eslint-disable-line no-undef
                 expect(is.thenable(promise)).to.be.true
             })
             it('should return false if passed parameter type is not Promise', () => {
@@ -1175,7 +1175,7 @@
                 expect(is.thenable(notPromise)).to.be.false
             })
         })
-        checkApi('thenable');
+        checkApi('thenable')
     })
 
     describe('array checks', () => {
@@ -1211,7 +1211,7 @@
                 expect(is.sorted(array, '<')).to.be.false
             })
         })
-        checkApi('sorted');
+        checkApi('sorted')
 
         describe('is.inArray', () => {
             it('should return true if the item is in the array', () => {
@@ -1225,6 +1225,6 @@
                 expect(is.inArray(value, array)).to.be.false
             })
         })
-        checkApi('inArray', ['not']);
+        checkApi('inArray', ['not'])
     })
-})(this);
+})(this)
