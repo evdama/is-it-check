@@ -724,7 +724,7 @@
 
         const predicate = comparator[ sign ] || comparator[ '>=' ]
 
-        for ( const [ i, v ] of array.entries() ) {
+        for ( const [i] of array.entries() ) {
           if (i >= 1 && !predicate(array[i], array[i-1])) {
             return false
           }
