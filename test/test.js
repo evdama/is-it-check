@@ -5,8 +5,8 @@
         list || (list = ['all', 'any', 'not']);
         _.each(['all', 'any', 'not'], function(api) {
             const exists = _.includes(list, api);
-            describe('is.' + api + '.' + name, function()  {
-                it('should ' + (exists ? '' : 'not ') + 'exist', function() {
+            describe(`is.${api}.${name}`, function()  {
+                it(`should ${exists ? '' : 'not '}exist`, function() {
                     expect(is[api][name]).to[exists ? 'be': 'not'].exist;
                 });
             });
