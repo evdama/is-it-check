@@ -1,7 +1,7 @@
 ;(root => {    // eslint-disable-line no-extra-semi
     const _ = root._ || require('lodash'), document = root.document, expect = _.get(root, 'chai.expect') || require('chai').expect, is = root.is || require('../is-it-check'), window = root.window, ctx = (typeof window === 'undefined') ? global : window;
 
-    function checkApi(name, list) {
+    const checkApi = (name, list) => {
         list || (list = ['all', 'any', 'not']);
         _.each(['all', 'any', 'not'], api => {
             const exists = _.includes(list, api);
@@ -15,14 +15,14 @@
 
     describe('type checks', () => {
         describe('is.arguments', () => {
-            it('should return true if passed parameter type is arguments', function() {
-                const getArguments = function() {
+            it('should return true if passed parameter type is arguments', () => {
+                const getArguments = () => {
                     return arguments;
                 };
                 const args = getArguments('test');
                 expect(is.arguments(args)).to.be.true;
             });
-            it('should return false if passed parameter type is not arguments', function() {
+            it('should return false if passed parameter type is not arguments', () => {
                 const notArgs = ['test'];
                 expect(is.arguments(notArgs)).to.be.false;
             });
