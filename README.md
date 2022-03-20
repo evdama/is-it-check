@@ -1,6 +1,6 @@
 <p align="right">
-  <img src=https://badgen.net/npm/v/is-it-check />
-  <img src=https://badgen.net/npm/license/is-it-check />
+  <img src=https://img.shields.io/github/license/evdama/is-it-check />
+  <img src=https://img.shields.io/npm/v/is-it-check />
   <img src=https://img.shields.io/bundlephobia/minzip/is-it-check?color=green />
 </p>
 
