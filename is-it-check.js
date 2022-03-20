@@ -161,7 +161,7 @@
 
     // is a given value window?
     // setInterval method is only available for window object
-    is.windowObject = value => value != null && typeof value === 'object' && 'setInterval' in value
+    is.windowObject = value => typeof window === 'undefined' ? false : value != null && typeof value === 'object' && 'setInterval' in value
 
     // Presence checks
     /* -------------------------------------------------------------------------- */
@@ -490,7 +490,7 @@
 
     // store navigator properties to use later
     const navigator = freeSelf && freeSelf.navigator
-    const platform = (navigator && navigator.platform || '').toLowerCase()
+    const platform = (navigator && navigator.userAgendData.platform || '').toLowerCase()
     const userAgent = (navigator && navigator.userAgent || '').toLowerCase()
     const vendor = (navigator && navigator.vendor || '').toLowerCase()
 
