@@ -1368,14 +1368,14 @@ is.not.equal('yeap', 'nope')
 is.equal(true, true)
 => true
 
-is.equal([1,3], [1,8,3])
-=> false
-
 is.equal([1,3,8], [1,3,8])
 => true
 
 is.equal([1,3,8], [1,8,3])
 => true
+
+is.equal([1,3], [1,8,3])
+=> false
 
 is.equal([true, false], [false, true])
 => true
