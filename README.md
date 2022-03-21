@@ -1362,11 +1362,29 @@ is.equal(42, 40 + 2)
 is.equal('yeap', 'yeap')
 => true
 
+is.not.equal('yeap', 'nope')
+=> true
+
 is.equal(true, true)
 => true
 
-is.not.equal('yeap', 'nope')
+is.equal([1,3], [1,8,3])
+=> false
+
+is.equal([1,3,8], [1,3,8])
 => true
+
+is.equal([1,3,8], [1,8,3])
+=> true
+
+is.equal([true, false], [false, true])
+=> true
+
+is.equal(['foo', 'bar', 'baz'], ['baz', 'bar', 'foo'])
+=> true
+
+is.not.equal([], [])
+=> false
 ```
 
 is.even(value:number)

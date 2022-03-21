@@ -313,6 +313,24 @@
             it('should return false if given two boolean are not same', () => {
                 expect(is.equal(false, true)).to.be.false
             })
+            it('should return false if given two arrays are empty', () => {
+              expect(is.not.equal([],[])).to.be.false
+            })
+            it('should return true if given two arrays have the same booleans', () => {
+              expect(is.equal([true, false],[false, true])).to.be.true
+            })
+            it('should return false if given two arrays have different length', () => {
+              expect(is.equal([1,5],[1,5,33])).to.be.false
+            })
+            it('should return true if given two arrays have the same numbers', () => {
+              expect(is.equal([1,5,33],[1,5,33])).to.be.true
+            })
+            it('should return true if given two arrays have the same numbers but different order', () => {
+              expect(is.equal([1,33,5],[1,5,33])).to.be.true
+            })
+            it('should return true if given arrays have the same strings', () => {
+              expect(is.equal(['foo', 'bar', 'baz'], ['baz', 'bar', 'foo'])).to.be.true
+            })
         })
         checkApi('equal', ['not'])
 

@@ -209,19 +209,27 @@
     is.decimal = n => is.number(n) && n % 1 !== 0
 
     // are given values equal? supports numbers, strings, regexes, booleans
-    // TODO: Add object and array support
+    // TODO: Add object support
     is.equal = (value, other) => {
+        // arrays
+        if (is.all.array(value, other)) {
+          return value.length === other.length && value.every(element => other.includes(element))
+        }
+
         // check 0 and -0 equity with Infinity and -Infinity
         if (is.all.number(value, other)) {
             return value === other && 1 / value === 1 / other
         }
+
         // check regexes as strings too
         if (is.all.string(value, other) || is.all.regexp(value, other)) {
             return `${value}` === `${other}`
         }
+
         if (is.all.boolean(value, other)) {
             return value === other
         }
+
         return false
     }
     // equal method does not support 'all' and 'any' interfaces
