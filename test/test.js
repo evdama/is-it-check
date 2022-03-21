@@ -250,6 +250,9 @@
             it('should return false if given value is undefined', () => {
                 expect(is.existy(undefined)).to.be.false
             })
+            it('should return false for Node.js and SSR, true for web browsers', () => {
+                expect(is.existy(window)).to.be.false
+            })
             it('should return true if given value is not null or undefined', () => {
                 expect(is.existy('test')).to.be.true
             })

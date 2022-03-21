@@ -583,6 +583,9 @@ is.existy(null)
 is.not.existy(undefined)
 => true
 
+is.existy(window)
+=> false  // true inside a web browser, false on Node.js or in case of Server-side rendering (SSR)
+
 is.all.existy(null, ['foo'])
 => false
 
