@@ -463,6 +463,9 @@
             it('should return true if given value is url', () => {
                 expect(is.url('http://www.test.com')).to.be.true
             })
+            it('should return true if given value is url', () => {
+                expect(is.url('https://github.com/evdama/is-it-check/commit/74b01444421525d636dabb47d4e72b23fd58a152')).to.be.true
+            })
             it('should return false if given value is not url', () => {
                 expect(is.url(1)).to.be.false
             })
