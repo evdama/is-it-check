@@ -216,6 +216,11 @@
           return value.length === other.length && value.every(element => other.includes(element))
         }
 
+        // objects
+        if (is.all.object(value, other)) {
+          return JSON.stringify(value) === JSON.stringify(other)
+        }
+
         // check 0 and -0 equity with Infinity and -Infinity
         if (is.all.number(value, other)) {
             return value === other && 1 / value === 1 / other

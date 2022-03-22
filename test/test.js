@@ -334,6 +334,18 @@
             it('should return true if given arrays have the same strings', () => {
               expect(is.equal(['foo', 'bar', 'baz'], ['baz', 'bar', 'foo'])).to.be.true
             })
+            it('should return true if given objects are the same', () => {
+              expect(is.equal({'foo': 1, 'bar': 'nose'}, {'foo': 1, 'bar': 'nose'})).to.be.true
+            })
+            it('should return true if given objects are not the same', () => {
+              expect(is.not.equal({'bar': 'nose', 'foo': 1}, {'foo': 1, 'bar': 'nose'})).to.be.true
+            })
+            it('should return true if given objects are the same', () => {
+              expect(is.equal({'bar': 'nose', 'foo': {'baz': 3, 'bak': true}}, {'bar': 'nose', 'foo': {'baz': 3, 'bak': true}})).to.be.true
+            })
+            it('should return true if given objects are not the same', () => {
+              expect(is.equal({'foo': 2, 'baz': 'mouth'}, {'foo': 2, 'baz': 'nose'})).to.be.false
+            })
         })
         checkApi('equal', ['not'])
 

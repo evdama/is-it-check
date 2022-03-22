@@ -1388,6 +1388,15 @@ is.equal(['foo', 'bar', 'baz'], ['baz', 'bar', 'foo'])
 
 is.not.equal([], [])
 => false
+
+is.equal({'foo': 1, 'bar': 'nose'}, {'foo': 1, 'bar': 'nose'})
+=> true
+
+is.equal({'bar': 'nose', 'foo': {'baz': 3, 'bak': true}}, {'bar': 'nose', 'foo': {'baz': 3, 'bak': true}})
+=> true
+
+is.not.equal({'bar': 'nose', 'foo': 1}, {'foo': 1, 'bar': 'nose'})
+=> true
 ```
 
 is.even(value:number)
