@@ -1389,13 +1389,13 @@ is.equal(['foo', 'bar', 'baz'], ['baz', 'bar', 'foo'])
 is.not.equal([], [])
 => false
 
-is.equal({'foo': 1, 'bar': 'nose'}, {'foo': 1, 'bar': 'nose'})
+is.equal({'a': 1, 'b': 'nose'}, {'a': 1, 'b': 'nose'})
 => true
 
-is.equal({'bar': 'nose', 'foo': {'baz': 3, 'bak': true}}, {'bar': 'nose', 'foo': {'baz': 3, 'bak': true}})
+is.not.equal({'a': 'nose', 'b': 1}, {'b': 1, 'a': 'nose'})
 => true
 
-is.not.equal({'bar': 'nose', 'foo': 1}, {'foo': 1, 'bar': 'nose'})
+is.equal({'a': 'nose', 'b': {'c': 3, 'd': true}}, {'a': 'nose', 'b': {'c': 3, 'd': true}})
 => true
 ```
 
