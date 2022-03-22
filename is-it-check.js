@@ -499,10 +499,10 @@
     const previousIs = root.is
 
     // store navigator properties to use later
-    const navigator = freeSelf && freeSelf.navigator
-    const platform = (navigator && navigator.userAgendData.platform || '').toLowerCase()
-    const userAgent = (navigator && navigator.userAgent || '').toLowerCase()
-    const vendor = (navigator && navigator.vendor || '').toLowerCase()
+    const navigator = freeSelf?.navigator
+    const platform = (navigator?.userAgentData?.platform || navigator?.platform || '').toLowerCase()
+    const userAgent = (navigator?.userAgent || '').toLowerCase()
+    const vendor = (navigator?.vendor || '').toLowerCase()
 
     // is current device android?
     is.android = () => /android/.test(userAgent)

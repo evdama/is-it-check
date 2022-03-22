@@ -4,7 +4,7 @@ module.exports = {
   env: {
       amd: true,
       browser: true,
-      es6: true,
+      es2020: true,
       node: true
   },
   globals: {
