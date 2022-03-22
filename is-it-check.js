@@ -1,7 +1,4 @@
-/*!
- * is-it-check 0.9.4
- * Author: Aras Atasaygin
- */
+// Hosted at https://github.com/evdama/is-it-check
 
 // AMD with global, Node, or global
 ((root, factory) => {    // eslint-disable-line no-extra-semi
