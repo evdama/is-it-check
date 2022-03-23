@@ -95,8 +95,7 @@
     toString.call(value) === '[object Arguments]' || value != null && typeof value === 'object' && 'callee' in value
 
     // is a given value Array?
-    is.array = Array.isArray || (value => // check native isArray first
-    toString.call(value) === '[object Array]')
+    is.array = value => Array.isArray(value) && toString.call(value) === '[object Array]'
 
     // is a given value Boolean?
     is.boolean = value => (value === true || value === false) && new Boolean(value) instanceof Boolean && toString.call(value) === '[object Boolean]'
@@ -105,7 +104,7 @@
     is.char = value => is.string(value) && value.length === 1
 
     // is a given value Date Object?
-    is.date = value => toString.call(value) === '[object Date]'
+    is.date = value => new Date(value) instanceof Date && is.not.nan(value) && toString.call(value) === '[object Date]'
 
     // is a given object a DOM node?
     is.domNode = object => is.object(object) && object.nodeType > 0
