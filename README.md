@@ -76,8 +76,19 @@ if (is.ip(clientIPAddress)) {
 ```
 -----------------------
 
-Type checks
-===========
+Contributing
+============
+- Please don’t re-build the minified library on your pull request.
+- Be sure you’ve added tests to `test.js` if you are sending a new check.
+- Add documentation to `README.md` below in case of API changes (new/altered checks).
+- Feature requests should be submitted in the
+[issue tracker](https://github.com/evdama/is-it-check/issues), with a description of
+the expected behavior and use case.
+-----------------------
+
+Documentation
+=============
+From here on down you'll find all type checks provided by `is-it-check`...
 
 is.arguments(value:any)
 -----------------------
@@ -2610,9 +2621,10 @@ is.dayLightSavingTime(january1)
 is.not.dayLightSavingTime(january1)
 => true
 ```
+-----------------
 
-Configuration methods
-=====================
+Configuration
+=============
 
 is.setNamespace()
 -----------------
@@ -2636,9 +2648,3 @@ is.setRegexp(/quack/, 'url')
 is.url('quack')
 => true
 ```
-
-#### Contributing:
-Thanks for considering to contribute. Check [here](CONTRIBUTING.md)
-
-#### Contributors:
-Many thanks to our contributors: https://github.com/evdama/is-it-check/graphs/contributors
