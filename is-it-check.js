@@ -99,7 +99,7 @@
     toString.call(value) === '[object Array]')
 
     // is a given value Boolean?
-    is.boolean = value => value === true || value === false || toString.call(value) === '[object Boolean]'
+    is.boolean = value => (value === true || value === false) && new Boolean(value) instanceof Boolean && toString.call(value) === '[object Boolean]'
 
     // is a given value Char?
     is.char = value => is.string(value) && value.length === 1
