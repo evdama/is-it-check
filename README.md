@@ -93,7 +93,7 @@ Documentation
 =============
 From here on down you'll find all type checks provided by `is-it-check`...
 
-Type Checks
+Type checks
 ===========
 is.arguments(value:any)
 -----------------------
