@@ -93,6 +93,8 @@ Documentation
 =============
 From here on down you'll find all type checks provided by `is-it-check`...
 
+Type Checks
+===========
 is.arguments(value:any)
 -----------------------
 #### Checks if the given value type is arguments.
