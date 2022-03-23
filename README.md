@@ -63,6 +63,7 @@ is.macAddress('01:23:45:67:89:ab')  // true
 is.all.macAddress(null, '255.255.255.255', 4, 'a4:11:e2:67:89:1f'))  // false
 is.any.email('test@example.com', 'foo', 42)  // true
 is.today(new Date())  // true
+is.offline()  // true if device is offline
 
 
 // - Useful for runtime checks such as e.g. validating data from external sources.
