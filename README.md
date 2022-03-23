@@ -55,7 +55,8 @@ import is from 'is-it-check'
 // some examples
 is.ipv4('198.12.3.142')  // true
 is.array(['foo', 'bar', 'baz'])  // true
-is.android()  // true if current device has Android OS
+is.android()  // true if device has Android OS
+is.offline()  // true if desktop or mobile is offline
 is.creditCard(378282246310005)  // true
 is.not.creditCard(378282246310005)  // false
 is.palindrome('abba')  // true
@@ -63,7 +64,6 @@ is.macAddress('01:23:45:67:89:ab')  // true
 is.all.macAddress(null, '255.255.255.255', 4, 'a4:11:e2:67:89:1f'))  // false
 is.any.email('test@example.com', 'foo', 42)  // true
 is.today(new Date())  // true
-is.offline()  // true if device is offline
 
 
 // - Useful for runtime checks such as e.g. validating data from external sources.
