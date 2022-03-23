@@ -127,7 +127,7 @@
     is['null'] = value => value === null
 
     // is a given value number?
-    is.number = value => Number.isFinite(value)
+    is.number = value => new Number(value) instanceof Number && typeof value === 'number' && Number.isFinite(value)
 
     // is a given value object?
     is.object = value => Object(value) === value
@@ -151,7 +151,7 @@
     is.sameType.api = ['not']
 
     // is a given value String?
-    is.string = value => toString.call(value) === '[object String]'
+    is.string = value => new String(value) instanceof String && typeof value === 'string' && toString.call(value) === '[object String]'
 
     // is a given value undefined?
     is.undefined = value => value === void 0
