@@ -259,12 +259,12 @@
 
           describe('is.writeableStream', () => {
               it('should return true if passed parameter type is writeable stream', () => {
-                  expect(is.stream(fs.createWriteStream(tmpDir))).to.be.true
-                  expect(is.writeableStream( new Stream.Writable())).to.be.true
+                  expect(is.writeableStream(fs.createWriteStream(tmpDir))).to.be.true
                   expect(is.writeableStream(new net.Socket())).to.be.true
                   expect(is.writeableStream(new Stream.Duplex())).to.be.true
                   expect(is.writeableStream(new Stream.PassThrough())).to.be.true
                   expect(is.writeableStream(new Stream.Transform())).to.be.true
+                  expect(is.writeableStream(new Stream.Writable())).to.be.true
               })
               it('should return false if passed parameter type is not writeable stream', () => {
                   expect(is.writeableStream(fs.createReadStream(path.join(__dirname, 'test.js')))).to.be.false
@@ -299,10 +299,10 @@
               })
               it('should return false if passed parameter type is not duplex stream', () => {
                   expect(is.duplexStream(fs.createReadStream(path.join(__dirname, 'test.js')))).to.be.false
+                  expect(is.duplexStream(fs.createWriteStream(tmpDir))).to.be.false
                   expect(is.duplexStream(new Stream.Readable())).to.be.false
                   expect(is.duplexStream(new Stream.Stream())).to.be.false
                   expect(is.duplexStream(new Stream.Writable())).to.be.false
-                  expect(is.stream(fs.createWriteStream(tmpDir))).to.be.false
               })
           })
           checkApi('duplexStream')
@@ -313,8 +313,8 @@
                   expect(is.transformStream(new Stream.Transform())).to.be.true
               })
               it('should return false if passed parameter type is not transform stream', () => {
-                  expect(is.stream(fs.createWriteStream(tmpDir))).to.be.true
                   expect(is.transformStream(fs.createReadStream(path.join(__dirname, 'test.js')))).to.be.false
+                  expect(is.transformStream(fs.createWriteStream(tmpDir))).to.be.false
                   expect(is.transformStream(new Stream.Duplex())).to.be.false
                   expect(is.transformStream(new Stream.Readable())).to.be.false
                   expect(is.transformStream(new Stream.Stream())).to.be.false
