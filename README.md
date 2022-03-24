@@ -564,6 +564,29 @@ is.all.stream(new Stream.Writable(), new Stream.Readable()))
 
 is.any.stream({'cat': 'meow'}, new Stream.Readable()))
 => true
+
+// There are also checks for writable, readable, duplex, and transform streams.
+// See tests.js for more...interfaces not, all, any work as usual.
+is.writeableStream(new net.Socket()))
+=> true
+
+is.writeableStream(new Stream.Readable())
+=> false
+
+is.readableStream(new Stream.PassThrough())
+=> true
+
+is.not.readableStream(new Stream.PassThrough())
+=> false
+
+is.duplexStream(new Stream.PassThrough())
+=> true
+
+is.duplexStream(new Stream.PassThrough())
+=> true
+
+is.all.transformStream(new Stream.PassThrough(), new Stream.Writable())
+=> false
 ```
 
 Presence checks

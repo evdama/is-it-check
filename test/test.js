@@ -274,8 +274,9 @@
                 expect(is.readableStream(new Stream.PassThrough())).to.be.true
                 expect(is.readableStream(new Stream.Readable())).to.be.true
                 expect(is.readableStream(new Stream.Transform())).to.be.true
-            })
-            it('should return false if passed parameter type is not readable stream', () => {
+              })
+              it('should return false if passed parameter type is not readable stream', () => {
+                expect(is.not.readableStream(new Stream.PassThrough())).to.be.false
                 expect(is.readableStream(new Stream.Stream())).to.be.false
                 expect(is.readableStream(new Stream.Writable())).to.be.false
             })
