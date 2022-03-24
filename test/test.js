@@ -2,6 +2,11 @@
     // eslint-disable-line no-extra-semi
     const _ = root._ || require('lodash')
 
+    const fs = require('node:fs')
+    const net = require('node:net')
+    const path = require('node:path')
+    const Stream = require('node:stream')
+
     const document = root.document
     const expect = _.get(root, 'chai.expect') || require('chai').expect
     const is = root.is || require('../is-it-check')
@@ -220,14 +225,101 @@
         })
         checkApi('string')
 
+        describe('is.stream', () => {
+            it('should return true if passed parameter type is stream', () => {
+                expect(is.all.stream(new Stream.Writable(), new Stream.Readable())).to.be.true
+                expect(is.any.stream({'cat': 'meow'}, new Stream.Readable())).to.be.true
+                expect(is.not.stream('foo')).to.be.true
+                expect(is.stream(fs.createReadStream(path.join(__dirname, 'test.js')))).to.be.true
+                expect(is.stream(new net.Socket())).to.be.true
+                expect(is.stream(new Stream.Duplex())).to.be.true
+                expect(is.stream(new Stream.PassThrough())).to.be.true
+                expect(is.stream(new Stream.Readable())).to.be.true
+                expect(is.stream(new Stream.Stream())).to.be.true
+                expect(is.stream(new Stream.Transform())).to.be.true
+                expect(is.stream(new Stream.Writable())).to.be.true
+            })
+            it('should return false if passed parameter type is not stream', () => {
+                expect(is.stream(3)).to.be.false
+                expect(is.not.stream(new Stream.Writable())).to.be.false
+                expect(is.stream('test')).to.be.false
+                expect(is.stream({})).to.be.false
+                expect(is.stream(null)).to.be.false
+                expect(is.stream(undefined)).to.be.false
+            })
+        })
+        checkApi('stream')
+
+        describe('is.writeableStream', () => {
+            it('should return true if passed parameter type is writeable stream', () => {
+                expect(is.writeableStream(new net.Socket())).to.be.true
+                expect(is.writeableStream(new Stream.Duplex())).to.be.true
+                expect(is.writeableStream(new Stream.PassThrough())).to.be.true
+                expect(is.writeableStream(new Stream.Transform())).to.be.true
+                expect(is.writeableStream(new Stream.Writable())).to.be.true
+            })
+            it('should return false if passed parameter type is not writeable stream', () => {
+                expect(is.writeableStream(fs.createReadStream(path.join(__dirname, 'test.js')))).to.be.false
+                expect(is.writeableStream(new Stream.Readable())).to.be.false
+                expect(is.writeableStream(new Stream.Stream())).to.be.false
+            })
+        })
+        checkApi('writeableStream')
+
+        describe('is.readableStream', () => {
+            it('should return true if passed parameter type is readable stream', () => {
+                expect(is.readableStream(fs.createReadStream(path.join(__dirname, 'test.js')))).to.be.true
+                expect(is.readableStream(new net.Socket())).to.be.true
+                expect(is.readableStream(new Stream.Duplex())).to.be.true
+                expect(is.readableStream(new Stream.PassThrough())).to.be.true
+                expect(is.readableStream(new Stream.Readable())).to.be.true
+                expect(is.readableStream(new Stream.Transform())).to.be.true
+            })
+            it('should return false if passed parameter type is not readable stream', () => {
+                expect(is.readableStream(new Stream.Stream())).to.be.false
+                expect(is.readableStream(new Stream.Writable())).to.be.false
+            })
+        })
+        checkApi('readableStream')
+
+        describe('is.duplexStream', () => {
+            it('should return true if passed parameter type is duplex stream', () => {
+                expect(is.duplexStream(new Stream.Duplex())).to.be.true
+                expect(is.duplexStream(new Stream.PassThrough())).to.be.true
+                expect(is.duplexStream(new Stream.Transform())).to.be.true
+            })
+            it('should return false if passed parameter type is not duplex stream', () => {
+                expect(is.duplexStream(fs.createReadStream(path.join(__dirname, 'test.js')))).to.be.false
+                expect(is.duplexStream(new Stream.Readable())).to.be.false
+                expect(is.duplexStream(new Stream.Stream())).to.be.false
+                expect(is.duplexStream(new Stream.Writable())).to.be.false
+            })
+        })
+        checkApi('duplexStream')
+
+        describe('is.transformStream', () => {
+            it('should return true if passed parameter type is transform stream', () => {
+                expect(is.transformStream(new Stream.PassThrough())).to.be.true
+                expect(is.transformStream(new Stream.Transform())).to.be.true
+            })
+            it('should return false if passed parameter type is not transform stream', () => {
+                expect(is.transformStream(fs.createReadStream(path.join(__dirname, 'test.js')))).to.be.false
+                expect(is.transformStream(new Stream.Duplex())).to.be.false
+                expect(is.transformStream(new Stream.Readable())).to.be.false
+                expect(is.transformStream(new Stream.Stream())).to.be.false
+                expect(is.transformStream(new Stream.Writable())).to.be.false
+            })
+        })
+        checkApi('transformStream')
+
         describe('is.undefined', () => {
-            it('should return true if passed parameter type is undefined', () => {
-                expect(is.undefined(undefined)).to.be.true
-            })
-            it('should return false if passed parameter type is not undefined', () => {
-                expect(is.undefined(null)).to.be.false
-                expect(is.undefined('test')).to.be.false
-            })
+          it('should return true if passed parameter type is undefined', () => {
+              expect(is.undefined(undefined)).to.be.true
+          })
+          it('should return false if passed parameter type is not undefined', () => {
+              expect(is.undefined(null)).to.be.false
+              expect(is.undefined('test')).to.be.false
+          })
         })
         checkApi('undefined')
     })
@@ -779,8 +871,6 @@
         })
         checkApi('macAddress')
     })
-
-
 
     describe('string checks', () => {
         describe('is.include', () => {

@@ -159,6 +159,13 @@
     // setInterval method is only available for window object
     is.windowObject = value => value != null && typeof value === 'object' && 'setInterval' in value
 
+    // is a given value a certain stream?
+    is.stream = stream => stream !== null && typeof stream === 'object' && typeof stream.pipe === 'function'
+    is.duplexStream = stream => is.writeableStream(stream) && is.readableStream(stream)
+    is.readableStream = stream => is.stream(stream) && stream.readable !== false && typeof stream._read === 'function' && typeof stream._readableState === 'object'
+    is.transformStream = stream => is.duplexStream(stream) && typeof stream._transform === 'function'
+    is.writeableStream = stream => is.stream(stream) && stream.writable !== false && typeof stream._write === 'function' && typeof stream._writableState === 'object'
+
     // Presence checks
     /* -------------------------------------------------------------------------- */
 

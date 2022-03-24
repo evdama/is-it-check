@@ -523,6 +523,49 @@ is.all.windowObject([window, {nope: 'nope'}])
 => false
 ```
 
+is.stream(value:any)
+-----------------------------
+#### Checks if the given object is window object.
+interfaces: not, all, any
+
+```javascript
+is.stream(fs.createReadStream(path.join(__dirname, 'test.js'))))
+=> true
+
+is.stream(new net.Socket()))
+=> true
+
+is.stream(new Stream.Duplex()))
+=> true
+
+is.stream(new Stream.PassThrough()))
+=> true
+
+is.stream(new Stream.Readable()))
+=> true
+
+is.stream(new Stream.Stream()))
+=> true
+
+is.stream(new Stream.Transform()))
+=> true
+
+is.stream(new Stream.Writable()))
+=> true
+
+is.not.stream(new Stream.Writable()))
+=> false
+
+is.not.stream('foo')
+=> true
+
+is.all.stream(new Stream.Writable(), new Stream.Readable()))
+=> true
+
+is.any.stream({'cat': 'meow'}, new Stream.Readable()))
+=> true
+```
+
 Presence checks
 ===============
 
