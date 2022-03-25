@@ -356,6 +356,9 @@
     // include method does not support 'all' and 'any' interfaces
     is.include.api = ['not']
 
+    // is string containing umlauts Ä, ä, Ö, ö, Ü, ü, ß
+    is.umlaut = string => is.string(string) && is.array(string.match(/[\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00df]/g))
+
     // is a given string all lowercase?
     is.lowerCase = string => is.string(string) && string === string.toLowerCase()
 

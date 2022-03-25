@@ -895,6 +895,22 @@
     })
 
     describe('string checks', () => {
+        describe('is.umlaut', () => {
+            it('should return true if given string contains umlauts Ä, ä, Ö, ö, Ü, ü, ß', () => {
+                expect(is.all.umlaut('täst', 'Bin ein Häschen, liebe Mören!')).to.be.true
+                expect(is.all.umlaut(['Käse', 'Übelkeit'])).to.be.true
+                expect(is.any.umlaut('täst', 3)).to.be.true
+                expect(is.not.umlaut('test.com')).to.be.true
+                expect(is.umlaut('täst.de')).to.be.true
+            })
+            it('should return false if given string does not contain umlauts Ä, ä, Ö, ö Ü, ü, ß', () => {
+                expect(is.umlaut('test.com')).to.be.false
+                expect(is.umlaut([])).to.be.false
+                expect(is.umlaut(3)).to.be.false
+            })
+        })
+        checkApi('umlaut')
+
         describe('is.include', () => {
             it('should return true if given string contains substring', () => {
                 expect(is.include('test.com', 't.com')).to.be.true

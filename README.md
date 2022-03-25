@@ -1283,6 +1283,35 @@ is.not.include('test', 'text')
 => true
 ```
 
+is.umlaut(value:string)
+--------------------------
+#### Checks if the given string contains umlauts Ä, ä, Ö, ö, Ü, ü, ß.
+interfaces: not, all, any
+
+```javascript
+is.umlaut('Bär')
+=> true
+
+is.umlaut('foo')
+=> false
+
+is.umlaut(2)
+=> false
+
+is.not.umlaut('test.de')
+=> true
+
+is.any.umlaut('Käse', 3))
+=> true
+
+is.all.umlaut('Käse', 'Bin ein Häschen, liebe Mören!'))
+=> true
+
+// 'all' and 'any' interfaces can also take array parameter
+is.all.umlaut(['Käse', 'Übelkeit')])
+=> true
+```
+
 is.upperCase(value:string)
 --------------------------
 #### Checks if the given string is UPPERCASE.
