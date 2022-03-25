@@ -60,6 +60,7 @@ is.offline()  // true if desktop or mobile is offline
 is.creditCard(378282246310005)  // true
 is.not.creditCard(378282246310005)  // false
 is.palindrome('abba')  // true
+is.umlaut('Bin ein Häschen, liebe Mören!')  // true
 is.macAddress('01:23:45:67:89:ab')  // true
 is.all.macAddress(null, '255.255.255.255', 4, 'a4:11:e2:67:89:1f'))  // false
 is.any.email('test@example.com', 'foo', 42)  // true
@@ -1304,7 +1305,7 @@ is.not.umlaut('test.de')
 is.any.umlaut('Käse', 3))
 => true
 
-is.all.umlaut('Käse', 'Bin ein Häschen, liebe Mören!'))
+is.all.umlaut('Käse', 'Bin ein Häschen, liebe Mören!')
 => true
 
 // 'all' and 'any' interfaces can also take array parameter
