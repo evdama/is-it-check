@@ -228,6 +228,17 @@
         })
         checkApi('string')
 
+        describe('is.undefined', () => {
+          it('should return true if passed parameter type is undefined', () => {
+              expect(is.undefined(undefined)).to.be.true
+          })
+          it('should return false if passed parameter type is not undefined', () => {
+              expect(is.undefined(null)).to.be.false
+              expect(is.undefined('test')).to.be.false
+          })
+        })
+        checkApi('undefined')
+
         try {
           tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'is-it-check-'))
 
@@ -333,17 +344,6 @@
             console.error(`An error has occurred while removing the temp folder at ${tmpDir}. Please remove it manually: ${error}`)
           }
         }
-
-        describe('is.undefined', () => {
-          it('should return true if passed parameter type is undefined', () => {
-              expect(is.undefined(undefined)).to.be.true
-          })
-          it('should return false if passed parameter type is not undefined', () => {
-              expect(is.undefined(null)).to.be.false
-              expect(is.undefined('test')).to.be.false
-          })
-        })
-        checkApi('undefined')
     })
 
     describe('presence checks', () => {
