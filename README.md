@@ -525,7 +525,7 @@ is.all.windowObject([window, {nope: 'nope'}])
 
 is.stream(value:any)
 -----------------------------
-#### Checks if the given object is window object.
+#### Checks if the given value is a certain stream.
 interfaces: not, all, any
 
 ```javascript
@@ -623,7 +623,7 @@ is.all.empty([{}, 'foo'])
 
 is.map(value:any)
 -----------------------------------
-#### Checks if the given value is an instance of a map.
+#### Checks if the given value is a map.
 interfaces: not, all, any
 
 ```javascript
