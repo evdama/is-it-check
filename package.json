@@ -2,7 +2,7 @@
   "description": "A tiny general purpose runtime check library for js and ts.",
   "devDependencies": {
     "chai": "^4.3.6",
-    "eslint": "^8.11.0",
+    "eslint": "^8.12.0",
     "lodash": "^4.17.21",
     "mocha": "^9.2.2",
     "mocha-phantomjs": "^4.1.0",
