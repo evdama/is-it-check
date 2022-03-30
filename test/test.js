@@ -987,6 +987,7 @@
                 expect(is.palindrome('abba')).to.be.true
                 expect(is.palindrome('testset')).to.be.true
                 expect(is.palindrome('A man, a plan, a canal - Panama!')).to.be.true
+                expect(is.palindrome('café ífac')).to.be.true  // currently only ASCII characters are considered
             })
             it('should return false if given string is not palindrome', () => {
                 expect(is.palindrome('test')).to.be.false

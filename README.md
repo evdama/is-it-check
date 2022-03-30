@@ -1445,6 +1445,9 @@ is.palindrome('A man, a plan, a canal - Panama!')
 is.palindrome('nope')
 => false
 
+is.palindrome('café ífac')  // currently only ASCII characters are considered
+=> true
+
 is.not.palindrome('nope not palindrome')
 => true
 
