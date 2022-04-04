@@ -1836,8 +1836,9 @@ is.all.sorted([[1, 2], [5, 4]])
 
 Environment checks
 ==================
-#### ⚠️ Environment checks are not available as node module...
-i.e. checks such as `is.ios()` will only work inside a client execution environment such as a web browser. That being said, at the beginning below are checks to determine your execution environment so you can do this for example:
+#### ⚠️ Environment checks are not available as node module
+- i.e. checks such as `is.ios()` will only work inside a client execution environment such as a web browser.
+- Below are therefore checks to *determine your execution environment* so you can do:
 
 ```javascript
 is.browser() ? is.ios() : 'current execution environment is no web browser 🤷'
@@ -1845,6 +1846,7 @@ is.browser() ? is.ios() : 'current execution environment is no web browser 🤷'
 
 
 ### Execution Environment Checks
+------------------------------------------------
 is.browser(), is.nodejs(), is.deno, is.webworker
 ------------------------------------------------
 #### Checks to determine your current execution environment.
@@ -1869,6 +1871,7 @@ is.webworker()
 
 
 ### Environment Checks
+------------------------------------------------
 is.ie(range:number|string)
 -------------------
 #### Checks if current browser is ie. Parameter is optional version range (or number) of browser.
