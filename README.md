@@ -1265,6 +1265,30 @@ is.any.macAddress(['2001:DB8:0:0:1::1', '01:23:45:67:89:ab'])
 => true
 ```
 
+is.crawler(value:any)
+-------------------------
+#### Checks if the useragent is a web crawler
+A Web crawler, sometimes called a spider or spiderbot and often shortened to crawler, is an Internet bot that systematically browses the World Wide Web and that is typically operated by search engines for the purpose of Web indexing (web spidering).
+
+interfaces: not, all, any
+
+```javascript
+is.crawler('APIs-Google (+https://developers.google.com/webmasters/APIs-Google.html)')
+=> true
+
+is.crawler(34)
+=> false
+
+is.crawler('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36')
+=> false
+
+is.all.crawler('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36', 'APIs-Google (+https://developers.google.com/webmasters/APIs-Google.html)')
+=> false
+
+is.any.crawler('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36', 'APIs-Google (+https://developers.google.com/webmasters/APIs-Google.html)')
+=> true
+```
+
 String checks
 =============
 

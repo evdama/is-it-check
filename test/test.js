@@ -883,15 +883,29 @@
         })
         checkApi('ipv6')
 
-        describe("is.macAddress", () => {
-            it("should return true if given value is a MAC address", () => {
+        describe('is.macAddress', () => {
+            it('should return true if given value is a MAC address', () => {
                 expect(is.macAddress('01:23:45:67:89:ab')).to.be.true
             })
-            it("should return false if given value is not a MAC address", () => {
+            it('should return false if given value is not a MAC address', () => {
                 expect(is.macAddress('0123456789ab')).to.be.false
             })
         })
         checkApi('macAddress')
+
+        describe('is.crawler', () => {
+            it('should return true if given useragent is a web crawler', () => {
+                expect(is.crawler('APIs-Google (+https://developers.google.com/webmasters/APIs-Google.html)')).to.be.true
+                expect(is.not.crawler('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36')).to.be.true
+                expect(is.any.crawler('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36', 'APIs-Google (+https://developers.google.com/webmasters/APIs-Google.html)')).to.be.true
+              })
+              it('should return false if given useragent is not a web crawler', () => {
+                expect(is.crawler(34)).to.be.false
+                expect(is.crawler('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36')).to.be.false
+                expect(is.all.crawler('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36', 'APIs-Google (+https://developers.google.com/webmasters/APIs-Google.html)')).to.be.false
+            })
+        })
+        checkApi('crawler')
     })
 
     describe('string checks', () => {

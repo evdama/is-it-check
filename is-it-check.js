@@ -282,10 +282,14 @@
     // eppPhone match extensible provisioning protocol format
     // nanpPhone match north american number plan format
     // time match hours, minutes, and seconds, 24-hour clock
+
+    const CRAWLER = ['\\+https:\\/\\/developers.google.com\\/\\+\\/web\\/snippet\\/', 'ad\\smonitoring', 'adsbot', 'apex', 'applebot', 'archive.org_bot', 'baiduspider', 'bingbot', 'chromeheadless', 'cloudflare', 'cloudinary', 'crawler', 'curl', 'discordbot', 'duckduckbot', 'embedly', 'exabot', 'facebookexternalhit', 'facebot', 'flipboard', 'google', 'googlebot', 'gsa-crawler', 'gurujibot', 'guzzlehttp', 'heritrix', 'ia_archiver', 'insights', 'linkedinbot', 'ltx71', 'mediapartners', 'msnbot', 'odklbot', 'phantom\\.js', 'phantomjs', 'pingdom', 'pinterest', 'python', 'rtlnieuws', 'skypeuripreview', 'slackbot', 'slurp', 'spbot', 'telegrambot', 'test\\scertificate', 'testing', 'tiabot', 'tumblr ', 'twitterbot', 'vkshare', 'web\\sscraper', 'wget', 'yandexbot', 'whatsapp', 'orangebot', 'smtbot', 'qwantify', 'mj12bot', 'ahrefsbot', 'seznambot', 'panscient.com', 'duckduckgo-favicons-bot', 'uptimerobot', 'semrushbot', 'postman', 'dotbot', 'zoominfobot', 'ifttt', 'sogou', 'ru_bot', 'researchscan', 'nimbostratus-bot', 'slack-imgproxy', 'node-superagent', 'go-http-client', 'jersey', 'dataprovider.com', 'github-camo', 'dispatch', 'checkmarknetwork', 'screaming frog', 'whatweb', 'daum', 'netcraftsurveyagent', 'mojeekbot', 'surdotlybot', 'springbot']
+
     const regexes = {
         affirmative: /^(?:1|t(?:rue)?|y(?:es)?|ok(?:ay)?)$/,
         alphaNumeric: /^[A-Za-z0-9]+$/,
         caPostalCode: /^(?!.*[DFIOQU])[A-VXY][0-9][A-Z]\s?[0-9][A-Z][0-9]$/,
+        crawler: new RegExp('^.*(' + CRAWLER.join('|') + ').*$', 'i'),
         creditCard: /^(?:(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14})|(6(?:011|5[0-9]{2})[0-9]{12})|(3[47][0-9]{13})|(3(?:0[0-5]|[68][0-9])[0-9]{11})|((?:2131|1800|35[0-9]{3})[0-9]{11}))$/,
         dateString: /^(1[0-2]|0?[1-9])([/-])(3[01]|[12][0-9]|0?[1-9])(?:\2)(?:[0-9]{2})?[0-9]{2}$/,
         email: /^[a-zA-Z0-9][-_.+!#$%&'*/=?^`{|]{0,1}([a-zA-Z0-9][-_.+!#$%&'*/=?^`{|]{0,1})*[a-zA-Z0-9]@[a-zA-Z0-9][-.]{0,1}([a-zA-Z][-.]{0,1})*[a-zA-Z0-9]\.[a-zA-Z0-9]{1,}([.-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i,
