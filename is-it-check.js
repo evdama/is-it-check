@@ -9,9 +9,8 @@
         // a global even when an AMD loader is in use.
         root.is = factory())
     } else if (typeof exports === 'object') {
-        // Node. Does not work with strict CommonJS, but
-        // only CommonJS-like environments that support module.exports,
-        // like Node.
+        // Node.js. Does not work with strict CommonJS, but only
+        // CommonJS-like environments that support module.exports, like Node.js.
         module.exports = factory()
     } else {
         // Browser globals (root is self)
@@ -513,6 +512,23 @@
     const userAgent = (navigator?.userAgent || '').toLowerCase()
     const vendor = (navigator?.vendor || '').toLowerCase()
 
+    // is current execution environment browser
+    is.browser = () => typeof window !== 'undefined' && typeof window.document !== 'undefined'
+    is.browser.api = [ 'not' ]
+
+    // is current execution environment Node.js
+    is.nodejs = () => typeof process !== 'undefined' && process.versions != null && process.versions.node != null
+    is.nodejs.api = [ 'not' ]
+
+    // is current execution environment Deno
+    let Deno  // because of eslint error  'Deno' is not defined  no-undef
+    is.deno = () => typeof Deno !== 'undefined' && typeof Deno.core !== 'undefined'
+    is.deno.api = [ 'not' ]
+
+    // is current execution environment webworker
+    is.webworker = () => typeof self === 'object' && self.constructor && self.constructor.name === 'DedicatedWorkerGlobalScope'
+    is.webworker.api = ['not']
+
     // is current device android?
     is.android = () => /android/.test(userAgent)
     // android method does not support 'all' and 'any' interfaces
@@ -582,7 +598,7 @@
     // is current device ipad?
     // parameter is optional
     is.ipad = range => {
-        const match = is.not.iphone() && is.not.ipod() ? ( userAgent.match( /ipad.+?os (\d+)/ ) || ( ( userAgent.includes( "mac" ) && "ontouchend" in document ) ? userAgent.match( /version\/(\d+)/ ) : null ) ) : null
+        const match = is.not.iphone() && is.not.ipod() ? ( userAgent.match( /ipad.+?os (\d+)/ ) || ( ( userAgent.includes( 'mac' ) && 'ontouchend' in document ) ? userAgent.match( /version\/(\d+)/ ) : null ) ) : null
         return match !== null && compareVersion(match[1], range)
     }
     // ipad method does not support 'all' and 'any' interfaces
