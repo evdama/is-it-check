@@ -26,7 +26,7 @@ is-it-check
 </ul>
 
 -----------------------
-Node.js:
+Node.js, Frontend/SSR Apps:
 ```
 npm install is-it-check
 ```
