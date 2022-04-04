@@ -55,6 +55,7 @@ import is from 'is-it-check'
 // some examples
 is.ipv4('198.12.3.142')  // true
 is.array(['foo', 'bar', 'baz'])  // true
+is.browser()  // true if current execution environment is browser
 is.android()  // true if device has Android OS
 is.offline()  // true if desktop or mobile is offline
 is.creditCard(378282246310005)  // true
