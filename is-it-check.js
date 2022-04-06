@@ -601,32 +601,22 @@
 
     // is current device ipad?
     // parameter is optional
-    let iPadCallStackSize = 0
     is.ipad = range => {
-      if (iPadCallStackSize == 0) {
-        iPadCallStackSize += 1
-        const match = is.not.iphone() && is.not.ipod() ? ( userAgent.match( /ipad.+?os (\d+)/ ) || ( ( userAgent.includes( 'mac' ) && 'ontouchend' in document ) ? userAgent.match( /version\/(\d+)/ ) : null ) ) : null
-        return match !== null && compareVersion(match[1], range)
-      } else {
-        return false
-      }
+      // const match = is.not.iphone() && is.not.ipod() ? ( userAgent.match( /ipad.+?os (\d+)/ ) || ( ( userAgent.includes( 'mac' ) && 'ontouchend' in document ) ? userAgent.match( /version\/(\d+)/ ) : null ) ) : null
+      const match = userAgent.match( /\(ipad.*os (\d+)[._](\d+)/ ) || ( ( userAgent.includes( 'mac' ) && 'ontouchend' in document ) ? userAgent.match( /version\/(\d+)/ ) : null )
+      return match !== null && compareVersion(match[1], range)
     }
     // ipad method does not support 'all' and 'any' interfaces
     is.ipad.api = ['not']
 
     // is current device iphone?
     // parameter is optional
-    let iPhoneCallStackSize = 0
     is.iphone = range => {
-      if (iPhoneCallStackSize == 0) {
-        // avoid false positive for Facebook in-app browser on ipad
-        // original iphone doesn't have the OS portion of the UA
-        iPhoneCallStackSize += 1
-        const match = is.ipad() ? null : userAgent.match(/iphone(?:.+?os (\d+))?/)
-        return match !== null && compareVersion(match[1] || 1, range)
-      } else {
-        return false
-      }
+      // avoid false positive for Facebook in-app browser on ipad
+      // original iphone doesn't have the OS portion of the UA
+      // const match = is.ipad() ? null : userAgent.match(/iphone(?:.+?os (\d+))?/)
+      const match = userAgent.match(/\(iphone.*os (\d+)[._](\d+)/)
+      return match !== null && compareVersion(match[1] || 1, range)
     }
     // iphone method does not support 'all' and 'any' interfaces
     is.iphone.api = ['not']
