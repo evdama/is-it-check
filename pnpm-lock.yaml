@@ -1345,7 +1345,7 @@ packages:
       request: 2.36.0
       request-progress: 0.3.1
       rimraf: 2.2.8
-      which: 1.0.10
+      which: 1.0.11
     dev: true
 
   /picomatch/2.3.1:
@@ -1742,7 +1742,7 @@ packages:
       }
     dev: true
 
-  /which/1.0.10:
+  /which/1.0.11:
     resolution: { integrity: sha1-RgwdoPgQED0DIam2M6+eV15kSG8= }
     hasBin: true
     dev: true
