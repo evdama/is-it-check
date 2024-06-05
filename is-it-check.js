@@ -23,7 +23,7 @@
 
     // define 'is' object and current version
     const is = {}
-    is.VERSION = '1.0.13'
+    is.VERSION = '1.0.14'
 
     // define interfaces
     is.not = {}
