@@ -12,7 +12,9 @@
   },
   "files": [
     "is-it-check.js",
-    "is-it-check.min.js"
+    "is-it-check.min.js",
+    "is-it-check.d.ts",
+    "is-it-check.d.ts.map"
   ],
   "types": "is-it-check.d.ts",
   "homepage": "https://github.com/evdama/is-it-check",
@@ -30,5 +32,5 @@
     "test": "mocha --check-leaks -R dot",
     "test:phantom": "mocha-phantomjs -R dot test/index.html"
   },
-  "version": "1.1.0"
+  "version": "1.1.1"
 }
