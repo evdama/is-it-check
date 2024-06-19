@@ -14,7 +14,7 @@ is-it-check
 
 <p>
   <div>... for runtime checks of js & ts apps</div>
-  <div>... because more often than not, static typechecking with typescript for compiletime checks is not enough 🤗</div>
+  <div>... because more often than not, static typechecking with TypeScript for compile time checks is not enough 🤗</div>
 </p>
 
 <ul>
@@ -22,6 +22,7 @@ is-it-check
   <li>ES6+</li>
   <li>tiny & fast</li>
   <li>intuitive to use</li>
+  <li>TypeScript type declarations included</li>
   <li>AMD, Node & browser ready</li>
 </ul>
 

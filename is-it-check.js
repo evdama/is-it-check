@@ -1,7 +1,7 @@
 // Hosted at https://github.com/evdama/is-it-check
 
 // AMD with global, Node, or global
-((root, factory) => {    // eslint-disable-line no-extra-semi
+((root, factory) => {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
         define(() => // Also create a global in case some scripts
@@ -23,7 +23,7 @@
 
     // define 'is' object and current version
     const is = {}
-    is.VERSION = '1.0.14'
+    is.VERSION = '1.1.0'
 
     // define interfaces
     is.not = {}

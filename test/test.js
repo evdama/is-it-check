@@ -1,5 +1,4 @@
 (root => {
-    // eslint-disable-line no-extra-semi
     const _ = root._ || require('lodash')
 
     const document = root.document
@@ -1346,7 +1345,7 @@
 
         describe('is.thenable', () => {
             it('should return true if passed parameter type is Promise', () => {
-                const promise = Promise.resolve(true) // eslint-disable-line no-undef
+                const promise = Promise.resolve(true)
                 expect(is.thenable(promise)).to.be.true
             })
             it('should return false if passed parameter type is not Promise', () => {
