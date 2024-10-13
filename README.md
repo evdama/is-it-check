@@ -90,7 +90,17 @@ Contributing
 - Feature requests should be submitted in the
 [issue tracker](https://github.com/evdama/is-it-check/issues), with a description of
 the expected behavior and use case.
------------------------
+
+
+## How to push new version to github and npmjs.com
+1. First edit source as you see fit (add/delete/change).
+  - Next run tests `npm test`, then commit and push to github.com
+
+2. Then, when ready to cut new release, do this:
+  - run tests `npm test` + update version numbers in `package.json` & `is-it-check.js`, run build `npm build`, commit, push to github
+  - create git tag `git tag v1.0.14` and push tag to github `git push --tags`
+  - make sure you're logged into npmjs.com `npm login`
+  - do npmjs release `npm publish`
 
 Documentation
 =============
