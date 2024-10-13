@@ -92,15 +92,15 @@ Contributing
 the expected behavior and use case.
 
 
-## How to push new version to github and npmjs.com
-1. First edit source as you see fit (add/delete/change).
-  - Next run tests `npm test`, then commit and push to github.com
-
+## How to push new version to Github and NPMjs:
+1. First edit source as you see fit (add/delete/change):
+    - Next run `npm test`, commit and push to Github.
 2. Then, when ready to cut new release, do this:
-  - run tests `npm test` + update version numbers in `package.json` & `is-it-check.js`, run build `npm build`, commit, push to github
-  - create git tag `git tag v1.0.14` and push tag to github `git push --tags`
-  - make sure you're logged into npmjs.com `npm login`
-  - do npmjs release `npm publish`
+    - run `npm test`, update version numbers in `package.json` and `is-it-check.js`.
+    - run `npm build`, commit, push to Github.
+    - create git tag `git tag v1.0.14` and push tag to github `git push --tags`.
+    - make sure you're logged into npmjs.com using `npm login`.
+    - Finally, realease using `npm publish`.
 
 Documentation
 =============
